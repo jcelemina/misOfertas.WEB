@@ -22,15 +22,6 @@
         rut
         <asp:TextBox ID="txtRut" runat="server"></asp:TextBox>
         <br/>
-        estado
-        <asp:TextBox ID="txtEstado" runat="server"></asp:TextBox>
-        <br/>
-        rol usuario
-        <asp:TextBox ID="txtRol" runat="server"></asp:TextBox>
-        <br/>
-        fecha
-        <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
-        <br/>
         correo
         <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
         <br/>

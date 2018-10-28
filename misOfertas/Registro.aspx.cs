@@ -26,7 +26,7 @@ namespace misOfertas
         {
             try
             {
-                BLL.Usuarios usu = new Usuarios();
+                BLL.Usuarios usu = new BLL.Usuarios();
               
                 
                 usu.nombre_usuario = txtnombre.Text;
@@ -42,16 +42,20 @@ namespace misOfertas
                 bool ingresar = usu.ingresar();
 
 
-                if (ingresar.Equals(true))
+                if (ingresar == true) {
+                  
+                    lblMensaje.Text = "Exito!!, usuario Registrado";
+                }else
                 {
 
-                    lblMensaje.Text = "exito";
+                  
+                    lblMensaje.Text = "Error!!,Algo paso";
 
                 }
-                {
 
-                    lblMensaje.Text = "algo paso!!!";
-                }
+                   
+
+               
             }
             catch (Exception )
             {
