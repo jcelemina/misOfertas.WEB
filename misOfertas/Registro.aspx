@@ -30,7 +30,7 @@
     </div>
         <asp:label id="lblMensaje" runat="server" text=""></asp:label>
         <br/>
-        <asp:Button ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click" style="height: 26px" />
     </form>
 </body>
 </html>

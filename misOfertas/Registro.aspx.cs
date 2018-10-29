@@ -34,7 +34,7 @@ namespace misOfertas
                 usu.apellido_materno = txtmaterno.Text;
                 usu.rut = txtRut.Text;
                 usu.estado = "Inscrita";
-                usu.rol =  11;
+                usu.rol_fk =  11;
                 usu.fecha = DateTime.Today;
                 usu.correo= txtCorreo.Text;
                 usu.contrasena = txtcontrasena.Text;

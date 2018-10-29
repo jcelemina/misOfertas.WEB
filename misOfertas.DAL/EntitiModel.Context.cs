@@ -963,5 +963,18 @@ namespace misOfertas.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addUsuario", p_NOMBRES_USUARIOParameter, p_APELLIDO_PATERNOParameter, p_APELLIDO_MATERNOParameter, p_CORREOParameter, p_CONTRASENAParameter, p_RUTParameter, p_ESTADOParameter, p_FECHAParameter, p_ROL_USUARIO_FKParameter);
         }
+    
+        public virtual int SP_LOGIN(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        {
+            var p_CORREOParameter = p_CORREO != null ?
+                new ObjectParameter("P_CORREO", p_CORREO) :
+                new ObjectParameter("P_CORREO", typeof(string));
+    
+            var p_CONTRASENAParameter = p_CONTRASENA != null ?
+                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
+                new ObjectParameter("P_CONTRASENA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LOGIN", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
+        }
     }
 }
