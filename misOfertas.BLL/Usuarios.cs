@@ -34,6 +34,9 @@ namespace misOfertas.BLL
             this.correo = correo;
             this.contrasena = contrasena;
         }
+
+       
+
         public Usuarios()
         {
 
@@ -61,24 +64,24 @@ namespace misOfertas.BLL
 
         //ingreso al sistema  -> login
 
-        public bool Authenticate()
+
+
+        public string login()
         {
+
             try
             {
-                DAL.USUARIO user = CommomBC.entities.USUARIO.First
-                (u => u.CORREO == correo && u.CONTRASENA == contrasena);
-                nombre_usuario = user.NOMBRES_USUARIO;
-                rol_nombre = user.ROL_USUARIO.NOMBRE;
-
-                return true;
+                var nombre_rol = new System.Data.Objects.ObjectParameter("nOMBRE_ROL", typeof(string));
+                CommomBC.entities.login(correo, contrasena, nombre_rol);
+                return Convert.ToString(nombre_rol.Value);
             }
             catch (Exception)
             {
-                return false;
+
+                return null;
             }
+           
         }
-
-
 
 
 

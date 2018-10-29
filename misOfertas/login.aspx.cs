@@ -17,21 +17,19 @@ namespace misOfertas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
+            DAL.USUARIO dal = new DAL.USUARIO();
             BLL.Usuarios user = new BLL.Usuarios();
+            user.id = dal.ID_USUARIO; // tiene que ir por el join :)        
             user.correo = txtEmail.Text; 
             user.contrasena = txtPassword.Text;
-            bool respuesta = user.Authenticate();
+            string rol = user.login();
+           // lblMensaje.Text = rol;
 
-            if (respuesta == true)
-            {
-                Session["rol"] = user.rol_nombre;
-                lblMensaje.Text = (string) Session["rol"];
-            }
-            else
-            {
-                lblMensaje.Text = "Usuario o contraseña incorrecto, intente de nuevo";
-            }
-           
+            Session["rol"] = rol;
+            lblMensaje.Text = (string)Session["rol"];
+
+
 
         }
     }

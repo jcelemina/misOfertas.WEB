@@ -1285,6 +1285,11 @@
             <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
             <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="login">
+            <Parameter Name="P_CORREO" Mode="In" Type="String" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1505,6 +1510,7 @@
           <FunctionImportMapping FunctionImportName="UPDATEVALORACION" FunctionName="Model.Store.UPDATEVALORACION" />
           <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="Model.Store.INSERTUSUARIO" />
           <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="Model.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="login" FunctionName="Model.Store.SP_LOGIN" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
