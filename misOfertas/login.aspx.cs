@@ -29,6 +29,17 @@ namespace misOfertas
             Session["rol"] = rol;
             lblMensaje.Text = (string)Session["rol"];
 
+            //switch (rol)
+            //{
+            //    case "administrador":
+                   //Response.Redirect("Home.aspx");
+            //    break;
+                   //case "Administrador Retail":
+                    //Response.Redirect("consumidor.aspx");       
+            //    default:
+                      //Response.Redirect("login.aspx");
+            //    break;
+            //}
 
 
         }
