@@ -997,17 +997,30 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTTIENDA1");
         }
     
-        public virtual int login(string p_CONTRASENA, string p_CORREO, ObjectParameter nOMBRE_ROL)
+        public virtual int SP_LOGIN(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
         {
-            var p_CONTRASENAParameter = p_CONTRASENA != null ?
-                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
-                new ObjectParameter("P_CONTRASENA", typeof(string));
-    
             var p_CORREOParameter = p_CORREO != null ?
                 new ObjectParameter("P_CORREO", p_CORREO) :
                 new ObjectParameter("P_CORREO", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CONTRASENAParameter, p_CORREOParameter, nOMBRE_ROL);
+            var p_CONTRASENAParameter = p_CONTRASENA != null ?
+                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
+                new ObjectParameter("P_CONTRASENA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LOGIN", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
+        }
+    
+        public virtual int login(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        {
+            var p_CORREOParameter = p_CORREO != null ?
+                new ObjectParameter("P_CORREO", p_CORREO) :
+                new ObjectParameter("P_CORREO", typeof(string));
+    
+            var p_CONTRASENAParameter = p_CONTRASENA != null ?
+                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
+                new ObjectParameter("P_CONTRASENA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
         }
     }
 }

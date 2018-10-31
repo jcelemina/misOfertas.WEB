@@ -19,8 +19,7 @@ namespace misOffertas
         protected void Button1_Click(object sender, EventArgs e)
         {
             DAL.USUARIO dal = new DAL.USUARIO();
-            BLL.Usuarios user = new BLL.Usuarios();
-            user.id = dal.ID_USUARIO; // tiene que ir por el join :)        
+            BLL.Usuarios user = new BLL.Usuarios();        
             user.correo = txtUsuario.Text;
             user.contrasena = txtPassword.Text;
             string rol = user.login();
@@ -32,8 +31,9 @@ namespace misOffertas
 
             if(rol == null)
             {
-                Response.Redirect("login.aspx");
-                lblMensaje.Text = (string)Session["rol"];
+                //Response.Redirect("login.aspx");
+                // lblMensaje.Text = (string)Session["rol"];
+                lblMensaje.Text = rol;
             }
             else if (rol.Equals("Administrador")) {
                 Response.Redirect("Administrador/index.aspx");

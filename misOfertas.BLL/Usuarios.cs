@@ -72,7 +72,7 @@ namespace misOfertas.BLL
             try
             {
                 var nombre_rol = new System.Data.Objects.ObjectParameter("nOMBRE_ROL", typeof(string));
-                CommomBC.entities.login(correo, contrasena, nombre_rol);
+                CommomBC.entities.login(correo,contrasena,nombre_rol);
                 return Convert.ToString(nombre_rol.Value);
             }
             catch (Exception)

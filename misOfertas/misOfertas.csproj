@@ -109,9 +109,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404.html" />
-    <Content Include="blank.html" />
-    <Content Include="charts.html" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />

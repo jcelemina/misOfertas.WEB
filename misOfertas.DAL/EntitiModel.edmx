@@ -458,8 +458,8 @@
         <Function Name="SELECTUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO" />
         <Function Name="SELECTVALORACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO" />
         <Function Name="SP_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
-          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
           <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
           <Parameter Name="NOMBRE_ROL" Type="varchar2" Mode="Out" />
         </Function>
         <Function Name="UPDATECAMPANA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
@@ -1298,9 +1298,14 @@
             <End Role="VALORACION" EntitySet="VALORACION" />
           </AssociationSet>
           <FunctionImport Name="SELECTTIENDA1" />
-          <FunctionImport Name="login">
-            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+          <FunctionImport Name="SP_LOGIN">
             <Parameter Name="P_CORREO" Mode="In" Type="String" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="login">
+            <Parameter Name="P_CORREO" Mode="In" Type="String" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
             <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -1530,6 +1535,7 @@
           <FunctionImportMapping FunctionImportName="UPDATEVALORACION" FunctionName="Model.Store.UPDATEVALORACION" />
           <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="Model.Store.INSERTUSUARIO" />
           <FunctionImportMapping FunctionImportName="SELECTTIENDA1" FunctionName="Model.Store.SELECTTIENDA" />
+          <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="Model.Store.SP_LOGIN" />
           <FunctionImportMapping FunctionImportName="login" FunctionName="Model.Store.SP_LOGIN" />
           </EntityContainerMapping>
       </Mapping>
