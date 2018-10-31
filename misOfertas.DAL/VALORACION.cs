@@ -23,8 +23,10 @@ namespace misOfertas.DAL
         public string COMENTARIO { get; set; }
         public decimal OFERTA_FK { get; set; }
         public decimal USUARIO_FK { get; set; }
+        public decimal TIENDA_FK { get; set; }
     
         public virtual OFERTA OFERTA { get; set; }
         public virtual USUARIO USUARIO { get; set; }
+        public virtual TIENDA TIENDA { get; set; }
     }
 }

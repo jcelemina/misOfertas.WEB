@@ -14,6 +14,11 @@ namespace misOfertas.DAL
     
     public partial class TIENDA
     {
+        public TIENDA()
+        {
+            this.VALORACION = new HashSet<VALORACION>();
+        }
+    
         public decimal ID_TIENDA { get; set; }
         public string NOMBRE_TIENDA { get; set; }
         public string DIRECCION { get; set; }
@@ -23,5 +28,6 @@ namespace misOfertas.DAL
     
         public virtual EMPRESA EMPRESA { get; set; }
         public virtual USUARIO USUARIO { get; set; }
+        public virtual ICollection<VALORACION> VALORACION { get; set; }
     }
 }

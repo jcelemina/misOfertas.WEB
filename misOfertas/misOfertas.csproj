@@ -112,11 +112,11 @@
     <Content Include="404.html" />
     <Content Include="blank.html" />
     <Content Include="charts.html" />
+    <Content Include="Consumidor\index.aspx" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />
-    <Content Include="index.aspx" />
+    <Content Include="Administrador\index.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="login_bkp.aspx" />
     <Content Include="OlvideContraseña.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -125,6 +125,7 @@
     <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
     <Content Include="Site1.Master" />
+    <Content Include="Site2.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,17 +135,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RegistroConsumidor.aspx" />
-    <Content Include="Registro_bkp.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="index.aspx.cs">
+    <Compile Include="Administrador\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="Administrador\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
@@ -153,13 +160,6 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="login_bkp.aspx.cs">
-      <DependentUpon>login_bkp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login_bkp.aspx.designer.cs">
-      <DependentUpon>login_bkp.aspx</DependentUpon>
     </Compile>
     <Compile Include="OlvideContraseña.aspx.cs">
       <DependentUpon>OlvideContraseña.aspx</DependentUpon>
@@ -176,19 +176,19 @@
     <Compile Include="RegistroConsumidor.aspx.designer.cs">
       <DependentUpon>RegistroConsumidor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registro_bkp.aspx.cs">
-      <DependentUpon>Registro_bkp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registro_bkp.aspx.designer.cs">
-      <DependentUpon>Registro_bkp.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site2.master.cs">
+      <DependentUpon>Site2.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.master.designer.cs">
+      <DependentUpon>Site2.master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -43,6 +43,7 @@
               </div>
             </div>
              <asp:Button ID="Button1" runat="server" Text="INGRESE ACÁ" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
+              <br />
           <div>
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
 

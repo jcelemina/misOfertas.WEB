@@ -27,7 +27,7 @@ namespace misOffertas
             usu.apellido_materno = txtApellidoMaterno.Text;
             usu.rut = txtRut.Text;
             usu.estado = "Inscrita";
-            usu.rol_fk = 11;
+            usu.rol_fk = 1;
             usu.fecha = DateTime.Today;
             usu.correo = txtEmail.Text;
             usu.contrasena = txtpassword.Text;

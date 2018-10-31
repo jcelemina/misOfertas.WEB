@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e87ba9791ec44b78b950bb9b5743b065" Name="Diagram1">
         <EntityTypeShape EntityType="Model.CAMPANA" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.CUPON" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.EMPRESA" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CUPON" Width="1.5" PointX="9.375" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPRESA" Width="1.5" PointX="7.125" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.MAILLIST" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.OFERTA" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.PRODUCTO" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
@@ -31,6 +31,7 @@
         <AssociationConnector Association="Model.USUARIO_ROL_USUARIO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.TIENDA_USUARIO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.VALORACION_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VALORACION_TIENDA_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -29,9 +29,24 @@ namespace misOffertas
             Session["rol"] = rol;
             lblMensaje.Text = (string)Session["rol"];
 
+
+            if(rol == null)
+            {
+                Response.Redirect("login.aspx");
+                lblMensaje.Text = (string)Session["rol"];
+            }
+            else if (rol.Equals("Administrador")) {
+                Response.Redirect("Administrador/index.aspx");
+            } else if (rol.Equals("consumidor")) {
+                Response.Redirect("Consumidor/index.aspx");
+            }
+
+           
             
 
 
         }
+
+      
     }
 }
