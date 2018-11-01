@@ -21,11 +21,11 @@ namespace misOfertas.DAL
     
         public decimal ID_PRODUCTO { get; set; }
         public string NOMBRE_PRODUCTO { get; set; }
-        public string COLOR { get; set; }
-        public string PERECIBLE { get; set; }
-        public string MARCA { get; set; }
-        public decimal RUBRO_FK { get; set; }
         public string DESCRIPCION { get; set; }
+        public string COLOR { get; set; }
+        public string MARCA { get; set; }
+        public string PERECIBLE { get; set; }
+        public decimal RUBRO_FK { get; set; }
     
         public virtual ICollection<OFERTA> OFERTA { get; set; }
         public virtual RUBRO RUBRO { get; set; }

@@ -21,12 +21,12 @@ namespace misOfertas.DAL
     
         public decimal ID_CAMPANA { get; set; }
         public string NOMBRE_CAMPANA { get; set; }
+        public string DESCRIPCION { get; set; }
         public System.DateTime FECHA_INICIO { get; set; }
         public System.DateTime FECHA_FIN { get; set; }
         public System.DateTime FECHA { get; set; }
         public string ESTADO { get; set; }
         public decimal USUARIO_FK { get; set; }
-        public string DESCRIPCION { get; set; }
     
         public virtual USUARIO USUARIO { get; set; }
         public virtual ICollection<OFERTA> OFERTA { get; set; }

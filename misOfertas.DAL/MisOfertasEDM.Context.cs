@@ -159,58 +159,6 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETEVALORACION", p_ID_VALORACIONParameter);
         }
     
-        public virtual int ELIMINAREMPRESA(Nullable<decimal> p_ID_EMPRESA, string p_ESTADO)
-        {
-            var p_ID_EMPRESAParameter = p_ID_EMPRESA.HasValue ?
-                new ObjectParameter("P_ID_EMPRESA", p_ID_EMPRESA) :
-                new ObjectParameter("P_ID_EMPRESA", typeof(decimal));
-    
-            var p_ESTADOParameter = p_ESTADO != null ?
-                new ObjectParameter("P_ESTADO", p_ESTADO) :
-                new ObjectParameter("P_ESTADO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELIMINAREMPRESA", p_ID_EMPRESAParameter, p_ESTADOParameter);
-        }
-    
-        public virtual int ELIMINARTIENDA(Nullable<decimal> p_ID_TIENDA, string p_ESTADO)
-        {
-            var p_ID_TIENDAParameter = p_ID_TIENDA.HasValue ?
-                new ObjectParameter("P_ID_TIENDA", p_ID_TIENDA) :
-                new ObjectParameter("P_ID_TIENDA", typeof(decimal));
-    
-            var p_ESTADOParameter = p_ESTADO != null ?
-                new ObjectParameter("P_ESTADO", p_ESTADO) :
-                new ObjectParameter("P_ESTADO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELIMINARTIENDA", p_ID_TIENDAParameter, p_ESTADOParameter);
-        }
-    
-        public virtual int ELIMINARUSUARIO(Nullable<decimal> p_ID_USUARIO, string p_ESTADO)
-        {
-            var p_ID_USUARIOParameter = p_ID_USUARIO.HasValue ?
-                new ObjectParameter("P_ID_USUARIO", p_ID_USUARIO) :
-                new ObjectParameter("P_ID_USUARIO", typeof(decimal));
-    
-            var p_ESTADOParameter = p_ESTADO != null ?
-                new ObjectParameter("P_ESTADO", p_ESTADO) :
-                new ObjectParameter("P_ESTADO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELIMINARUSUARIO", p_ID_USUARIOParameter, p_ESTADOParameter);
-        }
-    
-        public virtual int ELIMMINARCAMPANA(Nullable<decimal> p_ID_CAMPANA, string p_ESTADO)
-        {
-            var p_ID_CAMPANAParameter = p_ID_CAMPANA.HasValue ?
-                new ObjectParameter("P_ID_CAMPANA", p_ID_CAMPANA) :
-                new ObjectParameter("P_ID_CAMPANA", typeof(decimal));
-    
-            var p_ESTADOParameter = p_ESTADO != null ?
-                new ObjectParameter("P_ESTADO", p_ESTADO) :
-                new ObjectParameter("P_ESTADO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELIMMINARCAMPANA", p_ID_CAMPANAParameter, p_ESTADOParameter);
-        }
-    
         public virtual int INSERTCAMPANA(string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO, Nullable<decimal> p_USUARIO_FK)
         {
             var p_NOMBRE_CAMPANAParameter = p_NOMBRE_CAMPANA != null ?
@@ -567,11 +515,6 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTPUNTOS");
         }
     
-        public virtual int SELECTROL()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTROL");
-        }
-    
         public virtual int SELECTROLUSUARIO()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTROLUSUARIO");
@@ -600,6 +543,19 @@ namespace misOfertas.DAL
         public virtual int SELECTVALORACION()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTVALORACION");
+        }
+    
+        public virtual int login(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        {
+            var p_CORREOParameter = p_CORREO != null ?
+                new ObjectParameter("P_CORREO", p_CORREO) :
+                new ObjectParameter("P_CORREO", typeof(string));
+    
+            var p_CONTRASENAParameter = p_CONTRASENA != null ?
+                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
+                new ObjectParameter("P_CONTRASENA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
         }
     
         public virtual int UPDATECAMPANA(Nullable<decimal> p_ID_CAMPANA, string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO)
@@ -992,35 +948,13 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addUsuario", p_NOMBRES_USUARIOParameter, p_APELLIDO_PATERNOParameter, p_APELLIDO_MATERNOParameter, p_CORREOParameter, p_CONTRASENAParameter, p_RUTParameter, p_ESTADOParameter, p_FECHAParameter, p_ROL_USUARIO_FKParameter);
         }
     
-        public virtual int SELECTTIENDA1()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTTIENDA1");
-        }
-    
-        public virtual int SP_LOGIN(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        public virtual int findByEmail(string p_CORREO)
         {
             var p_CORREOParameter = p_CORREO != null ?
                 new ObjectParameter("P_CORREO", p_CORREO) :
                 new ObjectParameter("P_CORREO", typeof(string));
     
-            var p_CONTRASENAParameter = p_CONTRASENA != null ?
-                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
-                new ObjectParameter("P_CONTRASENA", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LOGIN", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
-        }
-    
-        public virtual int login(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
-        {
-            var p_CORREOParameter = p_CORREO != null ?
-                new ObjectParameter("P_CORREO", p_CORREO) :
-                new ObjectParameter("P_CORREO", typeof(string));
-    
-            var p_CONTRASENAParameter = p_CONTRASENA != null ?
-                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
-                new ObjectParameter("P_CONTRASENA", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("findByEmail", p_CORREOParameter);
         }
     }
 }

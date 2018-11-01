@@ -28,12 +28,12 @@ namespace misOfertas.DAL
         public string NOMBRES_USUARIO { get; set; }
         public string APELLIDO_PATERNO { get; set; }
         public string APELLIDO_MATERNO { get; set; }
-        public string RUT { get; set; }
-        public string ESTADO { get; set; }
-        public decimal ROL_USUARIO_FK { get; set; }
-        public Nullable<System.DateTime> FECHA { get; set; }
         public string CORREO { get; set; }
         public string CONTRASENA { get; set; }
+        public string RUT { get; set; }
+        public string ESTADO { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public decimal ROL_USUARIO_FK { get; set; }
     
         public virtual ICollection<CAMPANA> CAMPANA { get; set; }
         public virtual ICollection<CUPON> CUPON { get; set; }

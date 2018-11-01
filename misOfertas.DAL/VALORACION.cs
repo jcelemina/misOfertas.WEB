@@ -26,7 +26,7 @@ namespace misOfertas.DAL
         public decimal TIENDA_FK { get; set; }
     
         public virtual OFERTA OFERTA { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
         public virtual TIENDA TIENDA { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
 }

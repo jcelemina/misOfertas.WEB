@@ -57,88 +57,86 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAMPANA.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="CUPON.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPRESA.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntitiModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitiModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntitiModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntitiModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitiModel.edmx</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="MAILLIST.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MisOfertasEDM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MisOfertasEDM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MisOfertasEDM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MisOfertasEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MisOfertasEDM.edmx</DependentUpon>
     </Compile>
     <Compile Include="OFERTA.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="PRODUCTO.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PUNTOS.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="ROL_USUARIO.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="RUBRO.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="TIENDA.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="TRAMO.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIO.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="VALORACION.cs">
-      <DependentUpon>EntitiModel.tt</DependentUpon>
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="EntitiModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntitiModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="EntitiModel.edmx.diagram">
-      <DependentUpon>EntitiModel.edmx</DependentUpon>
+    <EntityDeploy Include="MisOfertasEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MisOfertasEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MisOfertasEDM.edmx.diagram">
+      <DependentUpon>MisOfertasEDM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntitiModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntitiModel.edmx</DependentUpon>
-      <LastGenOutput>EntitiModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EntitiModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntitiModel.edmx</DependentUpon>
-      <LastGenOutput>EntitiModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="MisOfertasEDM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MisOfertasEDM.edmx</DependentUpon>
+      <LastGenOutput>MisOfertasEDM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MisOfertasEDM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MisOfertasEDM.edmx</DependentUpon>
+      <LastGenOutput>MisOfertasEDM.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

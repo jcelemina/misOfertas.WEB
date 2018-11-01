@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OlvideContraseña.aspx.cs" Inherits="misOfertas.OlvideContraseña" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OlvideContraseña.aspx.cs" Inherits="misOfertas.OlvideContraseña" %>--%>
 
 <!DOCTYPE html>
 <html lang="en">
