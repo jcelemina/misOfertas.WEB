@@ -55,7 +55,7 @@ namespace misOfertas.BLL
         }
         
 
-        public bool ingresar()
+        public bool create()
         {
             var pass = HashMD5.getMd5Hash(contrasena);
             bool ingreso = false;
@@ -72,36 +72,28 @@ namespace misOfertas.BLL
             return ingreso;
         }
 
-        public bool buscar() {
-            return true;
+        public Usuarios find(string correo,string contraseña) {
+            Usuarios user = null;
+            if (correo != null && contrasena != null) {
 
-            
-            
-        }
-
-
-       
-
-
-
-        public string login(string contraseña)
-        {
-
-            var conver = HashMD5.verifyMd5Hash(contraseña);
-           
-            try
-            {
+                var conver = HashMD5.verifyMd5Hash(contraseña).ToString();
                 var nombre_rol = new System.Data.Objects.ObjectParameter("nOMBRE_ROL", typeof(string));
                 CommomBC.entities.login(correo, conver.ToString(), nombre_rol);
-                return Convert.ToString(nombre_rol.Value);
-            }
-            catch (Exception)
-            {
+                rol_nombre = Convert.ToString(nombre_rol.Value);
 
-                return null;
-            }
-           
+                user = new Usuarios();
+                DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(em => em.CORREO == correo && em.CONTRASENA==conver);
+                user.id = usuario.ID_USUARIO;
+                user.nombre_usuario = usuario.NOMBRES_USUARIO + " " + usuario.APELLIDO_PATERNO + " " + usuario.APELLIDO_MATERNO;
+                user.correo = usuario.CORREO;
+                user.fecha = usuario.FECHA;
+                user.rol_nombre = rol_nombre;
+                
+               }
+
+            return user;
         }
+
 
 
 

@@ -22,17 +22,17 @@ namespace misOffertas
             BLL.Usuarios usu = new BLL.Usuarios();
 
 
-            usu.nombre_usuario = txtNombre.Text;
-            usu.apellido_paterno = txtApellidoPaterno.Text;
-            usu.apellido_materno = txtApellidoMaterno.Text;
+            usu.nombre_usuario = txtNombre.Text.ToUpper();
+            usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
+            usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
             usu.rut = txtRut.Text;
             usu.estado = "Inscrita";
-            usu.rol_fk = 2;
+            usu.rol_fk = 1;
             usu.fecha = DateTime.Today;
             usu.correo = txtEmail.Text;
             usu.contrasena = txtpassword.Text;
 
-            bool ingresar = usu.ingresar();
+            bool ingresar = usu.create();
 
 
             if (ingresar == true)

@@ -7,7 +7,9 @@
 
         <div class="container-fluid">
 
-          <!-- Breadcrumbs-->
+          <!-- label para mostrar el nombre de la variable ssesion-->
+            <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+             <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="#">Dashboard</a>

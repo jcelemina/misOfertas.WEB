@@ -22,20 +22,27 @@ namespace misOffertas
             BLL.Usuarios user = new BLL.Usuarios();        
             user.correo = txtUsuario.Text;
             user.contrasena = txtPassword.Text;
-            string rol = user.login(user.contrasena);
           
+             var usuario = user.find(user.correo, user.contrasena);
 
-            Session["rol"] = rol;
-            if(rol == null){
-              lblMensaje.Text = "Usuario o Contraseña incorrecto";
-            }else if (rol.Equals("Administrador")) {
-              Response.Redirect("Administrador/index.aspx");
-            }else if (rol.Equals("Consumidor")) {
-              Response.Redirect("Consumidor/index.aspx");
+
+            if (usuario != null) {
+                Session["usuario"] = usuario;
+                switch (usuario.rol_nombre)
+                {
+                    case "Administrador":
+                    Response.Redirect("/Administrador/index.aspx");
+                    break;
+                    case "Consumidor":
+                    Response.Redirect("/Consumidor/index.aspx");
+                    break;
+                }
             }
+                
 
-           
             
+
+
 
 
         }

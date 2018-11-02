@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using misOfertas.BLL;
 
 namespace misOfertas.Consumidor
 {
@@ -11,7 +12,13 @@ namespace misOfertas.Consumidor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuarios usuario = (Usuarios)Session["usuario"];
+            if (usuario==null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
 
+            lblMensaje.Text = "Bienvenido " + usuario.nombre_usuario;
         }
     }
 }
