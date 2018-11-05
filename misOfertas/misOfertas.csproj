@@ -109,12 +109,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Consumidor\Evaluar.aspx" />
+    <Content Include="Administrador\usuarios.aspx" />
+    <Content Include="Administrador\Usuario\Nuevo Usuario.aspx" />
+    <Content Include="Agente Retail\RegistroAgenteRetail.aspx" />
+    <Content Include="Agente Retail\RegistroTienda.aspx" />
     <Content Include="Consumidor\index.aspx" />
-    <Content Include="Consumidor\Ofertas.aspx" />
+    <Content Include="css\sb-admin.css" />
+    <Content Include="css\sb-admin.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />
     <Content Include="Administrador\index.aspx" />
+    <Content Include="js\demo\chart-area-demo.js" />
+    <Content Include="js\demo\chart-bar-demo.js" />
+    <Content Include="js\demo\chart-pie-demo.js" />
+    <Content Include="js\demo\datatables-demo.js" />
+    <Content Include="js\sb-admin.js" />
+    <Content Include="js\sb-admin.min.js" />
     <Content Include="login.aspx" />
     <Content Include="OlvideContraseña.aspx" />
     <Content Include="packages.config" />
@@ -125,6 +136,19 @@
     <Content Include=".travis.yml" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.master" />
+    <Content Include="LICENSE" />
+    <Content Include="scss\sb-admin.scss" />
+    <Content Include="scss\_cards.scss" />
+    <Content Include="scss\_footer.scss" />
+    <Content Include="scss\_global.scss" />
+    <Content Include="scss\_login.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_navbar.scss" />
+    <Content Include="scss\_utilities.scss" />
+    <Content Include="scss\_variables.scss" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Agente Retail\AgenteRetail.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,6 +160,32 @@
     <Content Include="RegistroConsumidor.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.min.css" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="vendor\datatables\jquery.dataTables.js" />
+    <Content Include="vendor\datatables\jquery.dataTables.min.js" />
+    <Content Include="vendor\fontawesome-free\css\all.css" />
+    <Content Include="vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="vendor\fontawesome-free\css\brands.css" />
+    <Content Include="vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="vendor\fontawesome-free\css\regular.css" />
+    <Content Include="vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="vendor\fontawesome-free\css\solid.css" />
+    <Content Include="vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="vendor\fontawesome-free\css\v4-shims.min.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -146,12 +196,40 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consumidor\Evaluar.aspx.cs">
-      <DependentUpon>Evaluar.aspx</DependentUpon>
+    <Compile Include="Administrador\usuarios.aspx.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consumidor\Evaluar.aspx.designer.cs">
-      <DependentUpon>Evaluar.aspx</DependentUpon>
+    <Compile Include="Administrador\usuarios.aspx.designer.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Usuario\Nuevo Usuario.aspx.cs">
+      <DependentUpon>Nuevo Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Usuario\Nuevo Usuario.aspx.designer.cs">
+      <DependentUpon>Nuevo Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agente Retail\AgenteRetail.Master.cs">
+      <DependentUpon>AgenteRetail.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agente Retail\AgenteRetail.Master.designer.cs">
+      <DependentUpon>AgenteRetail.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Agente Retail\RegistroAgenteRetail.aspx.cs">
+      <DependentUpon>RegistroAgenteRetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agente Retail\RegistroAgenteRetail.aspx.designer.cs">
+      <DependentUpon>RegistroAgenteRetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agente Retail\RegistroTienda.aspx.cs">
+      <DependentUpon>RegistroTienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agente Retail\RegistroTienda.aspx.designer.cs">
+      <DependentUpon>RegistroTienda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -159,13 +237,6 @@
     </Compile>
     <Compile Include="Consumidor\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consumidor\Ofertas.aspx.cs">
-      <DependentUpon>Ofertas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consumidor\Ofertas.aspx.designer.cs">
-      <DependentUpon>Ofertas.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -214,10 +285,7 @@
       <Name>misOfertas.DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-    <Folder Include="vendor\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

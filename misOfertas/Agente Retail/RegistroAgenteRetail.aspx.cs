@@ -4,11 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BLL = misOfertas.BLL;
 
-namespace misOffertas
+namespace misOfertas.Agente_Retail
 {
-    public partial class RegistroConsumidor : System.Web.UI.Page
+    public partial class RegistroAgenteRetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,46 +26,48 @@ namespace misOffertas
             usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
             usu.rut = txtRut.Text;
             usu.estado = "Inscrita";
-            usu.rol_fk = 1;
+            usu.rol_fk = 3;
             usu.fecha = DateTime.Today;
             usu.correo = txtEmail.Text;
             usu.contrasena = txtpassword.Text;
 
             if (txtpassword.Text == txtconfirmPassword.Value)
             {
-                if (usu.GetEmail()==true) {
 
-                lblMensaje.Text = "Error!!,Correo Existe";
 
-            }else{
-                try
+                if (usu.GetEmail() == true)
                 {
-                    bool ingresar = usu.create();
 
-                   if (ingresar == true)
+                    lblMensaje.Text = "Error!!,Correo Existe";
+
+                }
+                else
+                {
+                    try
                     {
-                        lblMensaje.Text = "Exito!!, Usuario Registrado";
+                        bool ingresar = usu.create();
+
+                        if (ingresar == true)
+                        {
+                            lblMensaje.Text = "Exito!!, Usuario Registrado";
+                        }
                     }
+                    catch (Exception)
+                    {
+
+                        lblMensaje.Text = "Error!!,No se pudo Registrar";
+                    }
+
                 }
-                catch (Exception)
-                {
-
-                    lblMensaje.Text = "Error!!,No se pudo Registrar";
-                }
-                
-            }
 
 
             }
-            else
-            {
+            else {
                 lblMensaje.Text = "la contraseña no coinciden";
             }
 
 
 
         }
-
-        }
-    
+    }
 }
