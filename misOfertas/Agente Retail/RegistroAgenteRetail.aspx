@@ -1,38 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroConsumidor.aspx.cs" Inherits="misOffertas.RegistroConsumidor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroAgenteRetail.aspx.cs" Inherits="misOfertas.Agente_Retail.RegistroAgenteRetail" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin - Register</title>
-
-    <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template-->
-    <!-- <link href="css/sb-admin.css" rel="stylesheet"> -->
-
-  </head>
-
-  <body class="bg-dark">
-
-    <div class="container">
-      <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Registro Consumidor</div>
-        <div class="card-body">
-          <form runat="server">
-              <div class="form-group">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+                  <div class="form-group">
                 <div class="col-md-6">
                 <asp:Label ID="lblRut" runat="server" Text="RUT"></asp:Label>
                 <asp:TextBox ID="txtRut" CssClass="form-control" runat="server" placeholder="RUT"></asp:TextBox>
@@ -71,28 +48,16 @@
               </div>
               <div class="form-group">
                 <div class="col-md-6">
+                    
                    <asp:Label ID="Label5" runat="server" Text="CONFIRMAR CONTRASEÑA"></asp:Label>
-                    <input type="password" id="txtconfirmPassword" class="form-control" placeholder="CONFIRMAR CONTRASEÑA" required="required" runat="server">
+                    <input type="password" id="txtconfirmPassword"  class="form-control" placeholder="CONFIRMAR CONTRASEÑA" required="required" runat="server" />
                </div>  
                       </div>
                         
               <br/>
-                <asp:Button ID="Button1" runat="server" Text="REGISTRAR" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>       
+                <asp:Button ID="Button1" runat="server" Text="REGISTRAR" CssClass="btn btn-primary form-control" OnClick="Button1_Click"/>       
               <br/>
                <asp:label id="lblMensaje" runat="server" text=""></asp:label>
-          </form>
-          <div class="text-center">
-            <a class="d-block small mt-3" href="login.aspx">Login Page</a>
-          </div>
-        </div>
-     </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    </body>
-
+</form>
+</body>
 </html>
-

@@ -1,0 +1,19 @@
+﻿html, body {
+height:100%;
+}
+html {
+    display:table;
+    margin:auto;
+}
+body {
+    
+}
+
+.columna-formulario {
+float:left;
+}
+
+.formulario-botones {
+
+    clear:both
+}

@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="campana.cs" />
     <Compile Include="CommomBC.cs" />
     <Compile Include="HashMD5.cs" />
+    <Compile Include="Oferta.cs" />
+    <Compile Include="producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>

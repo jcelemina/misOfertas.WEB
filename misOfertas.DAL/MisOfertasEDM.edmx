@@ -1303,6 +1303,61 @@
           <FunctionImport Name="findByEmail">
             <Parameter Name="P_CORREO" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="addProducto">
+            <Parameter Name="P_NOMBRE_PRODUCTO" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_COLOR" Mode="In" Type="String" />
+            <Parameter Name="P_PERECIBLE" Mode="In" Type="String" />
+            <Parameter Name="P_MARCA" Mode="In" Type="String" />
+            <Parameter Name="P_RUBRO_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="updateProduct">
+            <Parameter Name="P_ID_PRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE_PRODUCTO" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_COLOR" Mode="In" Type="String" />
+            <Parameter Name="P_PERECIBLE" Mode="In" Type="String" />
+            <Parameter Name="P_MARCA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addOferta">
+            <Parameter Name="P_CANTIDAD_MINIMA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CANTIDAD_MAXIMA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_NORMAL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_OFERTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_IMAGEN" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_CAMPANA_FK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRODUCTO_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="updateOfert">
+            <Parameter Name="P_ID_OFERTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CANTIDAD_MINIMA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CANTIDAD_MAXIMA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_NORMAL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_OFERTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_IMAGEN" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_CAMPANA_FK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRODUCTO_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="addCampana">
+            <Parameter Name="P_NOMBRE_CAMPANA" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA_INICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_FECHA_FIN" Mode="In" Type="DateTime" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="updateCampan">
+            <Parameter Name="P_ID_CAMPANA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE_CAMPANA" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA_INICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_FECHA_FIN" Mode="In" Type="DateTime" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1520,6 +1575,12 @@
           <FunctionImportMapping FunctionImportName="UPDATEVALORACION" FunctionName="MisOfertasModel.Store.UPDATEVALORACION" />
           <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="MisOfertasModel.Store.INSERTUSUARIO" />
           <FunctionImportMapping FunctionImportName="findByEmail" FunctionName="MisOfertasModel.Store.CONSULTAUSUARIO" />
+          <FunctionImportMapping FunctionImportName="addProducto" FunctionName="MisOfertasModel.Store.INSERTPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="updateProduct" FunctionName="MisOfertasModel.Store.UPDATEPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="addOferta" FunctionName="MisOfertasModel.Store.INSERTOFERTA" />
+          <FunctionImportMapping FunctionImportName="updateOfert" FunctionName="MisOfertasModel.Store.UPDATEOFERTA" />
+          <FunctionImportMapping FunctionImportName="addCampana" FunctionName="MisOfertasModel.Store.INSERTCAMPANA" />
+          <FunctionImportMapping FunctionImportName="updateCampan" FunctionName="MisOfertasModel.Store.UPDATECAMPANA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

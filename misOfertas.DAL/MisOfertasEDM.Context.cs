@@ -956,5 +956,207 @@ namespace misOfertas.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("findByEmail", p_CORREOParameter);
         }
+    
+        public virtual int addProducto(string p_NOMBRE_PRODUCTO, string p_DESCRIPCION, string p_COLOR, string p_PERECIBLE, string p_MARCA, Nullable<decimal> p_RUBRO_FK)
+        {
+            var p_NOMBRE_PRODUCTOParameter = p_NOMBRE_PRODUCTO != null ?
+                new ObjectParameter("P_NOMBRE_PRODUCTO", p_NOMBRE_PRODUCTO) :
+                new ObjectParameter("P_NOMBRE_PRODUCTO", typeof(string));
+    
+            var p_DESCRIPCIONParameter = p_DESCRIPCION != null ?
+                new ObjectParameter("P_DESCRIPCION", p_DESCRIPCION) :
+                new ObjectParameter("P_DESCRIPCION", typeof(string));
+    
+            var p_COLORParameter = p_COLOR != null ?
+                new ObjectParameter("P_COLOR", p_COLOR) :
+                new ObjectParameter("P_COLOR", typeof(string));
+    
+            var p_PERECIBLEParameter = p_PERECIBLE != null ?
+                new ObjectParameter("P_PERECIBLE", p_PERECIBLE) :
+                new ObjectParameter("P_PERECIBLE", typeof(string));
+    
+            var p_MARCAParameter = p_MARCA != null ?
+                new ObjectParameter("P_MARCA", p_MARCA) :
+                new ObjectParameter("P_MARCA", typeof(string));
+    
+            var p_RUBRO_FKParameter = p_RUBRO_FK.HasValue ?
+                new ObjectParameter("P_RUBRO_FK", p_RUBRO_FK) :
+                new ObjectParameter("P_RUBRO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addProducto", p_NOMBRE_PRODUCTOParameter, p_DESCRIPCIONParameter, p_COLORParameter, p_PERECIBLEParameter, p_MARCAParameter, p_RUBRO_FKParameter);
+        }
+    
+        public virtual int updateProduct(Nullable<decimal> p_ID_PRODUCTO, string p_NOMBRE_PRODUCTO, string p_DESCRIPCION, string p_COLOR, string p_PERECIBLE, string p_MARCA)
+        {
+            var p_ID_PRODUCTOParameter = p_ID_PRODUCTO.HasValue ?
+                new ObjectParameter("P_ID_PRODUCTO", p_ID_PRODUCTO) :
+                new ObjectParameter("P_ID_PRODUCTO", typeof(decimal));
+    
+            var p_NOMBRE_PRODUCTOParameter = p_NOMBRE_PRODUCTO != null ?
+                new ObjectParameter("P_NOMBRE_PRODUCTO", p_NOMBRE_PRODUCTO) :
+                new ObjectParameter("P_NOMBRE_PRODUCTO", typeof(string));
+    
+            var p_DESCRIPCIONParameter = p_DESCRIPCION != null ?
+                new ObjectParameter("P_DESCRIPCION", p_DESCRIPCION) :
+                new ObjectParameter("P_DESCRIPCION", typeof(string));
+    
+            var p_COLORParameter = p_COLOR != null ?
+                new ObjectParameter("P_COLOR", p_COLOR) :
+                new ObjectParameter("P_COLOR", typeof(string));
+    
+            var p_PERECIBLEParameter = p_PERECIBLE != null ?
+                new ObjectParameter("P_PERECIBLE", p_PERECIBLE) :
+                new ObjectParameter("P_PERECIBLE", typeof(string));
+    
+            var p_MARCAParameter = p_MARCA != null ?
+                new ObjectParameter("P_MARCA", p_MARCA) :
+                new ObjectParameter("P_MARCA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateProduct", p_ID_PRODUCTOParameter, p_NOMBRE_PRODUCTOParameter, p_DESCRIPCIONParameter, p_COLORParameter, p_PERECIBLEParameter, p_MARCAParameter);
+        }
+    
+        public virtual int addOferta(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
+        {
+            var p_CANTIDAD_MINIMAParameter = p_CANTIDAD_MINIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MINIMA", p_CANTIDAD_MINIMA) :
+                new ObjectParameter("P_CANTIDAD_MINIMA", typeof(decimal));
+    
+            var p_CANTIDAD_MAXIMAParameter = p_CANTIDAD_MAXIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MAXIMA", p_CANTIDAD_MAXIMA) :
+                new ObjectParameter("P_CANTIDAD_MAXIMA", typeof(decimal));
+    
+            var p_PRECIO_NORMALParameter = p_PRECIO_NORMAL.HasValue ?
+                new ObjectParameter("P_PRECIO_NORMAL", p_PRECIO_NORMAL) :
+                new ObjectParameter("P_PRECIO_NORMAL", typeof(decimal));
+    
+            var p_PRECIO_OFERTAParameter = p_PRECIO_OFERTA.HasValue ?
+                new ObjectParameter("P_PRECIO_OFERTA", p_PRECIO_OFERTA) :
+                new ObjectParameter("P_PRECIO_OFERTA", typeof(decimal));
+    
+            var p_IMAGENParameter = p_IMAGEN != null ?
+                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
+                new ObjectParameter("P_IMAGEN", typeof(string));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_CAMPANA_FKParameter = p_CAMPANA_FK.HasValue ?
+                new ObjectParameter("P_CAMPANA_FK", p_CAMPANA_FK) :
+                new ObjectParameter("P_CAMPANA_FK", typeof(decimal));
+    
+            var p_PRODUCTO_FKParameter = p_PRODUCTO_FK.HasValue ?
+                new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
+                new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addOferta", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
+        }
+    
+        public virtual int updateOfert(Nullable<decimal> p_ID_OFERTA, Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
+        {
+            var p_ID_OFERTAParameter = p_ID_OFERTA.HasValue ?
+                new ObjectParameter("P_ID_OFERTA", p_ID_OFERTA) :
+                new ObjectParameter("P_ID_OFERTA", typeof(decimal));
+    
+            var p_CANTIDAD_MINIMAParameter = p_CANTIDAD_MINIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MINIMA", p_CANTIDAD_MINIMA) :
+                new ObjectParameter("P_CANTIDAD_MINIMA", typeof(decimal));
+    
+            var p_CANTIDAD_MAXIMAParameter = p_CANTIDAD_MAXIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MAXIMA", p_CANTIDAD_MAXIMA) :
+                new ObjectParameter("P_CANTIDAD_MAXIMA", typeof(decimal));
+    
+            var p_PRECIO_NORMALParameter = p_PRECIO_NORMAL.HasValue ?
+                new ObjectParameter("P_PRECIO_NORMAL", p_PRECIO_NORMAL) :
+                new ObjectParameter("P_PRECIO_NORMAL", typeof(decimal));
+    
+            var p_PRECIO_OFERTAParameter = p_PRECIO_OFERTA.HasValue ?
+                new ObjectParameter("P_PRECIO_OFERTA", p_PRECIO_OFERTA) :
+                new ObjectParameter("P_PRECIO_OFERTA", typeof(decimal));
+    
+            var p_IMAGENParameter = p_IMAGEN != null ?
+                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
+                new ObjectParameter("P_IMAGEN", typeof(string));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_CAMPANA_FKParameter = p_CAMPANA_FK.HasValue ?
+                new ObjectParameter("P_CAMPANA_FK", p_CAMPANA_FK) :
+                new ObjectParameter("P_CAMPANA_FK", typeof(decimal));
+    
+            var p_PRODUCTO_FKParameter = p_PRODUCTO_FK.HasValue ?
+                new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
+                new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateOfert", p_ID_OFERTAParameter, p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
+        }
+    
+        public virtual int addCampana(string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO, Nullable<decimal> p_USUARIO_FK)
+        {
+            var p_NOMBRE_CAMPANAParameter = p_NOMBRE_CAMPANA != null ?
+                new ObjectParameter("P_NOMBRE_CAMPANA", p_NOMBRE_CAMPANA) :
+                new ObjectParameter("P_NOMBRE_CAMPANA", typeof(string));
+    
+            var p_DESCRIPCIONParameter = p_DESCRIPCION != null ?
+                new ObjectParameter("P_DESCRIPCION", p_DESCRIPCION) :
+                new ObjectParameter("P_DESCRIPCION", typeof(string));
+    
+            var p_FECHA_INICIOParameter = p_FECHA_INICIO.HasValue ?
+                new ObjectParameter("P_FECHA_INICIO", p_FECHA_INICIO) :
+                new ObjectParameter("P_FECHA_INICIO", typeof(System.DateTime));
+    
+            var p_FECHA_FINParameter = p_FECHA_FIN.HasValue ?
+                new ObjectParameter("P_FECHA_FIN", p_FECHA_FIN) :
+                new ObjectParameter("P_FECHA_FIN", typeof(System.DateTime));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
+                new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
+                new ObjectParameter("P_USUARIO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addCampana", p_NOMBRE_CAMPANAParameter, p_DESCRIPCIONParameter, p_FECHA_INICIOParameter, p_FECHA_FINParameter, p_FECHAParameter, p_ESTADOParameter, p_USUARIO_FKParameter);
+        }
+    
+        public virtual int updateCampan(Nullable<decimal> p_ID_CAMPANA, string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO)
+        {
+            var p_ID_CAMPANAParameter = p_ID_CAMPANA.HasValue ?
+                new ObjectParameter("P_ID_CAMPANA", p_ID_CAMPANA) :
+                new ObjectParameter("P_ID_CAMPANA", typeof(decimal));
+    
+            var p_NOMBRE_CAMPANAParameter = p_NOMBRE_CAMPANA != null ?
+                new ObjectParameter("P_NOMBRE_CAMPANA", p_NOMBRE_CAMPANA) :
+                new ObjectParameter("P_NOMBRE_CAMPANA", typeof(string));
+    
+            var p_DESCRIPCIONParameter = p_DESCRIPCION != null ?
+                new ObjectParameter("P_DESCRIPCION", p_DESCRIPCION) :
+                new ObjectParameter("P_DESCRIPCION", typeof(string));
+    
+            var p_FECHA_INICIOParameter = p_FECHA_INICIO.HasValue ?
+                new ObjectParameter("P_FECHA_INICIO", p_FECHA_INICIO) :
+                new ObjectParameter("P_FECHA_INICIO", typeof(System.DateTime));
+    
+            var p_FECHA_FINParameter = p_FECHA_FIN.HasValue ?
+                new ObjectParameter("P_FECHA_FIN", p_FECHA_FIN) :
+                new ObjectParameter("P_FECHA_FIN", typeof(System.DateTime));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateCampan", p_ID_CAMPANAParameter, p_NOMBRE_CAMPANAParameter, p_DESCRIPCIONParameter, p_FECHA_INICIOParameter, p_FECHA_FINParameter, p_FECHAParameter, p_ESTADOParameter);
+        }
     }
 }
