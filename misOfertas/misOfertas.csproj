@@ -109,7 +109,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consumidor\Evaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
+    <Content Include="Consumidor\Ofertas.aspx" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />
     <Content Include="Administrador\index.aspx" />
@@ -144,12 +146,26 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\Evaluar.aspx.cs">
+      <DependentUpon>Evaluar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Evaluar.aspx.designer.cs">
+      <DependentUpon>Evaluar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consumidor\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\Ofertas.aspx.cs">
+      <DependentUpon>Ofertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Ofertas.aspx.designer.cs">
+      <DependentUpon>Ofertas.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
