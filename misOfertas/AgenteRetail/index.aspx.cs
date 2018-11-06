@@ -11,6 +11,13 @@ namespace misOfertas.AgenteRetail
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+            if (usuario == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            lblMensaje.Text = "Bienvenido " + usuario.nombre_usuario;
+
 
         }
     }

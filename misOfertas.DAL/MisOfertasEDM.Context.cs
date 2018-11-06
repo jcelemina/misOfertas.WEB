@@ -990,5 +990,30 @@ namespace misOfertas.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addEmpresa", p_NOMBRE_EMPRESAParameter, p_RAZON_SOCIALParameter, p_ESTADOParameter, p_RUTParameter);
         }
+    
+        public virtual int addTienda(string p_NOMBRE_TIENDA, string p_DIRECCION, string p_ESTADO, Nullable<decimal> p_EMPRESA_FK, Nullable<decimal> p_USUARIO_FK)
+        {
+            var p_NOMBRE_TIENDAParameter = p_NOMBRE_TIENDA != null ?
+                new ObjectParameter("P_NOMBRE_TIENDA", p_NOMBRE_TIENDA) :
+                new ObjectParameter("P_NOMBRE_TIENDA", typeof(string));
+    
+            var p_DIRECCIONParameter = p_DIRECCION != null ?
+                new ObjectParameter("P_DIRECCION", p_DIRECCION) :
+                new ObjectParameter("P_DIRECCION", typeof(string));
+    
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            var p_EMPRESA_FKParameter = p_EMPRESA_FK.HasValue ?
+                new ObjectParameter("P_EMPRESA_FK", p_EMPRESA_FK) :
+                new ObjectParameter("P_EMPRESA_FK", typeof(decimal));
+    
+            var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
+                new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
+                new ObjectParameter("P_USUARIO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addTienda", p_NOMBRE_TIENDAParameter, p_DIRECCIONParameter, p_ESTADOParameter, p_EMPRESA_FKParameter, p_USUARIO_FKParameter);
+        }
     }
 }

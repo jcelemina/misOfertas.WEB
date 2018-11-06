@@ -24,7 +24,7 @@ namespace misOfertas
                 usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
                 usu.rut = txtRut.Text;
                 usu.estado = "Pendiente";
-                usu.rol_fk = 3;
+                usu.rol_fk =3;
                 usu.fecha = DateTime.Today;
                 usu.correo = txtEmail.Text;
                 usu.contrasena = txtpassword.Text;

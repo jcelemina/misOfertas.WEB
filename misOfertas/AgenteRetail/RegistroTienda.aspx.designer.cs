@@ -10,7 +10,7 @@
 namespace misOfertas.AgenteRetail {
     
     
-    public partial class RegistroEmpresa {
+    public partial class RegistroTienda {
         
         /// <summary>
         /// Control form2.
@@ -22,40 +22,40 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Control TxtRut.
+        /// Control txtNombreTienda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtRut;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreTienda;
         
         /// <summary>
-        /// Control txtNombreEmpresa.
+        /// Control TxtDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreEmpresa;
+        protected global::System.Web.UI.WebControls.TextBox TxtDireccion;
         
         /// <summary>
-        /// Control TxtRazonSocial.
+        /// Control txtRutEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtRazonSocial;
+        protected global::System.Web.UI.WebControls.TextBox txtRutEmpresa;
         
         /// <summary>
-        /// Control btnRegistrar.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrar;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Control lblMensaje.

@@ -16,7 +16,7 @@ namespace misOfertas.BLL
 
         public Empresa()
         {
-            this.estado = "pendiente";
+            this.estado = "Pendiente";
         }
         public Empresa(int id_empresa,string rut_empresa, string nombre_empresa, string razon_social,string estado)
         {
@@ -44,11 +44,17 @@ namespace misOfertas.BLL
             DAL.EMPRESA emp = CommomBC.entities.EMPRESA.FirstOrDefault(em => em.RUT == rut_empresa);
             if (emp != null)
             {
+                id_empresa = (int)emp.ID_EMPRESA;
                 exist = true;
             }
 
             return exist;
         }
 
+
+
+        // validar si el usuario ya tiene una compañia
+
+        
     }
 }

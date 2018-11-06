@@ -111,6 +111,7 @@
   <ItemGroup>
     <Content Include="AgenteRetail\index.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
+    <Content Include="AgenteRetail\RegistroTienda.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="AgenteRetail\RegistroEmpresa.aspx.designer.cs">
       <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\RegistroTienda.aspx.cs">
+      <DependentUpon>RegistroTienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\RegistroTienda.aspx.designer.cs">
+      <DependentUpon>RegistroTienda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\Evaluar.aspx.cs">
       <DependentUpon>Evaluar.aspx</DependentUpon>
