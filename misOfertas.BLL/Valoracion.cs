@@ -44,7 +44,7 @@ namespace misOfertas.BLL
             bool ingreso = false;
             try
             {
-                CommomBC.entities.addValoracion(Atencion, Calidad, Comentario, correo, pass.ToString(), rut, estado, fecha, rol_fk);
+                //CommomBC.entities.addValoracion(Atencion, Calidad, Comentario, correo, pass.ToString(), rut, estado, fecha, rol_fk);
                 ingreso = true;
             }
             catch (Exception e)

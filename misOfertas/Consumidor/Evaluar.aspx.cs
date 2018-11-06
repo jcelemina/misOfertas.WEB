@@ -13,8 +13,8 @@ namespace misOfertas.Consumidor
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Valoracion valoracion = new Valoracion();
-            oferta.PRECIO_NORMAL =
+            //Valoracion valoracion = new Valoracion();
+            //oferta.PRECIO_NORMAL =
         }
     }
 }
