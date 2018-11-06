@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="misOffertas.Site2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="misOfertas.Site3" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -206,7 +206,3 @@
   </body>
 
 </html>
-
-
-
-

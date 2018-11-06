@@ -109,6 +109,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgenteRetail\index.aspx" />
+    <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
@@ -123,8 +125,10 @@
     </Content>
     <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
+    <Content Include="RegistroAgenteRetail.aspx" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.master" />
+    <Content Include="Site3.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,6 +149,20 @@
     </Compile>
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\RegistroEmpresa.aspx.cs">
+      <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\RegistroEmpresa.aspx.designer.cs">
+      <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\Evaluar.aspx.cs">
       <DependentUpon>Evaluar.aspx</DependentUpon>
@@ -182,6 +200,13 @@
       <DependentUpon>OlvideContraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroAgenteRetail.aspx.cs">
+      <DependentUpon>RegistroAgenteRetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroAgenteRetail.aspx.designer.cs">
+      <DependentUpon>RegistroAgenteRetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroConsumidor.aspx.cs">
       <DependentUpon>RegistroConsumidor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +227,13 @@
     </Compile>
     <Compile Include="Site2.master.designer.cs">
       <DependentUpon>Site2.master</DependentUpon>
+    </Compile>
+    <Compile Include="Site3.Master.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site3.Master.designer.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

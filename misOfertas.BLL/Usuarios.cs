@@ -71,7 +71,6 @@ namespace misOfertas.BLL
 
             return ingreso;
         }
-
         public Usuarios find(string correo,string contraseña) {
             Usuarios user = null;
             if (correo != null && contrasena != null) {
@@ -93,8 +92,21 @@ namespace misOfertas.BLL
 
             return user;
         }
+        public bool findByEmail()
+        {
+
+          bool  exist = false;
+            
+            DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(em => em.CORREO == correo);
 
 
+            if (usuario != null) {
+                exist= true;
+             }
+
+            return exist;
+
+        }
 
 
     }

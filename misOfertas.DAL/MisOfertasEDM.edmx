@@ -1335,6 +1335,12 @@
           <FunctionImport Name="CONSULTAEMPRESA">
             <Parameter Name="P_RUT" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="addEmpresa">
+            <Parameter Name="P_NOMBRE_EMPRESA" Mode="In" Type="String" />
+            <Parameter Name="P_RAZON_SOCIAL" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="P_RUT" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <Association Name="CAMPANA_TIENDA_FK">
           <End Type="MisOfertasModel.TIENDA" Role="TIENDA" Multiplicity="1" />
@@ -1566,6 +1572,7 @@
           <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="MisOfertasModel.Store.INSERTUSUARIO" />
           <FunctionImportMapping FunctionImportName="findByEmail" FunctionName="MisOfertasModel.Store.CONSULTAUSUARIO" />
           <FunctionImportMapping FunctionImportName="CONSULTAEMPRESA" FunctionName="MisOfertasModel.Store.CONSULTAEMPRESA" />
+          <FunctionImportMapping FunctionImportName="addEmpresa" FunctionName="MisOfertasModel.Store.INSERTEMPRESA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

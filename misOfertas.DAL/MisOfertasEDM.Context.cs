@@ -969,5 +969,26 @@ namespace misOfertas.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CONSULTAEMPRESA", p_RUTParameter);
         }
+    
+        public virtual int addEmpresa(string p_NOMBRE_EMPRESA, string p_RAZON_SOCIAL, string p_ESTADO, string p_RUT)
+        {
+            var p_NOMBRE_EMPRESAParameter = p_NOMBRE_EMPRESA != null ?
+                new ObjectParameter("P_NOMBRE_EMPRESA", p_NOMBRE_EMPRESA) :
+                new ObjectParameter("P_NOMBRE_EMPRESA", typeof(string));
+    
+            var p_RAZON_SOCIALParameter = p_RAZON_SOCIAL != null ?
+                new ObjectParameter("P_RAZON_SOCIAL", p_RAZON_SOCIAL) :
+                new ObjectParameter("P_RAZON_SOCIAL", typeof(string));
+    
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            var p_RUTParameter = p_RUT != null ?
+                new ObjectParameter("P_RUT", p_RUT) :
+                new ObjectParameter("P_RUT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addEmpresa", p_NOMBRE_EMPRESAParameter, p_RAZON_SOCIALParameter, p_ESTADOParameter, p_RUTParameter);
+        }
     }
 }

@@ -32,7 +32,7 @@
             <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="CORREO ELECTRONICO" ></asp:TextBox>                
             </div>
             <div class="form-group">
-            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:TextBox  type="password" ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
             </div>
             <div class="form-group">
               <div class="checkbox">
