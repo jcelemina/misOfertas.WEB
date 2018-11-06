@@ -1,4 +1,5 @@
-﻿using System;
+﻿using misOfertas.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,8 @@ namespace misOfertas.Consumidor
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+            Valoracion valoracion = new Valoracion();
+            oferta.PRECIO_NORMAL =
         }
     }
 }

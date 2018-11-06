@@ -159,7 +159,7 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETEVALORACION", p_ID_VALORACIONParameter);
         }
     
-        public virtual int INSERTCAMPANA(string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO, Nullable<decimal> p_USUARIO_FK)
+        public virtual int INSERTCAMPANA(string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_TIENDA_FK)
         {
             var p_NOMBRE_CAMPANAParameter = p_NOMBRE_CAMPANA != null ?
                 new ObjectParameter("P_NOMBRE_CAMPANA", p_NOMBRE_CAMPANA) :
@@ -189,7 +189,11 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
                 new ObjectParameter("P_USUARIO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTCAMPANA", p_NOMBRE_CAMPANAParameter, p_DESCRIPCIONParameter, p_FECHA_INICIOParameter, p_FECHA_FINParameter, p_FECHAParameter, p_ESTADOParameter, p_USUARIO_FKParameter);
+            var p_TIENDA_FKParameter = p_TIENDA_FK.HasValue ?
+                new ObjectParameter("P_TIENDA_FK", p_TIENDA_FK) :
+                new ObjectParameter("P_TIENDA_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTCAMPANA", p_NOMBRE_CAMPANAParameter, p_DESCRIPCIONParameter, p_FECHA_INICIOParameter, p_FECHA_FINParameter, p_FECHAParameter, p_ESTADOParameter, p_USUARIO_FKParameter, p_TIENDA_FKParameter);
         }
     
         public virtual int INSERTCUPON(string p_PDF, Nullable<decimal> p_TOPE_MAXIMO, Nullable<decimal> p_DESCUENTO, Nullable<System.DateTime> p_FECHA, Nullable<System.DateTime> p_VENCIMIENTO, string p_CONDICIONES, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_TRAMO_FK)
@@ -443,7 +447,7 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTUSUARIO", p_NOMBRES_USUARIOParameter, p_APELLIDO_PATERNOParameter, p_APELLIDO_MATERNOParameter, p_CORREOParameter, p_CONTRASENAParameter, p_RUTParameter, p_ESTADOParameter, p_FECHAParameter, p_ROL_USUARIO_FKParameter);
         }
     
-        public virtual int INSERTVALORACION(Nullable<System.DateTime> p_FECHA, string p_IMAGEN, Nullable<decimal> p_CALIDAD, Nullable<decimal> p_ATENCION, Nullable<decimal> p_PRECIO, string p_COMENTARIO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_OFERTA_FK)
+        public virtual int addValoracion(Nullable<System.DateTime> p_FECHA, string p_IMAGEN, Nullable<decimal> p_CALIDAD, Nullable<decimal> p_ATENCION, Nullable<decimal> p_PRECIO, string p_COMENTARIO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_OFERTA_FK)
         {
             var p_FECHAParameter = p_FECHA.HasValue ?
                 new ObjectParameter("P_FECHA", p_FECHA) :
@@ -477,7 +481,7 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_OFERTA_FK", p_OFERTA_FK) :
                 new ObjectParameter("P_OFERTA_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTVALORACION", p_FECHAParameter, p_IMAGENParameter, p_CALIDADParameter, p_ATENCIONParameter, p_PRECIOParameter, p_COMENTARIOParameter, p_USUARIO_FKParameter, p_OFERTA_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addValoracion", p_FECHAParameter, p_IMAGENParameter, p_CALIDADParameter, p_ATENCIONParameter, p_PRECIOParameter, p_COMENTARIOParameter, p_USUARIO_FKParameter, p_OFERTA_FKParameter);
         }
     
         public virtual int SELECTCAMPANA()
@@ -955,6 +959,15 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_CORREO", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("findByEmail", p_CORREOParameter);
+        }
+    
+        public virtual int CONSULTAEMPRESA(string p_RUT)
+        {
+            var p_RUTParameter = p_RUT != null ?
+                new ObjectParameter("P_RUT", p_RUT) :
+                new ObjectParameter("P_RUT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CONSULTAEMPRESA", p_RUTParameter);
         }
     }
 }

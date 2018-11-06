@@ -27,8 +27,10 @@ namespace misOfertas.DAL
         public System.DateTime FECHA { get; set; }
         public string ESTADO { get; set; }
         public decimal USUARIO_FK { get; set; }
+        public decimal TIENDA_FK { get; set; }
     
         public virtual USUARIO USUARIO { get; set; }
         public virtual ICollection<OFERTA> OFERTA { get; set; }
+        public virtual TIENDA TIENDA { get; set; }
     }
 }

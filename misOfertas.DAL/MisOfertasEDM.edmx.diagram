@@ -32,6 +32,7 @@
         <AssociationConnector Association="MisOfertasModel.TIENDA_USUARIO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="MisOfertasModel.VALORACION_TIENDA_FK" ManuallyRouted="false" />
         <AssociationConnector Association="MisOfertasModel.VALORACION_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="MisOfertasModel.CAMPANA_TIENDA_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
