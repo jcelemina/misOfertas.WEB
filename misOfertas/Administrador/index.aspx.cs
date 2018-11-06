@@ -12,6 +12,8 @@ namespace misOffertas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             try
             {
                 Usuarios usuario = (Usuarios)Session["usuario"];
@@ -28,5 +30,10 @@ namespace misOffertas
             } 
          
         }
+
+       
+
+
+        
     }
 }

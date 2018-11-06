@@ -9,17 +9,6 @@ namespace misOfertas.BLL
 {
     public class Usuarios
     {
-        ////crea el objecto para poder encryptar la password
-        //MD5CryptoServiceProvider MD5Hasher = new MD5CryptoServiceProvider();
-        //// se crea un array de Bytes para poder  usar la encriptacion
-        //Byte[] cifrado;
-        //// crea un objeto  utf8Encoding que se utilizara para convertir la cadena de contraseña
-        //// en una matriz de bytes
-        //UTF8Encoding encoder = new UTF8Encoding();
-        //// cifrar la contraseña y almacenarla en la matriz de bytes hashedbytes
-        
-
-
         public decimal id { get; set; }
         public string nombre_usuario { get; set; }
         public string apellido_paterno { get; set; }
@@ -28,12 +17,12 @@ namespace misOfertas.BLL
         public string estado { get; set; }
         public decimal rol_fk { get; set; }
         public string rol_nombre { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public DateTime fecha { get; set; }
         public string correo { get; set; }
         public string contrasena { get; set; }
 
 
-        public Usuarios(decimal id, string nombre_usuario, string apellido_paterno, string apellido_materno, string rut, string estado, decimal rol_fk, DateTime? fecha, string correo, string contrasena)
+        public Usuarios(decimal id, string nombre_usuario, string apellido_paterno, string apellido_materno, string rut, string estado, decimal rol_fk, DateTime fecha, string correo, string contrasena)
         {
             this.id = id;
             this.nombre_usuario = nombre_usuario;
@@ -46,9 +35,6 @@ namespace misOfertas.BLL
             this.correo = correo;
             this.contrasena = contrasena;
         }
-
-       
-
         public Usuarios()
         {
 
@@ -58,44 +44,150 @@ namespace misOfertas.BLL
         public bool create()
         {
             var pass = HashMD5.getMd5Hash(contrasena);
-            bool ingreso = false;
+           
             try
             {
                 CommomBC.entities.addUsuario(nombre_usuario, apellido_paterno, apellido_materno, correo,pass.ToString(), rut, estado, fecha, rol_fk);
-                ingreso = true;
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+
+           
+        }
+        public Usuarios find(string correo,string contraseña) {
+            try
+            {
+                Usuarios user = null;
+                if (correo != null && contrasena != null)
+                {
+
+                    var conver = HashMD5.verifyMd5Hash(contraseña).ToString();
+                    var nombre_rol = new System.Data.Objects.ObjectParameter("nOMBRE_ROL", typeof(string));
+                    CommomBC.entities.login(correo, conver.ToString(), nombre_rol);
+                    rol_nombre = Convert.ToString(nombre_rol.Value);
+
+                    user = new Usuarios();
+                    DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(em => em.CORREO == correo && em.CONTRASENA == conver);
+                    user.id = usuario.ID_USUARIO;
+                    user.nombre_usuario = usuario.NOMBRES_USUARIO + " " + usuario.APELLIDO_PATERNO + " " + usuario.APELLIDO_MATERNO;
+                    user.correo = usuario.CORREO;
+                    user.fecha = usuario.FECHA;
+                    user.rol_nombre = rol_nombre;
+                }
+
+                return user;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public bool Read()
+        {
+            try
+            {
+                DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(e => e.ID_USUARIO == id);
+                id = (int)usuario.ID_USUARIO;
+                nombre_usuario = usuario.NOMBRES_USUARIO;
+                apellido_materno = usuario.APELLIDO_MATERNO;
+                apellido_paterno = usuario.APELLIDO_PATERNO;
+                rut = usuario.RUT;
+                rol_fk = usuario.ROL_USUARIO_FK;
+                correo = usuario.CORREO;
+                estado = usuario.ESTADO;
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool Delete()
+        {
+            try
+            {
+                DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(e => e.ID_USUARIO == id);
+                CommomBC.entities.USUARIO.Remove(usuario);
+                CommomBC.entities.SaveChanges();
+                return true;
             }
             catch (Exception e)
             {
-                throw e;
+                return false;
+            }
+        }
+        public int GetId()
+        {
+
+            decimal aux;
+            try
+            {
+                aux = listUsuario().Max(e => e.id);
+            }
+            catch (Exception)
+            {
+                aux = 0;
             }
 
-            return ingreso;
+            return (int)aux;
         }
-
-        public Usuarios find(string correo,string contraseña) {
-            Usuarios user = null;
-            if (correo != null && contrasena != null) {
-
-                var conver = HashMD5.verifyMd5Hash(contraseña).ToString();
-                var nombre_rol = new System.Data.Objects.ObjectParameter("nOMBRE_ROL", typeof(string));
-                CommomBC.entities.login(correo, conver.ToString(), nombre_rol);
-                rol_nombre = Convert.ToString(nombre_rol.Value);
-
-                user = new Usuarios();
-                DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(em => em.CORREO == correo && em.CONTRASENA==conver);
-                user.id = usuario.ID_USUARIO;
-                user.nombre_usuario = usuario.NOMBRES_USUARIO + " " + usuario.APELLIDO_PATERNO + " " + usuario.APELLIDO_MATERNO;
-                user.correo = usuario.CORREO;
-                user.fecha = usuario.FECHA;
-                user.rol_nombre = rol_nombre;
-                
-               }
-
-            return user;
+        public List<Usuarios> listUsuario()
+        {
+            List<Usuarios> salida = new List<Usuarios>();
+            foreach (DAL.USUARIO usuario in CommomBC.entities.USUARIO)
+            {
+                salida.Add(new Usuarios()
+                {
+                    id = (int)usuario.ID_USUARIO,
+                    nombre_usuario = usuario.NOMBRES_USUARIO,
+                    apellido_paterno = usuario.APELLIDO_PATERNO,
+                    apellido_materno = usuario.APELLIDO_MATERNO,
+                    rut = usuario.RUT,
+                    estado = usuario.ESTADO,
+                    rol_fk = usuario.ROL_USUARIO_FK,
+                    correo = usuario.CORREO
+                    
+                });
+            }
+            return salida;
         }
+        public List<BLL.Usuarios> TipoUsuario()
+        {
+            List<BLL.Usuarios> salida = new List<BLL.Usuarios>();
+            foreach (DAL.ROL_USUARIO tipo in CommomBC.entities.ROL_USUARIO)
+            {
+                salida.Add(new Usuarios()
+                {
+                    id = tipo.ID_ROL_USUARIO,
+                    rol_nombre = tipo.NOMBRE
+                });
+            }
+            return salida;
+        }
+        public bool GetEmail()
+        {
 
 
 
+            DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(e => e.CORREO == correo);
+            if (usuario != null)
+            {
+
+                return true;
+
+            }
+            else {
+
+                return false;
+            }
+
+           
+        }
 
     }
 }

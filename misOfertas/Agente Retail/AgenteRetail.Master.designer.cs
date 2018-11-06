@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace misOffertas {
+namespace misOfertas.Agente_Retail {
     
     
-    public partial class Site1 {
+    public partial class AgenteRetail {
         
         /// <summary>
         /// Control head.
