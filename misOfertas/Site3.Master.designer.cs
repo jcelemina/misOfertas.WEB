@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace misOffertas {
+namespace misOfertas {
     
     
-    public partial class Site2 {
+    public partial class Site3 {
         
         /// <summary>
         /// Control head.

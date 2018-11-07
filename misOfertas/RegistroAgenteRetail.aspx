@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroConsumidor.aspx.cs" Inherits="misOffertas.RegistroConsumidor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroAgenteRetail.aspx.cs" Inherits="misOfertas.RegistroAgenteRetail" %>
 
 <!DOCTYPE html>
 
@@ -29,7 +29,7 @@
 
     <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Registro Consumidor</div>
+        <div class="card-header">Registro Agente Retail</div>
         <div class="card-body">
           <form runat="server">
                 <div class="form-group">
@@ -103,4 +103,3 @@
   </body>
 
 </html>
-

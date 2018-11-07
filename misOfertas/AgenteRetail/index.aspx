@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="misOffertas.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="misOfertas.AgenteRetail.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div id="content-wrapper">
+    <div id="content-wrapper">
 
         <div class="container-fluid">
 
-          <!-- label para mostrar el nombre de la variable de session-->
-          <asp:Label ID="lblMensaje" runat="server" Text="usuario"></asp:Label>
-          <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
+          <!-- label para mostrar el nombre de la variable ssesion-->
+            <asp:Label ID="lblMensaje" runat="server" Text="usuario"></asp:Label>
+             <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="#">Dashboard</a>
             </li>
@@ -18,7 +18,6 @@
 
           <!-- Icon Cards-->
           <div class="row">
-             
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
@@ -96,8 +95,7 @@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
-          <!-- DataTables Example -->
-            
+        
 
         </div>
         <!-- /.container-fluid -->
@@ -112,5 +110,4 @@
         </footer>
 
       </div>
-      <!-- /.content-wrapper -->
 </asp:Content>
