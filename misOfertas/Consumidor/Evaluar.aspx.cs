@@ -13,8 +13,29 @@ namespace misOfertas.Consumidor
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //Valoracion valoracion = new Valoracion();
-            //oferta.PRECIO_NORMAL =
+        }
+
+        protected void btnEvaluar_Click(object sender, EventArgs e)
+        {
+            Valoracion valoracion = new Valoracion();
+            valoracion.Atencion = decimal.Parse(txtAtencion.Text);
+            valoracion.Calidad = decimal.Parse(txtCalidad.Text);
+            valoracion.Precio = decimal.Parse(txtPrecio.Text);
+            valoracion.Comentario = txtComentario.Text;
+            valoracion.Fecha = DateTime.Now;
+            valoracion.Imagen = fuImagen.FileName;
+            valoracion.Oferta_fk = decimal.Parse(Session["idOferta"].ToString());
+            valoracion.Usuario_fk = 242;
+
+
+            if (valoracion.create())
+            {
+                Response.Redirect("ExitoEvaluar.aspx");
+            }
+            else
+            {
+                Response.Redirect("ErrorEvaluar.aspx");
+            }
         }
     }
 }
