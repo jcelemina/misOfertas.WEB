@@ -85,13 +85,13 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control FileUpload1.
+        /// Control fuImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload fuImagen;
         
         /// <summary>
         /// Control Label6.
@@ -103,12 +103,21 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control Label7.
+        /// Control txtComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.TextBox txtComentario;
+        
+        /// <summary>
+        /// Control btnEvaluar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEvaluar;
     }
 }
