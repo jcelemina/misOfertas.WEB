@@ -19,6 +19,7 @@ namespace misOfertas.Consumidor
             //Oferta oferta = new Oferta();
             //GvOfertas.DataSource = oferta.listaOfertas();
             //GvOfertas.DataBind();
+
            
         }
 
