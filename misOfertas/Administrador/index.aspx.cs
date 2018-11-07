@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using misOfertas.BLL;
+using BLL =misOfertas.BLL;
 
 namespace misOffertas
 {
@@ -14,7 +14,7 @@ namespace misOffertas
         {
             try
             {
-                Usuarios usuario = (Usuarios)Session["usuario"];
+                BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
                 if (usuario==null)
                 {
                     Response.Redirect("~/login.aspx");

@@ -7,7 +7,7 @@
         <div class="container-fluid">
 
           <!-- label para mostrar el nombre de la variable de session-->
-          <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+          <asp:Label ID="lblMensaje" runat="server" Text="usuario"></asp:Label>
           <!-- Breadcrumbs-->
             <ol class="breadcrumb">
             <li class="breadcrumb-item">

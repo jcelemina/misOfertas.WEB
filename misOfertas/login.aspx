@@ -32,7 +32,7 @@
             <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="CORREO ELECTRONICO" ></asp:TextBox>                
             </div>
             <div class="form-group">
-            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:TextBox  type="password" ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
             </div>
             <div class="form-group">
               <div class="checkbox">
@@ -47,7 +47,8 @@
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="RegistroConsumidor.aspx">Registar</a>
+            <a class="d-block small" href="RegistroConsumidor.aspx">Registar Consumidor</a>
+            <a class="d-block small" href="RegistroConsumidor.aspx">Registro Agente Tiendar</a>
             <a class="d-block small" href="OlvideContraseña.aspx">Recordar contraseña?</a>
           </div>
         </div>
