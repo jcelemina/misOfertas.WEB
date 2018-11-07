@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace misOfertas.Consumidor
-{
-
-
-    public partial class ErrorEvaluar
-    {
+namespace misOfertas.Consumidor {
+    
+    
+    public partial class ErrorEvaluar {
     }
 }

@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace misOfertas.Consumidor
-{
-
-
-    public partial class ExitoEvaluar
-    {
+namespace misOfertas.Consumidor {
+    
+    
+    public partial class ExitoEvaluar {
     }
 }

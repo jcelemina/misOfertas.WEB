@@ -109,7 +109,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consumidor\ErrorEvaluar.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
+    <Content Include="Consumidor\ExitoEvaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
     <Content Include="forgot-password.html" />
@@ -146,12 +148,26 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\ErrorEvaluar.aspx.cs">
+      <DependentUpon>ErrorEvaluar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\ErrorEvaluar.aspx.designer.cs">
+      <DependentUpon>ErrorEvaluar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\Evaluar.aspx.cs">
       <DependentUpon>Evaluar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consumidor\Evaluar.aspx.designer.cs">
       <DependentUpon>Evaluar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\ExitoEvaluar.aspx.cs">
+      <DependentUpon>ExitoEvaluar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\ExitoEvaluar.aspx.designer.cs">
+      <DependentUpon>ExitoEvaluar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
