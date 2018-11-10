@@ -24,10 +24,10 @@ namespace misOfertas.DAL
         public decimal CANTIDAD_MAXIMA { get; set; }
         public decimal PRECIO_NORMAL { get; set; }
         public decimal PRECIO_OFERTA { get; set; }
-        public string IMAGEN { get; set; }
         public System.DateTime FECHA { get; set; }
         public decimal CAMPANA_FK { get; set; }
         public decimal PRODUCTO_FK { get; set; }
+        public string IMAGEN { get; set; }
     
         public virtual CAMPANA CAMPANA { get; set; }
         public virtual PRODUCTO PRODUCTO { get; set; }

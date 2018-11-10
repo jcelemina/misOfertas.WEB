@@ -48,8 +48,8 @@
           </form>
           <div class="text-center">
             <a class="d-block small" href="RegistroConsumidor.aspx">Registar Consumidor</a>
-            <a class="d-block small" href="RegistroConsumidor.aspx">Registro Agente Tiendar</a>
-            <a class="d-block small" href="OlvideContraseña.aspx">Recordar contraseña?</a>
+            <a class="d-block small" href="RegistroAgenteRetail.aspx">Registro Agente Retail</a>
+<%--            <a class="d-block small" href="OlvideContraseña.aspx">Recordar contraseña?</a>--%>
           </div>
         </div>
       </div>

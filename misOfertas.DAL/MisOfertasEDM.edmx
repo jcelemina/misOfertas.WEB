@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MisOfertasModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CAMPANA">
           <Key>
             <PropertyRef Name="ID_CAMPANA" />
@@ -144,9 +144,20 @@
           <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="OFERTA_FK" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USUARIO_FK" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="TIENDA_FK" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="COMENTARIO" Type="varchar2" MaxLength="1000" Nullable="false" />
           <Property Name="IMAGEN" Type="varchar2" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PORTAFOLIO.USUARIOSMAILIST' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="USUARIOSMAILIST">
+          <Key>
+            <PropertyRef Name="NOMBRES_USUARIO" />
+            <PropertyRef Name="APELLIDO_PATERNO" />
+            <PropertyRef Name="CORREO" />
+          </Key>
+          <Property Name="NOMBRES_USUARIO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO_PATERNO" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="CAMPANA_TIENDA_FK">
           <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="1" />
@@ -304,18 +315,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VALORACION_TIENDA_FK">
-          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="1" />
-          <End Role="VALORACION" Type="Self.VALORACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIENDA">
-              <PropertyRef Name="ID_TIENDA" />
-            </Principal>
-            <Dependent Role="VALORACION">
-              <PropertyRef Name="TIENDA_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="VALORACION_USUARIO_FK">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="VALORACION" Type="Self.VALORACION" Multiplicity="*" />
@@ -373,6 +372,18 @@
         <Function Name="DELETEVALORACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_ID_VALORACION" Type="number" Mode="In" />
         </Function>
+        <Function Name="ELIMINARCAMPANA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
+          <Parameter Name="P_ID_CAMPANA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINAREMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
+          <Parameter Name="P_ID_EMPRESA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARTIENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
+          <Parameter Name="P_ID_TIENDA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
+          <Parameter Name="P_ID_USUARIO" Type="number" Mode="In" />
+        </Function>
         <Function Name="INSERTCAMPANA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_NOMBRE_CAMPANA" Type="varchar2" Mode="In" />
           <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
@@ -400,7 +411,6 @@
           <Parameter Name="P_RUT" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="INSERTMAILLIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
-          <Parameter Name="P_ID_MAILLIST" Type="number" Mode="In" />
           <Parameter Name="P_SUSCRITO" Type="char" Mode="In" />
           <Parameter Name="P_USUARIO_FK" Type="number" Mode="In" />
         </Function>
@@ -456,11 +466,11 @@
         </Function>
         <Function Name="INSERTVALORACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_FECHA" Type="date" Mode="In" />
-          <Parameter Name="P_IMAGEN" Type="clob" Mode="In" />
+          <Parameter Name="P_IMAGEN" Type="varchar2" Mode="In" />
           <Parameter Name="P_CALIDAD" Type="number" Mode="In" />
           <Parameter Name="P_ATENCION" Type="number" Mode="In" />
           <Parameter Name="P_PRECIO" Type="number" Mode="In" />
-          <Parameter Name="P_COMENTARIO" Type="clob" Mode="In" />
+          <Parameter Name="P_COMENTARIO" Type="varchar2" Mode="In" />
           <Parameter Name="P_USUARIO_FK" Type="number" Mode="In" />
           <Parameter Name="P_OFERTA_FK" Type="number" Mode="In" />
         </Function>
@@ -490,6 +500,12 @@
           <Parameter Name="P_FECHA_FIN" Type="date" Mode="In" />
           <Parameter Name="P_FECHA" Type="date" Mode="In" />
           <Parameter Name="P_ESTADO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_USUARIOFK" Type="number" Mode="In" />
+          <Parameter Name="P_TIENDAFK" Type="number" Mode="In" />
+        </Function>
+        <Function Name="UPDATECONTRASENA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
+          <Parameter Name="P_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="UPDATECUPON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_ID_CUPON" Type="number" Mode="In" />
@@ -551,6 +567,8 @@
           <Parameter Name="P_NOMBRE_TIENDA" Type="varchar2" Mode="In" />
           <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
           <Parameter Name="P_ESTADO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMPRESA" Type="number" Mode="In" />
+          <Parameter Name="P_USUARIO" Type="number" Mode="In" />
         </Function>
         <Function Name="UPDATETRAMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_ID_TRAMO" Type="number" Mode="In" />
@@ -563,10 +581,9 @@
           <Parameter Name="P_APELLIDO_PATERNO" Type="varchar2" Mode="In" />
           <Parameter Name="P_APELLIDO_MATERNO" Type="varchar2" Mode="In" />
           <Parameter Name="P_CORREO" Type="varchar2" Mode="In" />
-          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
           <Parameter Name="P_RUT" Type="varchar2" Mode="In" />
           <Parameter Name="P_ESTADO" Type="varchar2" Mode="In" />
-          <Parameter Name="P_FECHA" Type="date" Mode="In" />
+          <Parameter Name="P_ROL" Type="number" Mode="In" />
         </Function>
         <Function Name="UPDATEVALORACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PORTAFOLIO">
           <Parameter Name="P_ID_VALORACION" Type="number" Mode="In" />
@@ -579,7 +596,7 @@
           <Parameter Name="P_USUARIO_FK" Type="number" Mode="In" />
           <Parameter Name="P_OFERTA_FK" Type="number" Mode="In" />
         </Function>
-        <EntityContainer Name="MisOfertasModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="CAMPANA" EntityType="Self.CAMPANA" Schema="PORTAFOLIO" store:Type="Tables" />
           <EntitySet Name="CUPON" EntityType="Self.CUPON" Schema="PORTAFOLIO" store:Type="Tables" />
           <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="PORTAFOLIO" store:Type="Tables" />
@@ -593,6 +610,13 @@
           <EntitySet Name="TRAMO" EntityType="Self.TRAMO" Schema="PORTAFOLIO" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="PORTAFOLIO" store:Type="Tables" />
           <EntitySet Name="VALORACION" EntityType="Self.VALORACION" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="USUARIOSMAILIST" EntityType="Self.USUARIOSMAILIST" store:Type="Views" store:Schema="PORTAFOLIO">
+            <DefiningQuery>SELECT 
+"USUARIOSMAILIST"."NOMBRES_USUARIO" AS "NOMBRES_USUARIO", 
+"USUARIOSMAILIST"."APELLIDO_PATERNO" AS "APELLIDO_PATERNO", 
+"USUARIOSMAILIST"."CORREO" AS "CORREO"
+FROM "PORTAFOLIO"."USUARIOSMAILIST" "USUARIOSMAILIST"</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="CAMPANA_TIENDA_FK" Association="Self.CAMPANA_TIENDA_FK">
             <End Role="TIENDA" EntitySet="TIENDA" />
             <End Role="CAMPANA" EntitySet="CAMPANA" />
@@ -645,10 +669,6 @@
             <End Role="OFERTA" EntitySet="OFERTA" />
             <End Role="VALORACION" EntitySet="VALORACION" />
           </AssociationSet>
-          <AssociationSet Name="VALORACION_TIENDA_FK" Association="Self.VALORACION_TIENDA_FK">
-            <End Role="TIENDA" EntitySet="TIENDA" />
-            <End Role="VALORACION" EntitySet="VALORACION" />
-          </AssociationSet>
           <AssociationSet Name="VALORACION_USUARIO_FK" Association="Self.VALORACION_USUARIO_FK">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="VALORACION" EntitySet="VALORACION" />
@@ -657,7 +677,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MisOfertasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CAMPANA">
           <Key>
             <PropertyRef Name="ID_CAMPANA" />
@@ -670,10 +690,10 @@
           <Property Name="FECHA" Type="DateTime" Nullable="false" />
           <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="USUARIO_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIENDA_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TIENDA" Relationship="Self.CAMPANA_TIENDA_FK" FromRole="CAMPANA" ToRole="TIENDA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.CAMPANA_USUARIO_FK" FromRole="CAMPANA" ToRole="USUARIO" />
           <NavigationProperty Name="OFERTA" Relationship="Self.OFERTA_CAMPANA_FK" FromRole="CAMPANA" ToRole="OFERTA" />
-          <Property Name="TIENDA_FK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <NavigationProperty Name="TIENDA" Relationship="MisOfertasModel.CAMPANA_TIENDA_FK" FromRole="CAMPANA" ToRole="TIENDA" />
         </EntityType>
         <EntityType Name="CUPON">
           <Key>
@@ -720,10 +740,10 @@
           <Property Name="CANTIDAD_MAXIMA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRECIO_NORMAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRECIO_OFERTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="IMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Nullable="false" />
           <Property Name="CAMPANA_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRODUCTO_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IMAGEN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CAMPANA" Relationship="Self.OFERTA_CAMPANA_FK" FromRole="OFERTA" ToRole="CAMPANA" />
           <NavigationProperty Name="PRODUCTO" Relationship="Self.OFERTA_PRODUCTO_FK" FromRole="OFERTA" ToRole="PRODUCTO" />
           <NavigationProperty Name="VALORACION" Relationship="Self.VALORACION_OFERTA_FK" FromRole="OFERTA" ToRole="VALORACION" />
@@ -777,10 +797,9 @@
           <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMPRESA_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USUARIO_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CAMPANA" Relationship="Self.CAMPANA_TIENDA_FK" FromRole="TIENDA" ToRole="CAMPANA" />
           <NavigationProperty Name="EMPRESA" Relationship="Self.TIENDA_EMPRESA_FK" FromRole="TIENDA" ToRole="EMPRESA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.TIENDA_USUARIO_FK" FromRole="TIENDA" ToRole="USUARIO" />
-          <NavigationProperty Name="VALORACION" Relationship="Self.VALORACION_TIENDA_FK" FromRole="TIENDA" ToRole="VALORACION" />
-          <NavigationProperty Name="CAMPANA" Relationship="MisOfertasModel.CAMPANA_TIENDA_FK" FromRole="TIENDA" ToRole="CAMPANA" />
         </EntityType>
         <EntityType Name="TRAMO">
           <Key>
@@ -819,18 +838,38 @@
           </Key>
           <Property Name="ID_VALORACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="IMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ATENCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OFERTA_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USUARIO_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="TIENDA_FK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IMAGEN" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="OFERTA" Relationship="Self.VALORACION_OFERTA_FK" FromRole="VALORACION" ToRole="OFERTA" />
-          <NavigationProperty Name="TIENDA" Relationship="Self.VALORACION_TIENDA_FK" FromRole="VALORACION" ToRole="TIENDA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.VALORACION_USUARIO_FK" FromRole="VALORACION" ToRole="USUARIO" />
         </EntityType>
+        <EntityType Name="USUARIOSMAILIST">
+          <Key>
+            <PropertyRef Name="NOMBRES_USUARIO" />
+            <PropertyRef Name="APELLIDO_PATERNO" />
+            <PropertyRef Name="CORREO" />
+          </Key>
+          <Property Name="NOMBRES_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_PATERNO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="CAMPANA_TIENDA_FK">
+          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="1" />
+          <End Role="CAMPANA" Type="Self.CAMPANA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIENDA">
+              <PropertyRef Name="ID_TIENDA" />
+            </Principal>
+            <Dependent Role="CAMPANA">
+              <PropertyRef Name="TIENDA_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="CAMPANA_USUARIO_FK">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="CAMPANA" Type="Self.CAMPANA" Multiplicity="*" />
@@ -975,18 +1014,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VALORACION_TIENDA_FK">
-          <End Role="TIENDA" Type="Self.TIENDA" Multiplicity="1" />
-          <End Role="VALORACION" Type="Self.VALORACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIENDA">
-              <PropertyRef Name="ID_TIENDA" />
-            </Principal>
-            <Dependent Role="VALORACION">
-              <PropertyRef Name="TIENDA_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="VALORACION_USUARIO_FK">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="VALORACION" Type="Self.VALORACION" Multiplicity="*" />
@@ -999,7 +1026,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EntitiesBD" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CAMPANA" EntityType="Self.CAMPANA" />
           <EntitySet Name="CUPON" EntityType="Self.CUPON" />
           <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
@@ -1013,6 +1040,11 @@
           <EntitySet Name="TRAMO" EntityType="Self.TRAMO" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
           <EntitySet Name="VALORACION" EntityType="Self.VALORACION" />
+          <EntitySet Name="USUARIOSMAILIST" EntityType="Self.USUARIOSMAILIST" />
+          <AssociationSet Name="CAMPANA_TIENDA_FK" Association="Self.CAMPANA_TIENDA_FK">
+            <End Role="TIENDA" EntitySet="TIENDA" />
+            <End Role="CAMPANA" EntitySet="CAMPANA" />
+          </AssociationSet>
           <AssociationSet Name="CAMPANA_USUARIO_FK" Association="Self.CAMPANA_USUARIO_FK">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="CAMPANA" EntitySet="CAMPANA" />
@@ -1061,14 +1093,16 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="TIENDA" EntitySet="TIENDA" />
           </AssociationSet>
-          <AssociationSet Name="VALORACION_TIENDA_FK" Association="Self.VALORACION_TIENDA_FK">
-            <End Role="TIENDA" EntitySet="TIENDA" />
-            <End Role="VALORACION" EntitySet="VALORACION" />
-          </AssociationSet>
           <AssociationSet Name="VALORACION_USUARIO_FK" Association="Self.VALORACION_USUARIO_FK">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="VALORACION" EntitySet="VALORACION" />
           </AssociationSet>
+          <FunctionImport Name="CONSULTAEMPRESA">
+          <Parameter Name="P_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CONSULTAUSUARIO">
+          <Parameter Name="P_CORREO" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="DELETECAMPANA">
           <Parameter Name="P_ID_CAMPANA" Mode="In" Type="Decimal" />
           </FunctionImport>
@@ -1108,6 +1142,18 @@
           <FunctionImport Name="DELETEVALORACION">
           <Parameter Name="P_ID_VALORACION" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="ELIMINARCAMPANA">
+          <Parameter Name="P_ID_CAMPANA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINAREMPRESA">
+          <Parameter Name="P_ID_EMPRESA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARTIENDA">
+          <Parameter Name="P_ID_TIENDA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARUSUARIO">
+          <Parameter Name="P_ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
           <FunctionImport Name="INSERTCAMPANA">
             <Parameter Name="P_NOMBRE_CAMPANA" Mode="In" Type="String" />
             <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
@@ -1135,7 +1181,6 @@
             <Parameter Name="P_RUT" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="INSERTMAILLIST">
-            <Parameter Name="P_ID_MAILLIST" Mode="In" Type="Decimal" />
             <Parameter Name="P_SUSCRITO" Mode="In" Type="String" />
             <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
           </FunctionImport>
@@ -1189,7 +1234,7 @@
             <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="P_ROL_USUARIO_FK" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <FunctionImport Name="addValoracion">
+          <FunctionImport Name="INSERTVALORACION">
             <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="P_IMAGEN" Mode="In" Type="String" />
             <Parameter Name="P_CALIDAD" Mode="In" Type="Decimal" />
@@ -1212,7 +1257,7 @@
           <FunctionImport Name="SELECTTRAMO" />
           <FunctionImport Name="SELECTUSUARIO" />
           <FunctionImport Name="SELECTVALORACION" />
-          <FunctionImport Name="login">
+          <FunctionImport Name="SP_LOGIN">
             <Parameter Name="P_CORREO" Mode="In" Type="String" />
             <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
             <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
@@ -1225,6 +1270,12 @@
             <Parameter Name="P_FECHA_FIN" Mode="In" Type="DateTime" />
             <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIOFK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIENDAFK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATECONTRASENA">
+            <Parameter Name="P_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UPDATECUPON">
             <Parameter Name="P_ID_CUPON" Mode="In" Type="Decimal" />
@@ -1286,6 +1337,8 @@
             <Parameter Name="P_NOMBRE_TIENDA" Mode="In" Type="String" />
             <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
             <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="P_EMPRESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_USUARIO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="UPDATETRAMO">
             <Parameter Name="P_ID_TRAMO" Mode="In" Type="Decimal" />
@@ -1298,13 +1351,28 @@
             <Parameter Name="P_APELLIDO_PATERNO" Mode="In" Type="String" />
             <Parameter Name="P_APELLIDO_MATERNO" Mode="In" Type="String" />
             <Parameter Name="P_CORREO" Mode="In" Type="String" />
-            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
             <Parameter Name="P_RUT" Mode="In" Type="String" />
             <Parameter Name="P_ESTADO" Mode="In" Type="String" />
-            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_ROL" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="UPDATEVALORACION">
             <Parameter Name="P_ID_VALORACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_IMAGEN" Mode="In" Type="String" />
+            <Parameter Name="P_CALIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="P_ATENCION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_COMENTARIO" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_OFERTA_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="addEmpresa">
+            <Parameter Name="P_NOMBRE_EMPRESA" Mode="In" Type="String" />
+            <Parameter Name="P_RAZON_SOCIAL" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="P_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addValoracion">
             <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="P_IMAGEN" Mode="In" Type="String" />
             <Parameter Name="P_CALIDAD" Mode="In" Type="Decimal" />
@@ -1325,21 +1393,10 @@
             <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="P_ROL_USUARIO_FK" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <FunctionImport Name="findByEmail">
-          <Parameter Name="P_CORREO" Mode="In" Type="String" />
-          </FunctionImport>
-          <AssociationSet Name="CAMPANA_TIENDA_FK" Association="MisOfertasModel.CAMPANA_TIENDA_FK">
-            <End Role="TIENDA" EntitySet="TIENDA" />
-            <End Role="CAMPANA" EntitySet="CAMPANA" />
-          </AssociationSet>
-          <FunctionImport Name="CONSULTAEMPRESA">
-            <Parameter Name="P_RUT" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="addEmpresa">
-            <Parameter Name="P_NOMBRE_EMPRESA" Mode="In" Type="String" />
-            <Parameter Name="P_RAZON_SOCIAL" Mode="In" Type="String" />
-            <Parameter Name="P_ESTADO" Mode="In" Type="String" />
-            <Parameter Name="P_RUT" Mode="In" Type="String" />
+          <FunctionImport Name="login">
+            <Parameter Name="P_CORREO" Mode="In" Type="String" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE_ROL" Mode="Out" Type="String" />
           </FunctionImport>
           <FunctionImport Name="addTienda">
             <Parameter Name="P_NOMBRE_TIENDA" Mode="In" Type="String" />
@@ -1348,29 +1405,20 @@
             <Parameter Name="P_EMPRESA_FK" Mode="In" Type="Decimal" />
             <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="sp_InsertMailL">
+            <Parameter Name="P_SUSCRITO" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
-        <Association Name="CAMPANA_TIENDA_FK">
-          <End Type="MisOfertasModel.TIENDA" Role="TIENDA" Multiplicity="1" />
-          <End Type="MisOfertasModel.CAMPANA" Role="CAMPANA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIENDA">
-              <PropertyRef Name="ID_TIENDA" />
-            </Principal>
-            <Dependent Role="CAMPANA">
-              <PropertyRef Name="TIENDA_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MisOfertasModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EntitiesBD">
           <EntitySetMapping Name="CAMPANA">
-            <EntityTypeMapping TypeName="MisOfertasModel.CAMPANA">
+            <EntityTypeMapping TypeName="Model.CAMPANA">
               <MappingFragment StoreEntitySet="CAMPANA">
-                <ScalarProperty Name="TIENDA_FK" ColumnName="TIENDA_FK" />
                 <ScalarProperty Name="ID_CAMPANA" ColumnName="ID_CAMPANA" />
                 <ScalarProperty Name="NOMBRE_CAMPANA" ColumnName="NOMBRE_CAMPANA" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -1379,11 +1427,12 @@
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USUARIO_FK" ColumnName="USUARIO_FK" />
+                <ScalarProperty Name="TIENDA_FK" ColumnName="TIENDA_FK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CUPON">
-            <EntityTypeMapping TypeName="MisOfertasModel.CUPON">
+            <EntityTypeMapping TypeName="Model.CUPON">
               <MappingFragment StoreEntitySet="CUPON">
                 <ScalarProperty Name="ID_CUPON" ColumnName="ID_CUPON" />
                 <ScalarProperty Name="PDF" ColumnName="PDF" />
@@ -1398,7 +1447,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EMPRESA">
-            <EntityTypeMapping TypeName="MisOfertasModel.EMPRESA">
+            <EntityTypeMapping TypeName="Model.EMPRESA">
               <MappingFragment StoreEntitySet="EMPRESA">
                 <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
                 <ScalarProperty Name="NOMBRE_EMPRESA" ColumnName="NOMBRE_EMPRESA" />
@@ -1409,7 +1458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAILLIST">
-            <EntityTypeMapping TypeName="MisOfertasModel.MAILLIST">
+            <EntityTypeMapping TypeName="Model.MAILLIST">
               <MappingFragment StoreEntitySet="MAILLIST">
                 <ScalarProperty Name="ID_MAILLIST" ColumnName="ID_MAILLIST" />
                 <ScalarProperty Name="SUSCRITO" ColumnName="SUSCRITO" />
@@ -1418,22 +1467,22 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OFERTA">
-            <EntityTypeMapping TypeName="MisOfertasModel.OFERTA">
+            <EntityTypeMapping TypeName="Model.OFERTA">
               <MappingFragment StoreEntitySet="OFERTA">
                 <ScalarProperty Name="ID_OFERTA" ColumnName="ID_OFERTA" />
                 <ScalarProperty Name="CANTIDAD_MINIMA" ColumnName="CANTIDAD_MINIMA" />
                 <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
                 <ScalarProperty Name="PRECIO_NORMAL" ColumnName="PRECIO_NORMAL" />
                 <ScalarProperty Name="PRECIO_OFERTA" ColumnName="PRECIO_OFERTA" />
-                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
                 <ScalarProperty Name="CAMPANA_FK" ColumnName="CAMPANA_FK" />
                 <ScalarProperty Name="PRODUCTO_FK" ColumnName="PRODUCTO_FK" />
+                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTO">
-            <EntityTypeMapping TypeName="MisOfertasModel.PRODUCTO">
+            <EntityTypeMapping TypeName="Model.PRODUCTO">
               <MappingFragment StoreEntitySet="PRODUCTO">
                 <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
                 <ScalarProperty Name="NOMBRE_PRODUCTO" ColumnName="NOMBRE_PRODUCTO" />
@@ -1446,7 +1495,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PUNTOS">
-            <EntityTypeMapping TypeName="MisOfertasModel.PUNTOS">
+            <EntityTypeMapping TypeName="Model.PUNTOS">
               <MappingFragment StoreEntitySet="PUNTOS">
                 <ScalarProperty Name="ID_PUNTOS" ColumnName="ID_PUNTOS" />
                 <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
@@ -1455,7 +1504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ROL_USUARIO">
-            <EntityTypeMapping TypeName="MisOfertasModel.ROL_USUARIO">
+            <EntityTypeMapping TypeName="Model.ROL_USUARIO">
               <MappingFragment StoreEntitySet="ROL_USUARIO">
                 <ScalarProperty Name="ID_ROL_USUARIO" ColumnName="ID_ROL_USUARIO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
@@ -1463,7 +1512,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RUBRO">
-            <EntityTypeMapping TypeName="MisOfertasModel.RUBRO">
+            <EntityTypeMapping TypeName="Model.RUBRO">
               <MappingFragment StoreEntitySet="RUBRO">
                 <ScalarProperty Name="ID_RUBRO" ColumnName="ID_RUBRO" />
                 <ScalarProperty Name="NOMBRE_RUBRO" ColumnName="NOMBRE_RUBRO" />
@@ -1471,7 +1520,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIENDA">
-            <EntityTypeMapping TypeName="MisOfertasModel.TIENDA">
+            <EntityTypeMapping TypeName="Model.TIENDA">
               <MappingFragment StoreEntitySet="TIENDA">
                 <ScalarProperty Name="ID_TIENDA" ColumnName="ID_TIENDA" />
                 <ScalarProperty Name="NOMBRE_TIENDA" ColumnName="NOMBRE_TIENDA" />
@@ -1483,7 +1532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRAMO">
-            <EntityTypeMapping TypeName="MisOfertasModel.TRAMO">
+            <EntityTypeMapping TypeName="Model.TRAMO">
               <MappingFragment StoreEntitySet="TRAMO">
                 <ScalarProperty Name="ID_TRAMO" ColumnName="ID_TRAMO" />
                 <ScalarProperty Name="MINIMO" ColumnName="MINIMO" />
@@ -1492,7 +1541,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="MisOfertasModel.USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="NOMBRES_USUARIO" ColumnName="NOMBRES_USUARIO" />
@@ -1508,79 +1557,95 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VALORACION">
-            <EntityTypeMapping TypeName="MisOfertasModel.VALORACION">
+            <EntityTypeMapping TypeName="Model.VALORACION">
               <MappingFragment StoreEntitySet="VALORACION">
                 <ScalarProperty Name="ID_VALORACION" ColumnName="ID_VALORACION" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
                 <ScalarProperty Name="CALIDAD" ColumnName="CALIDAD" />
                 <ScalarProperty Name="ATENCION" ColumnName="ATENCION" />
                 <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
                 <ScalarProperty Name="OFERTA_FK" ColumnName="OFERTA_FK" />
                 <ScalarProperty Name="USUARIO_FK" ColumnName="USUARIO_FK" />
-                <ScalarProperty Name="TIENDA_FK" ColumnName="TIENDA_FK" />
+                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="DELETECAMPANA" FunctionName="MisOfertasModel.Store.DELETECAMPANA" />
-          <FunctionImportMapping FunctionImportName="DELETECUPON" FunctionName="MisOfertasModel.Store.DELETECUPON" />
-          <FunctionImportMapping FunctionImportName="DELETEEMPRESA" FunctionName="MisOfertasModel.Store.DELETEEMPRESA" />
-          <FunctionImportMapping FunctionImportName="DELETEMAILLIST" FunctionName="MisOfertasModel.Store.DELETEMAILLIST" />
-          <FunctionImportMapping FunctionImportName="DELETEOFERTA" FunctionName="MisOfertasModel.Store.DELETEOFERTA" />
-          <FunctionImportMapping FunctionImportName="DELETEPRODUCTO" FunctionName="MisOfertasModel.Store.DELETEPRODUCTO" />
-          <FunctionImportMapping FunctionImportName="DELETEPUNTOS" FunctionName="MisOfertasModel.Store.DELETEPUNTOS" />
-          <FunctionImportMapping FunctionImportName="DELETEROLUSUARIO" FunctionName="MisOfertasModel.Store.DELETEROLUSUARIO" />
-          <FunctionImportMapping FunctionImportName="DELETERUBRO" FunctionName="MisOfertasModel.Store.DELETERUBRO" />
-          <FunctionImportMapping FunctionImportName="DELETETIENDA" FunctionName="MisOfertasModel.Store.DELETETIENDA" />
-          <FunctionImportMapping FunctionImportName="DELETETRAMO" FunctionName="MisOfertasModel.Store.DELETETRAMO" />
-          <FunctionImportMapping FunctionImportName="DELETEUSUARIO" FunctionName="MisOfertasModel.Store.DELETEUSUARIO" />
-          <FunctionImportMapping FunctionImportName="DELETEVALORACION" FunctionName="MisOfertasModel.Store.DELETEVALORACION" />
-          <FunctionImportMapping FunctionImportName="INSERTCAMPANA" FunctionName="MisOfertasModel.Store.INSERTCAMPANA" />
-          <FunctionImportMapping FunctionImportName="INSERTCUPON" FunctionName="MisOfertasModel.Store.INSERTCUPON" />
-          <FunctionImportMapping FunctionImportName="INSERTEMPRESA" FunctionName="MisOfertasModel.Store.INSERTEMPRESA" />
-          <FunctionImportMapping FunctionImportName="INSERTMAILLIST" FunctionName="MisOfertasModel.Store.INSERTMAILLIST" />
-          <FunctionImportMapping FunctionImportName="INSERTOFERTA" FunctionName="MisOfertasModel.Store.INSERTOFERTA" />
-          <FunctionImportMapping FunctionImportName="INSERTPRODUCTO" FunctionName="MisOfertasModel.Store.INSERTPRODUCTO" />
-          <FunctionImportMapping FunctionImportName="INSERTPUNTOS" FunctionName="MisOfertasModel.Store.INSERTPUNTOS" />
-          <FunctionImportMapping FunctionImportName="INSERTROLUSUARIO" FunctionName="MisOfertasModel.Store.INSERTROLUSUARIO" />
-          <FunctionImportMapping FunctionImportName="INSERTRUBRO" FunctionName="MisOfertasModel.Store.INSERTRUBRO" />
-          <FunctionImportMapping FunctionImportName="INSERTTIENDA" FunctionName="MisOfertasModel.Store.INSERTTIENDA" />
-          <FunctionImportMapping FunctionImportName="INSERTTRAMO" FunctionName="MisOfertasModel.Store.INSERTTRAMO" />
-          <FunctionImportMapping FunctionImportName="INSERTUSUARIO" FunctionName="MisOfertasModel.Store.INSERTUSUARIO" />
-          <FunctionImportMapping FunctionImportName="addValoracion" FunctionName="MisOfertasModel.Store.INSERTVALORACION" />
-          <FunctionImportMapping FunctionImportName="SELECTCAMPANA" FunctionName="MisOfertasModel.Store.SELECTCAMPANA" />
-          <FunctionImportMapping FunctionImportName="SELECTCUPON" FunctionName="MisOfertasModel.Store.SELECTCUPON" />
-          <FunctionImportMapping FunctionImportName="SELECTEMPRESA" FunctionName="MisOfertasModel.Store.SELECTEMPRESA" />
-          <FunctionImportMapping FunctionImportName="SELECTMAILLIST" FunctionName="MisOfertasModel.Store.SELECTMAILLIST" />
-          <FunctionImportMapping FunctionImportName="SELECTOFERTA" FunctionName="MisOfertasModel.Store.SELECTOFERTA" />
-          <FunctionImportMapping FunctionImportName="SELECTPRODUCTO" FunctionName="MisOfertasModel.Store.SELECTPRODUCTO" />
-          <FunctionImportMapping FunctionImportName="SELECTPUNTOS" FunctionName="MisOfertasModel.Store.SELECTPUNTOS" />
-          <FunctionImportMapping FunctionImportName="SELECTROLUSUARIO" FunctionName="MisOfertasModel.Store.SELECTROLUSUARIO" />
-          <FunctionImportMapping FunctionImportName="SELECTRUBRO" FunctionName="MisOfertasModel.Store.SELECTRUBRO" />
-          <FunctionImportMapping FunctionImportName="SELECTTIENDA" FunctionName="MisOfertasModel.Store.SELECTTIENDA" />
-          <FunctionImportMapping FunctionImportName="SELECTTRAMO" FunctionName="MisOfertasModel.Store.SELECTTRAMO" />
-          <FunctionImportMapping FunctionImportName="SELECTUSUARIO" FunctionName="MisOfertasModel.Store.SELECTUSUARIO" />
-          <FunctionImportMapping FunctionImportName="SELECTVALORACION" FunctionName="MisOfertasModel.Store.SELECTVALORACION" />
-          <FunctionImportMapping FunctionImportName="login" FunctionName="MisOfertasModel.Store.SP_LOGIN" />
-          <FunctionImportMapping FunctionImportName="UPDATECAMPANA" FunctionName="MisOfertasModel.Store.UPDATECAMPANA" />
-          <FunctionImportMapping FunctionImportName="UPDATECUPON" FunctionName="MisOfertasModel.Store.UPDATECUPON" />
-          <FunctionImportMapping FunctionImportName="UPDATEEMPRESA" FunctionName="MisOfertasModel.Store.UPDATEEMPRESA" />
-          <FunctionImportMapping FunctionImportName="UPDATEMAILLIST" FunctionName="MisOfertasModel.Store.UPDATEMAILLIST" />
-          <FunctionImportMapping FunctionImportName="UPDATEOFERTA" FunctionName="MisOfertasModel.Store.UPDATEOFERTA" />
-          <FunctionImportMapping FunctionImportName="UPDATEPRODUCTO" FunctionName="MisOfertasModel.Store.UPDATEPRODUCTO" />
-          <FunctionImportMapping FunctionImportName="UPDATEPUNTOS" FunctionName="MisOfertasModel.Store.UPDATEPUNTOS" />
-          <FunctionImportMapping FunctionImportName="UPDATEROLUSUARIO" FunctionName="MisOfertasModel.Store.UPDATEROLUSUARIO" />
-          <FunctionImportMapping FunctionImportName="UPDATERUBRO" FunctionName="MisOfertasModel.Store.UPDATERUBRO" />
-          <FunctionImportMapping FunctionImportName="UPDATETIENDA" FunctionName="MisOfertasModel.Store.UPDATETIENDA" />
-          <FunctionImportMapping FunctionImportName="UPDATETRAMO" FunctionName="MisOfertasModel.Store.UPDATETRAMO" />
-          <FunctionImportMapping FunctionImportName="UPDATEUSUARIO" FunctionName="MisOfertasModel.Store.UPDATEUSUARIO" />
-          <FunctionImportMapping FunctionImportName="UPDATEVALORACION" FunctionName="MisOfertasModel.Store.UPDATEVALORACION" />
-          <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="MisOfertasModel.Store.INSERTUSUARIO" />
-          <FunctionImportMapping FunctionImportName="findByEmail" FunctionName="MisOfertasModel.Store.CONSULTAUSUARIO" />
-          <FunctionImportMapping FunctionImportName="CONSULTAEMPRESA" FunctionName="MisOfertasModel.Store.CONSULTAEMPRESA" />
-          <FunctionImportMapping FunctionImportName="addEmpresa" FunctionName="MisOfertasModel.Store.INSERTEMPRESA" />
-          <FunctionImportMapping FunctionImportName="addTienda" FunctionName="MisOfertasModel.Store.INSERTTIENDA" />
+          <EntitySetMapping Name="USUARIOSMAILIST">
+            <EntityTypeMapping TypeName="Model.USUARIOSMAILIST">
+              <MappingFragment StoreEntitySet="USUARIOSMAILIST">
+                <ScalarProperty Name="NOMBRES_USUARIO" ColumnName="NOMBRES_USUARIO" />
+                <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CONSULTAEMPRESA" FunctionName="Model.Store.CONSULTAEMPRESA" />
+          <FunctionImportMapping FunctionImportName="CONSULTAUSUARIO" FunctionName="Model.Store.CONSULTAUSUARIO" />
+          <FunctionImportMapping FunctionImportName="DELETECAMPANA" FunctionName="Model.Store.DELETECAMPANA" />
+          <FunctionImportMapping FunctionImportName="DELETECUPON" FunctionName="Model.Store.DELETECUPON" />
+          <FunctionImportMapping FunctionImportName="DELETEEMPRESA" FunctionName="Model.Store.DELETEEMPRESA" />
+          <FunctionImportMapping FunctionImportName="DELETEMAILLIST" FunctionName="Model.Store.DELETEMAILLIST" />
+          <FunctionImportMapping FunctionImportName="DELETEOFERTA" FunctionName="Model.Store.DELETEOFERTA" />
+          <FunctionImportMapping FunctionImportName="DELETEPRODUCTO" FunctionName="Model.Store.DELETEPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="DELETEPUNTOS" FunctionName="Model.Store.DELETEPUNTOS" />
+          <FunctionImportMapping FunctionImportName="DELETEROLUSUARIO" FunctionName="Model.Store.DELETEROLUSUARIO" />
+          <FunctionImportMapping FunctionImportName="DELETERUBRO" FunctionName="Model.Store.DELETERUBRO" />
+          <FunctionImportMapping FunctionImportName="DELETETIENDA" FunctionName="Model.Store.DELETETIENDA" />
+          <FunctionImportMapping FunctionImportName="DELETETRAMO" FunctionName="Model.Store.DELETETRAMO" />
+          <FunctionImportMapping FunctionImportName="DELETEUSUARIO" FunctionName="Model.Store.DELETEUSUARIO" />
+          <FunctionImportMapping FunctionImportName="DELETEVALORACION" FunctionName="Model.Store.DELETEVALORACION" />
+          <FunctionImportMapping FunctionImportName="ELIMINARCAMPANA" FunctionName="Model.Store.ELIMINARCAMPANA" />
+          <FunctionImportMapping FunctionImportName="ELIMINAREMPRESA" FunctionName="Model.Store.ELIMINAREMPRESA" />
+          <FunctionImportMapping FunctionImportName="ELIMINARTIENDA" FunctionName="Model.Store.ELIMINARTIENDA" />
+          <FunctionImportMapping FunctionImportName="ELIMINARUSUARIO" FunctionName="Model.Store.ELIMINARUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INSERTCAMPANA" FunctionName="Model.Store.INSERTCAMPANA" />
+          <FunctionImportMapping FunctionImportName="INSERTCUPON" FunctionName="Model.Store.INSERTCUPON" />
+          <FunctionImportMapping FunctionImportName="INSERTEMPRESA" FunctionName="Model.Store.INSERTEMPRESA" />
+          <FunctionImportMapping FunctionImportName="INSERTMAILLIST" FunctionName="Model.Store.INSERTMAILLIST" />
+          <FunctionImportMapping FunctionImportName="INSERTOFERTA" FunctionName="Model.Store.INSERTOFERTA" />
+          <FunctionImportMapping FunctionImportName="INSERTPRODUCTO" FunctionName="Model.Store.INSERTPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="INSERTPUNTOS" FunctionName="Model.Store.INSERTPUNTOS" />
+          <FunctionImportMapping FunctionImportName="INSERTROLUSUARIO" FunctionName="Model.Store.INSERTROLUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INSERTRUBRO" FunctionName="Model.Store.INSERTRUBRO" />
+          <FunctionImportMapping FunctionImportName="INSERTTIENDA" FunctionName="Model.Store.INSERTTIENDA" />
+          <FunctionImportMapping FunctionImportName="INSERTTRAMO" FunctionName="Model.Store.INSERTTRAMO" />
+          <FunctionImportMapping FunctionImportName="INSERTUSUARIO" FunctionName="Model.Store.INSERTUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INSERTVALORACION" FunctionName="Model.Store.INSERTVALORACION" />
+          <FunctionImportMapping FunctionImportName="SELECTCAMPANA" FunctionName="Model.Store.SELECTCAMPANA" />
+          <FunctionImportMapping FunctionImportName="SELECTCUPON" FunctionName="Model.Store.SELECTCUPON" />
+          <FunctionImportMapping FunctionImportName="SELECTEMPRESA" FunctionName="Model.Store.SELECTEMPRESA" />
+          <FunctionImportMapping FunctionImportName="SELECTMAILLIST" FunctionName="Model.Store.SELECTMAILLIST" />
+          <FunctionImportMapping FunctionImportName="SELECTOFERTA" FunctionName="Model.Store.SELECTOFERTA" />
+          <FunctionImportMapping FunctionImportName="SELECTPRODUCTO" FunctionName="Model.Store.SELECTPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SELECTPUNTOS" FunctionName="Model.Store.SELECTPUNTOS" />
+          <FunctionImportMapping FunctionImportName="SELECTROLUSUARIO" FunctionName="Model.Store.SELECTROLUSUARIO" />
+          <FunctionImportMapping FunctionImportName="SELECTRUBRO" FunctionName="Model.Store.SELECTRUBRO" />
+          <FunctionImportMapping FunctionImportName="SELECTTIENDA" FunctionName="Model.Store.SELECTTIENDA" />
+          <FunctionImportMapping FunctionImportName="SELECTTRAMO" FunctionName="Model.Store.SELECTTRAMO" />
+          <FunctionImportMapping FunctionImportName="SELECTUSUARIO" FunctionName="Model.Store.SELECTUSUARIO" />
+          <FunctionImportMapping FunctionImportName="SELECTVALORACION" FunctionName="Model.Store.SELECTVALORACION" />
+          <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="Model.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="UPDATECAMPANA" FunctionName="Model.Store.UPDATECAMPANA" />
+          <FunctionImportMapping FunctionImportName="UPDATECONTRASENA" FunctionName="Model.Store.UPDATECONTRASENA" />
+          <FunctionImportMapping FunctionImportName="UPDATECUPON" FunctionName="Model.Store.UPDATECUPON" />
+          <FunctionImportMapping FunctionImportName="UPDATEEMPRESA" FunctionName="Model.Store.UPDATEEMPRESA" />
+          <FunctionImportMapping FunctionImportName="UPDATEMAILLIST" FunctionName="Model.Store.UPDATEMAILLIST" />
+          <FunctionImportMapping FunctionImportName="UPDATEOFERTA" FunctionName="Model.Store.UPDATEOFERTA" />
+          <FunctionImportMapping FunctionImportName="UPDATEPRODUCTO" FunctionName="Model.Store.UPDATEPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="UPDATEPUNTOS" FunctionName="Model.Store.UPDATEPUNTOS" />
+          <FunctionImportMapping FunctionImportName="UPDATEROLUSUARIO" FunctionName="Model.Store.UPDATEROLUSUARIO" />
+          <FunctionImportMapping FunctionImportName="UPDATERUBRO" FunctionName="Model.Store.UPDATERUBRO" />
+          <FunctionImportMapping FunctionImportName="UPDATETIENDA" FunctionName="Model.Store.UPDATETIENDA" />
+          <FunctionImportMapping FunctionImportName="UPDATETRAMO" FunctionName="Model.Store.UPDATETRAMO" />
+          <FunctionImportMapping FunctionImportName="UPDATEUSUARIO" FunctionName="Model.Store.UPDATEUSUARIO" />
+          <FunctionImportMapping FunctionImportName="UPDATEVALORACION" FunctionName="Model.Store.UPDATEVALORACION" />
+          <FunctionImportMapping FunctionImportName="addEmpresa" FunctionName="Model.Store.INSERTEMPRESA" />
+          <FunctionImportMapping FunctionImportName="addValoracion" FunctionName="Model.Store.INSERTVALORACION" />
+          <FunctionImportMapping FunctionImportName="addUsuario" FunctionName="Model.Store.INSERTUSUARIO" />
+          <FunctionImportMapping FunctionImportName="login" FunctionName="Model.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="addTienda" FunctionName="Model.Store.INSERTTIENDA" />
+          <FunctionImportMapping FunctionImportName="sp_InsertMailL" FunctionName="Model.Store.INSERTMAILLIST" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

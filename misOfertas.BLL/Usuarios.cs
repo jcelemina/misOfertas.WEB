@@ -142,6 +142,10 @@ namespace misOfertas.BLL
 
         }
 
+        public int insertMailList() {
+            return CommomBC.entities.sp_InsertMailL("T",id);
+        }
+
 
     }
 }

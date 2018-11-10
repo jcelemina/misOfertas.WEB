@@ -32,12 +32,18 @@ namespace misOffertas
             usu.correo = txtEmail.Text;
             usu.contrasena = txtpassword.Text;
 
+            if (chkMailList.Checked == true)
+            {
+                BLL.Usuarios USUA = usu.find(usu.correo, usu.contrasena);
+                USUA.insertMailList();
+            }
+
             bool ingresar = usu.create();
 
 
             if (ingresar == true)
             {
-
+               
                 lblMensaje.Text = "Exito!!, usuario Registrado";
             }
             else

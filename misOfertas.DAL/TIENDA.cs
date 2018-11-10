@@ -16,7 +16,6 @@ namespace misOfertas.DAL
     {
         public TIENDA()
         {
-            this.VALORACION = new HashSet<VALORACION>();
             this.CAMPANA = new HashSet<CAMPANA>();
         }
     
@@ -27,9 +26,8 @@ namespace misOfertas.DAL
         public decimal EMPRESA_FK { get; set; }
         public decimal USUARIO_FK { get; set; }
     
+        public virtual ICollection<CAMPANA> CAMPANA { get; set; }
         public virtual EMPRESA EMPRESA { get; set; }
         public virtual USUARIO USUARIO { get; set; }
-        public virtual ICollection<VALORACION> VALORACION { get; set; }
-        public virtual ICollection<CAMPANA> CAMPANA { get; set; }
     }
 }

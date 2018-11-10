@@ -109,7 +109,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AgenteRetail\index.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
     <Content Include="Consumidor\ErrorEvaluar.aspx" />
@@ -151,13 +150,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgenteRetail\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgenteRetail\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgenteRetail\RegistroEmpresa.aspx.cs">
