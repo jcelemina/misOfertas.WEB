@@ -34,7 +34,7 @@ namespace misOffertas
                     Response.Redirect("/Administrador/index.aspx");
                     break;
                     case "Consumidor":
-                    Response.Redirect("/Consumidor/index.aspx");
+                    Response.Redirect("/Consumidor/Ofertas.aspx");
                     break;
                     case "Agente Retail":
                         Response.Redirect("/AgenteRetail/index.aspx");
