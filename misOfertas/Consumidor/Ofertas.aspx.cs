@@ -16,10 +16,6 @@ namespace misOfertas.Consumidor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Oferta oferta = new Oferta();
-            //GvOfertas.DataSource = oferta.listaOfertas();
-            //GvOfertas.DataBind();
-
            
         }
 

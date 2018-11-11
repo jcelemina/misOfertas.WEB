@@ -20,6 +20,7 @@ namespace misOfertas.Consumidor
 
         protected void btnEvaluar_Click(object sender, EventArgs e)
         {
+            Usuarios usuarioEval = (Usuarios)Session["usuario"];
             Valoracion valoracion = new Valoracion();
             valoracion.Atencion = decimal.Parse(txtAtencion.Text);
             valoracion.Calidad = decimal.Parse(txtCalidad.Text);
@@ -28,7 +29,7 @@ namespace misOfertas.Consumidor
             valoracion.Fecha = DateTime.Now;
             valoracion.Imagen = fuImagen.FileName;
             valoracion.Oferta_fk = decimal.Parse(Session["idOferta"].ToString());
-            valoracion.Usuario_fk = 242;
+            valoracion.Usuario_fk = usuarioEval.id;
 
 
             if (valoracion.create())
