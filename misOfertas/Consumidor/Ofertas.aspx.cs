@@ -40,5 +40,10 @@ namespace misOfertas.Consumidor
             bvistaPrevia = imageBytes;
             return bvistaPrevia;
         }
+
+        protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }

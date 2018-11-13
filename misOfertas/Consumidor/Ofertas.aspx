@@ -3,20 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <asp:GridView ID="GvOfertas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="ObjectDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
+        <asp:GridView ID="GvOfertas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:BoundField DataField="ID_OFERTA" HeaderText="Oferta Nro" SortExpression="ID_OFERTA" />
-                <asp:BoundField DataField="CANTIDAD_MINIMA" HeaderText="Compra Minima" SortExpression="CANTIDAD_MINIMA" />
-                <asp:BoundField DataField="CANTIDAD_MAXIMA" HeaderText="Compra maxima" SortExpression="CANTIDAD_MAXIMA" />
+                <asp:BoundField DataField="ID_OFERTA" HeaderText="Nro Oferta" SortExpression="ID_OFERTA" />
+<asp:BoundField DataField="NOMBRE_PRODUCTO" HeaderText="Producto" SortExpression="NOMBRE_PRODUCTO"></asp:BoundField>
+<asp:BoundField DataField="NOMBRE_CAMPANA" HeaderText="Campaña" SortExpression="NOMBRE_CAMPANA"></asp:BoundField>
+                <asp:BoundField DataField="CANTIDAD_MINIMA" HeaderText="Cantidad Mínima" SortExpression="CANTIDAD_MINIMA" />
+                <asp:BoundField DataField="CANTIDAD_MAXIMA" HeaderText="Cantidad Máxima" SortExpression="CANTIDAD_MAXIMA" />
                 <asp:BoundField DataField="PRECIO_NORMAL" HeaderText="Precio Normal" SortExpression="PRECIO_NORMAL" />
                 <asp:BoundField DataField="PRECIO_OFERTA" HeaderText="Precio Oferta" SortExpression="PRECIO_OFERTA" />
-                <asp:TemplateField HeaderText="Imagen" SortExpression="IMAGEN">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("IMAGEN") %>'></asp:TextBox>
-                    </EditItemTemplate>
+                <asp:TemplateField HeaderText="Imagen">
                     <ItemTemplate>
-                        <asp:Image ID="ImgOferta" runat="server" Height="100px" ImageUrl='<%# Eval("IMAGEN") %>' Width="150px" />
+                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("IMAGEN") %>' Width="150px" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField SelectText="Evaluar" ShowSelectButton="True" />
@@ -32,7 +31,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"  SelectMethod="listaOfertas" TypeName="misOfertas.BLL.Oferta"></asp:ObjectDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT ofer.ID_OFERTA, prod.NOMBRE_PRODUCTO, camp.NOMBRE_CAMPANA, ofer.CANTIDAD_MINIMA, ofer.CANTIDAD_MAXIMA, ofer.PRECIO_NORMAL, ofer.PRECIO_OFERTA, ofer.IMAGEN FROM PORTAFOLIO.OFERTA ofer INNER JOIN PORTAFOLIO.CAMPANA camp ON ofer.CAMPANA_FK = camp.ID_CAMPANA INNER JOIN PORTAFOLIO.PRODUCTO prod ON ofer.PRODUCTO_FK = prod.ID_PRODUCTO"></asp:SqlDataSource>
         <br />
         <br />
     </form>
