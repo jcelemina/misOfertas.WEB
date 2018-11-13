@@ -31,32 +31,32 @@ namespace misOffertas
             usu.fecha = DateTime.Today;
             usu.correo = txtEmail.Text;
             usu.contrasena = txtpassword.Text;
+            int mailList = 0;
 
-            if (chkMailList.Checked == true)
+            if (usu.findByEmail())
             {
-                BLL.Usuarios USUA = usu.find(usu.correo, usu.contrasena);
-                USUA.insertMailList();
-            }
-
-            bool ingresar = usu.create();
-
-
-            if (ingresar == true)
-            {
-               
-                lblMensaje.Text = "Exito!!, usuario Registrado";
+                lblMensaje.Text = "Usuario existe";
             }
             else
             {
+                if (usu.create() == true)
+                {
 
+                    if (chkMailList.Checked == true)
+                    {
+                        mailList = usu.insertMailList(usu.correo);
 
-                lblMensaje.Text = "Error!!,Algo paso";
+                    }
+                    lblMensaje.Text = "se ingreso " + mailList + " usuario";
+                }
 
             }
 
 
+        
 
-                    
+
+
         }
 
         }
