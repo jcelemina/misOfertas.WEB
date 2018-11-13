@@ -107,17 +107,27 @@ namespace misOfertas.BLL
         }
         public bool findByEmail()
         {
-
             bool exist = false;
-
-            DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(em => em.CORREO == correo);
-
-
-            if (usuario != null)
+            try
             {
-                exist = true;
-            }
+                
 
+                DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(em => em.CORREO == correo);
+
+
+                if (usuario != null)
+                {
+                    exist = true;
+                }
+
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+              
+            }
             return exist;
 
         }
