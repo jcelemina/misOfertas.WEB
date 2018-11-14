@@ -7,13 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace misOfertas
 {
-    public partial class Site3 : System.Web.UI.MasterPage
+    public partial class CambiarContraseña : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-       
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+          
+          
+            
+        }
     }
 }

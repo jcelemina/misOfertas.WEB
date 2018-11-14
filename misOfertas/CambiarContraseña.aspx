@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="misOffertas.logina" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CambiarContraseña.aspx.cs" Inherits="misOfertas.CambiarContraseña" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,6 +11,7 @@
     <title>MisOfertas - Login</title>
 
     <!-- Bootstrap core CSS-->
+
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom fonts for this template-->
@@ -25,31 +26,20 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">INICIO SESIÓN</div>
+        <div class="card-header">MODIFICAR CONTRASEÑA</div>
         <div class="card-body">
           <form id="form2" runat="server" >
             <div class="form-group">
-            <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="CORREO ELECTRONICO" ></asp:TextBox>                
+            <asp:TextBox  type="password" ID="txtpassword" runat="server" CssClass="form-control" placeholder="CONTRASEÑA" ></asp:TextBox>                
             </div>
             <div class="form-group">
-            <asp:TextBox  type="password" ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:TextBox  type="password" ID="txtconfirPassword" runat="server" CssClass="form-control"  placeholder="CONFIRME CONTRASEÑA"></asp:TextBox>
             </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <asp:CheckBox ID="chkRecordarPass" runat="server" />
-                  Recordar contraseña
-                </label>
-              </div>
-            </div>
-             <asp:Button ID="Button1" runat="server" Text="INGRESE ACÁ" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
+             <asp:Button ID="Button1" runat="server" Text="INGRESE ACÁ"  CssClass="btn btn-primary form-control" OnClick="Button1_Click"/>
               <br />
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
           </form>
           <div class="text-center">
-            <a class="d-block small" href="RegistroConsumidor.aspx">Registar Consumidor</a>
-            <a class="d-block small" href="RegistroAgenteRetail.aspx">Registro Agente Retail</a>
-<%--            <a class="d-block small" href="OlvideContraseña.aspx">Recordar contraseña?</a>--%>
           </div>
         </div>
       </div>
@@ -64,7 +54,4 @@
   </body>
 
 </html>
-
-
-
 

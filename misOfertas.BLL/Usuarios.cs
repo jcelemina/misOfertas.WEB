@@ -53,7 +53,7 @@ namespace misOfertas.BLL
         {
             this.estado = "Pendiente";
         }
-        
+
 
         public bool create()
         {
@@ -61,7 +61,7 @@ namespace misOfertas.BLL
             bool ingreso = false;
             try
             {
-                CommomBC.entities.addUsuario(nombre_usuario, apellido_paterno, apellido_materno, correo,pass.ToString(), rut, estado, fecha, rol_fk);
+                CommomBC.entities.addUsuario(nombre_usuario, apellido_paterno, apellido_materno, correo, pass.ToString(), rut, estado, fecha, rol_fk);
                 ingreso = true;
             }
             catch (Exception e)
@@ -71,7 +71,8 @@ namespace misOfertas.BLL
 
             return ingreso;
         }
-        public Usuarios find(string correo,string contraseña) {
+        public Usuarios find(string correo, string contraseña)
+        {
             Usuarios user = null;
 
             try
@@ -102,31 +103,54 @@ namespace misOfertas.BLL
 
                 return null;
             }
-            
+
         }
         public bool findByEmail()
         {
+            bool exist = false;
+            try
+            {
+                
 
-          bool  exist = false;
-            
-            DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(em => em.CORREO == correo);
+                DAL.USUARIO usuario = CommomBC.entities.USUARIO.FirstOrDefault(em => em.CORREO == correo);
 
 
-            if (usuario != null) {
-                exist= true;
-             }
+                if (usuario != null)
+                {
+                    exist = true;
+                }
 
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+              
+            }
             return exist;
 
         }
-        public bool findTiendaByIdUser() {
+        public int insertMailList(string correo)
+        {
+
+            Usuarios user = new Usuarios();
+            DAL.USUARIO usuario = CommomBC.entities.USUARIO.First(em => em.CORREO == correo);
+            user.id = usuario.ID_USUARIO;
+
+
+            return CommomBC.entities.sp_InsertMailL("T", user.id);
+        }
+        public bool findTiendaByIdUser()
+        {
             bool exist = false;
 
             try
             {
                 DAL.TIENDA tienda = CommomBC.entities.TIENDA.FirstOrDefault(em => em.USUARIO_FK == id);
 
-                if (tienda != null) {
+                if (tienda != null)
+                {
 
                     exist = true;
                 }

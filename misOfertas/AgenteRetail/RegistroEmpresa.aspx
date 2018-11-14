@@ -6,7 +6,9 @@
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">REGISTRO EMPRESA</div>
         <div class="card-body">
-          <form id="form2" runat="server" >
+            
+           <form id="form2" runat="server" >
+             
             <div class="form-group">
             <div class="form-group">
             <asp:TextBox   ID="TxtRut" runat="server" CssClass="form-control"  placeholder="RUT"></asp:TextBox>
@@ -18,8 +20,9 @@
             </div>
              <asp:Button ID="btnRegistrar" runat="server" Text="Registrar"  CssClass="btn btn-primary form-control" OnClick="btnRegistrar_Click" />
               <br />
-              <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
-          </form>
+              <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label><br/>
+
+           </form>
         </div>
       </div>
     </div>

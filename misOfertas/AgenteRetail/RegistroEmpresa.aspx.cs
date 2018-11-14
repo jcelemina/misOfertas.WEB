@@ -19,7 +19,11 @@ namespace misOfertas.AgenteRetail
             }
 
             lblMensaje.Text = usuario.nombre_usuario+", Registre Empresa!!! ";
+
+          
         }
+
+       
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -34,6 +38,7 @@ namespace misOfertas.AgenteRetail
             if (exist == true)
             {
                 lblMensaje.Text = "Error!!, Usuario ya tiene una empresa registrada";
+               
             }
             else
             {

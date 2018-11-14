@@ -50,11 +50,7 @@ namespace misOfertas.BLL
 
             return exist;
         }
-
-
-
-        // validar si el usuario ya tiene una compañia
-
+     
         
     }
 }

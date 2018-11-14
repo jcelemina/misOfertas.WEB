@@ -108,6 +108,9 @@
     <Compile Include="USUARIO.cs">
       <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="USUARIOSMAILIST.cs">
+      <DependentUpon>MisOfertasEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="VALORACION.cs">
       <DependentUpon>MisOfertasEDM.tt</DependentUpon>
     </Compile>

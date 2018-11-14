@@ -52,8 +52,6 @@ namespace misOfertas.BLL
 
             return exist;
         }
-
-
         public bool findByStoreAndUser()
         {
             bool exist = false;
@@ -66,6 +64,16 @@ namespace misOfertas.BLL
 
             return exist;
         }
+        public DAL.TIENDA findByStore(int id_tienda) {
 
+            return CommomBC.entities.TIENDA.Find(id_tienda);
+
+        }
+        public List<DAL.TIENDA> getStores() {
+
+            return CommomBC.entities.TIENDA.ToList();
+
+        }
+       
     }
 }
