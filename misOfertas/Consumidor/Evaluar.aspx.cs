@@ -86,8 +86,6 @@ namespace misOfertas.Consumidor
             {
                 Response.Redirect("ErrorEvaluar.aspx");
             }
-        }
-
-       
+        }       
     }
 }

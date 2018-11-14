@@ -60,6 +60,23 @@ namespace misOfertas.BLL
         }
 
 
+        public bool create()
+        {
+            bool ingreso = false;
+            try
+            {
+                CommomBC.entities.addOferta(Cantidad_Minima, Cantidad_Maxima, Precio_Normal, Precio_Oferta, Imagen, Fecha, Campana_fk, Producto_fk);
+                ingreso = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return ingreso;
+        }
+
+
 
     }
 }

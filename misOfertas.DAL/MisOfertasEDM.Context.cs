@@ -271,7 +271,7 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTMAILLIST", p_ID_MAILLISTParameter, p_SUSCRITOParameter, p_USUARIO_FKParameter);
         }
     
-        public virtual int INSERTOFERTA(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
+        public virtual int addOferta(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
         {
             var p_CANTIDAD_MINIMAParameter = p_CANTIDAD_MINIMA.HasValue ?
                 new ObjectParameter("P_CANTIDAD_MINIMA", p_CANTIDAD_MINIMA) :
@@ -305,7 +305,7 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
                 new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTOFERTA", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addOferta", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
         }
     
         public virtual int INSERTPRODUCTO(string p_NOMBRE_PRODUCTO, string p_DESCRIPCION, string p_COLOR, string p_PERECIBLE, string p_MARCA, Nullable<decimal> p_RUBRO_FK)

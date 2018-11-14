@@ -67,13 +67,13 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control DropDownList2.
+        /// Control ddlProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProducto;
         
         /// <summary>
         /// Control EntityDataSource2.
@@ -94,13 +94,13 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtCantidadMinima.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadMinima;
         
         /// <summary>
         /// Control Label6.
@@ -112,13 +112,13 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtCantidadMaxima.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadMaxima;
         
         /// <summary>
         /// Control Label7.
@@ -130,13 +130,13 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtPrecioNormal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioNormal;
         
         /// <summary>
         /// Control Label8.
@@ -148,13 +148,13 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control TextBox4.
+        /// Control txtPrecioOferta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioOferta;
         
         /// <summary>
         /// Control Label9.
@@ -173,5 +173,14 @@ namespace misOfertas.AgenteRetail {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuImagen;
+        
+        /// <summary>
+        /// Control btnEnviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnviar;
     }
 }

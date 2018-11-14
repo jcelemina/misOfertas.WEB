@@ -1139,7 +1139,7 @@
             <Parameter Name="P_SUSCRITO" Mode="In" Type="String" />
             <Parameter Name="P_USUARIO_FK" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <FunctionImport Name="INSERTOFERTA">
+          <FunctionImport Name="addOferta">
             <Parameter Name="P_CANTIDAD_MINIMA" Mode="In" Type="Decimal" />
             <Parameter Name="P_CANTIDAD_MAXIMA" Mode="In" Type="Decimal" />
             <Parameter Name="P_PRECIO_NORMAL" Mode="In" Type="Decimal" />
@@ -1540,7 +1540,7 @@
           <FunctionImportMapping FunctionImportName="INSERTCUPON" FunctionName="MisOfertasModel.Store.INSERTCUPON" />
           <FunctionImportMapping FunctionImportName="INSERTEMPRESA" FunctionName="MisOfertasModel.Store.INSERTEMPRESA" />
           <FunctionImportMapping FunctionImportName="INSERTMAILLIST" FunctionName="MisOfertasModel.Store.INSERTMAILLIST" />
-          <FunctionImportMapping FunctionImportName="INSERTOFERTA" FunctionName="MisOfertasModel.Store.INSERTOFERTA" />
+          <FunctionImportMapping FunctionImportName="addOferta" FunctionName="MisOfertasModel.Store.INSERTOFERTA" />
           <FunctionImportMapping FunctionImportName="INSERTPRODUCTO" FunctionName="MisOfertasModel.Store.INSERTPRODUCTO" />
           <FunctionImportMapping FunctionImportName="INSERTPUNTOS" FunctionName="MisOfertasModel.Store.INSERTPUNTOS" />
           <FunctionImportMapping FunctionImportName="INSERTROLUSUARIO" FunctionName="MisOfertasModel.Store.INSERTROLUSUARIO" />
