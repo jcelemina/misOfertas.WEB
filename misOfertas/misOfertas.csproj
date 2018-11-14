@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgenteRetail\index.aspx" />
+    <Content Include="AgenteRetail\NuevaOferta.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
     <Content Include="Consumidor\ErrorEvaluar.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="AgenteRetail\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\NuevaOferta.aspx.cs">
+      <DependentUpon>NuevaOferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\NuevaOferta.aspx.designer.cs">
+      <DependentUpon>NuevaOferta.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgenteRetail\RegistroEmpresa.aspx.cs">
       <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
