@@ -57,6 +57,11 @@ namespace misOfertas.AgenteRetail
 
                 response.Close();
             }
+
+            catch (WebException ex)
+            {
+                throw new Exception((ex.Response as FtpWebResponse).StatusDescription);
+            }
         }
     }
 }
