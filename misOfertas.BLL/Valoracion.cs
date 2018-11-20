@@ -44,7 +44,7 @@ namespace misOfertas.BLL
             bool ingreso = false;
             try
             {
-                CommomBC.entities.addValoracion(Fecha, Imagen, Calidad, Atencion, Precio, Comentario, Usuario_fk, Oferta_fk);
+                CommomBC.entities.Sp_InsertValoracion(Fecha, Imagen, Calidad, Atencion, Precio, Comentario, Usuario_fk, Oferta_fk);
                 ingreso = true;
             }
             catch (Exception e)

@@ -33,7 +33,7 @@ namespace misOfertas.BLL
         {
             try
             {
-                CommomBC.entities.addTienda(nombre_tienda, direccion, estado, id_empresa, id_usuario);
+                CommomBC.entities.SpInsertTienda(nombre_tienda, direccion, estado, id_empresa, id_usuario);
                 return true;
             }
             catch (Exception)

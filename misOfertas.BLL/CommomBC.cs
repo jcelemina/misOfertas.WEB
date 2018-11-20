@@ -9,14 +9,14 @@ namespace misOfertas.BLL
 {
     public  class CommomBC
     {
-        private static EntitiesBD  _entities;
+        private static MisOfertasEDM  _entities;
 
-        public static EntitiesBD entities
+        public static MisOfertasEDM entities
         {
             get {
                 if (_entities == null)
                 {
-                    _entities = new EntitiesBD();
+                    _entities = new MisOfertasEDM();
                 }
                 return _entities; }
 

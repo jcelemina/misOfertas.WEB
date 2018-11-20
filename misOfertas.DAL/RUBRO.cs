@@ -16,12 +16,14 @@ namespace misOfertas.DAL
     {
         public RUBRO()
         {
+            this.CUPON = new HashSet<CUPON>();
             this.PRODUCTO = new HashSet<PRODUCTO>();
         }
     
         public decimal ID_RUBRO { get; set; }
         public string NOMBRE_RUBRO { get; set; }
     
+        public virtual ICollection<CUPON> CUPON { get; set; }
         public virtual ICollection<PRODUCTO> PRODUCTO { get; set; }
     }
 }

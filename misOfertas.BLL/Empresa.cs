@@ -30,7 +30,7 @@ namespace misOfertas.BLL
         public bool create() {
             try
             {
-                CommomBC.entities.addEmpresa(nombre_empresa, razon_social, estado, rut_empresa);
+                CommomBC.entities.Sp_InsertEmpresa(nombre_empresa, razon_social, estado, rut_empresa);
                 return true;
             }
             catch (Exception)

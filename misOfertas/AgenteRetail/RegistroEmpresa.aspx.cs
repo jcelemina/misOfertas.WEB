@@ -52,7 +52,7 @@ namespace misOfertas.AgenteRetail
                 {
 
 
-                    BLL.CommomBC.entities.addEmpresa(empresa.nombre_empresa, empresa.razon_social, empresa.estado, empresa.rut_empresa);
+                    BLL.CommomBC.entities.Sp_InsertEmpresa(empresa.nombre_empresa, empresa.razon_social, empresa.estado, empresa.rut_empresa);
                     if (empresa.findByRut())
                     {
                         lblMensaje.Text = "Exito, Empresa Creada!!";

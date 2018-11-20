@@ -15,16 +15,18 @@ namespace misOfertas.DAL
     public partial class CUPON
     {
         public decimal ID_CUPON { get; set; }
-        public string PDF { get; set; }
         public decimal TOPE_MAXIMO { get; set; }
         public decimal DESCUENTO { get; set; }
         public System.DateTime FECHA { get; set; }
         public System.DateTime VENCIMIENTO { get; set; }
-        public string CONDICIONES { get; set; }
         public decimal USUARIO_FK { get; set; }
         public decimal TRAMO_FK { get; set; }
+        public string CODIGO { get; set; }
+        public string CONDICIONES { get; set; }
+        public Nullable<decimal> RUBRO_FK { get; set; }
     
         public virtual TRAMO TRAMO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
+        public virtual RUBRO RUBRO { get; set; }
     }
 }

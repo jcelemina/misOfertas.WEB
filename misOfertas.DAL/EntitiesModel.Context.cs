@@ -16,10 +16,10 @@ namespace misOfertas.DAL
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class EntitiesBD : DbContext
+    public partial class MisOfertasEDM : DbContext
     {
-        public EntitiesBD()
-            : base("name=EntitiesBD")
+        public MisOfertasEDM()
+            : base("name=MisOfertasEDM")
         {
         }
     
@@ -35,6 +35,7 @@ namespace misOfertas.DAL
         public DbSet<OFERTA> OFERTA { get; set; }
         public DbSet<PRODUCTO> PRODUCTO { get; set; }
         public DbSet<PUNTOS> PUNTOS { get; set; }
+        public DbSet<RECUPERARPWUSER> RECUPERARPWUSER { get; set; }
         public DbSet<ROL_USUARIO> ROL_USUARIO { get; set; }
         public DbSet<RUBRO> RUBRO { get; set; }
         public DbSet<TIENDA> TIENDA { get; set; }
@@ -322,7 +323,7 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTMAILLIST", p_SUSCRITOParameter, p_USUARIO_FKParameter);
         }
     
-        public virtual int addOferta(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
+        public virtual int INSERTOFERTA(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
         {
             var p_CANTIDAD_MINIMAParameter = p_CANTIDAD_MINIMA.HasValue ?
                 new ObjectParameter("P_CANTIDAD_MINIMA", p_CANTIDAD_MINIMA) :
@@ -356,7 +357,7 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
                 new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addOferta", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTOFERTA", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
         }
     
         public virtual int INSERTPRODUCTO(string p_NOMBRE_PRODUCTO, string p_DESCRIPCION, string p_COLOR, string p_PERECIBLE, string p_MARCA, Nullable<decimal> p_RUBRO_FK)
@@ -399,6 +400,19 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_USUARIO_FK", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTPUNTOS", p_CANTIDADParameter, p_USUARIO_FKParameter);
+        }
+    
+        public virtual int INSERTRECUPERARPWUSER(string p_CORREO, string p_RESPUESTA)
+        {
+            var p_CORREOParameter = p_CORREO != null ?
+                new ObjectParameter("P_CORREO", p_CORREO) :
+                new ObjectParameter("P_CORREO", typeof(string));
+    
+            var p_RESPUESTAParameter = p_RESPUESTA != null ?
+                new ObjectParameter("P_RESPUESTA", p_RESPUESTA) :
+                new ObjectParameter("P_RESPUESTA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("INSERTRECUPERARPWUSER", p_CORREOParameter, p_RESPUESTAParameter);
         }
     
         public virtual int INSERTROLUSUARIO(string p_NOMBRE)
@@ -538,6 +552,11 @@ namespace misOfertas.DAL
         public virtual int SELECTCAMPANA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTCAMPANA");
+        }
+    
+        public virtual int SELECTCORREOS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SELECTCORREOS");
         }
     
         public virtual int SELECTCUPON()
@@ -733,6 +752,19 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEEMPRESA", p_ID_EMPRESAParameter, p_NOMBRE_EMPRESAParameter, p_RAZON_SOCIALParameter, p_ESTADOParameter, p_RUTParameter);
         }
     
+        public virtual int UPDATEIMAGEN(Nullable<decimal> p_ID_OFERTA, string p_IMAGEN)
+        {
+            var p_ID_OFERTAParameter = p_ID_OFERTA.HasValue ?
+                new ObjectParameter("P_ID_OFERTA", p_ID_OFERTA) :
+                new ObjectParameter("P_ID_OFERTA", typeof(decimal));
+    
+            var p_IMAGENParameter = p_IMAGEN != null ?
+                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
+                new ObjectParameter("P_IMAGEN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEIMAGEN", p_ID_OFERTAParameter, p_IMAGENParameter);
+        }
+    
         public virtual int UPDATEMAILLIST(Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_ID_MAILLIST, string p_SUSCRITO)
         {
             var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
@@ -750,7 +782,7 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEMAILLIST", p_USUARIO_FKParameter, p_ID_MAILLISTParameter, p_SUSCRITOParameter);
         }
     
-        public virtual int UPDATEOFERTA(Nullable<decimal> p_ID_OFERTA, Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
+        public virtual int UPDATEOFERTA(Nullable<decimal> p_ID_OFERTA, Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
         {
             var p_ID_OFERTAParameter = p_ID_OFERTA.HasValue ?
                 new ObjectParameter("P_ID_OFERTA", p_ID_OFERTA) :
@@ -772,10 +804,6 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_PRECIO_OFERTA", p_PRECIO_OFERTA) :
                 new ObjectParameter("P_PRECIO_OFERTA", typeof(decimal));
     
-            var p_IMAGENParameter = p_IMAGEN != null ?
-                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
-                new ObjectParameter("P_IMAGEN", typeof(string));
-    
             var p_FECHAParameter = p_FECHA.HasValue ?
                 new ObjectParameter("P_FECHA", p_FECHA) :
                 new ObjectParameter("P_FECHA", typeof(System.DateTime));
@@ -788,7 +816,7 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
                 new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEOFERTA", p_ID_OFERTAParameter, p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEOFERTA", p_ID_OFERTAParameter, p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
         }
     
         public virtual int UPDATEPRODUCTO(Nullable<decimal> p_ID_PRODUCTO, string p_NOMBRE_PRODUCTO, string p_DESCRIPCION, string p_COLOR, string p_PERECIBLE, string p_MARCA)
@@ -987,65 +1015,33 @@ namespace misOfertas.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATEVALORACION", p_ID_VALORACIONParameter, p_FECHAParameter, p_IMAGENParameter, p_CALIDADParameter, p_ATENCIONParameter, p_PRECIOParameter, p_COMENTARIOParameter, p_USUARIO_FKParameter, p_OFERTA_FKParameter);
         }
     
-        public virtual int addEmpresa(string p_NOMBRE_EMPRESA, string p_RAZON_SOCIAL, string p_ESTADO, string p_RUT)
+        public virtual int sp_InsertMailL(string p_SUSCRITO, Nullable<decimal> p_USUARIO_FK)
         {
-            var p_NOMBRE_EMPRESAParameter = p_NOMBRE_EMPRESA != null ?
-                new ObjectParameter("P_NOMBRE_EMPRESA", p_NOMBRE_EMPRESA) :
-                new ObjectParameter("P_NOMBRE_EMPRESA", typeof(string));
-    
-            var p_RAZON_SOCIALParameter = p_RAZON_SOCIAL != null ?
-                new ObjectParameter("P_RAZON_SOCIAL", p_RAZON_SOCIAL) :
-                new ObjectParameter("P_RAZON_SOCIAL", typeof(string));
-    
-            var p_ESTADOParameter = p_ESTADO != null ?
-                new ObjectParameter("P_ESTADO", p_ESTADO) :
-                new ObjectParameter("P_ESTADO", typeof(string));
-    
-            var p_RUTParameter = p_RUT != null ?
-                new ObjectParameter("P_RUT", p_RUT) :
-                new ObjectParameter("P_RUT", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addEmpresa", p_NOMBRE_EMPRESAParameter, p_RAZON_SOCIALParameter, p_ESTADOParameter, p_RUTParameter);
-        }
-    
-        public virtual int addValoracion(Nullable<System.DateTime> p_FECHA, string p_IMAGEN, Nullable<decimal> p_CALIDAD, Nullable<decimal> p_ATENCION, Nullable<decimal> p_PRECIO, string p_COMENTARIO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_OFERTA_FK)
-        {
-            var p_FECHAParameter = p_FECHA.HasValue ?
-                new ObjectParameter("P_FECHA", p_FECHA) :
-                new ObjectParameter("P_FECHA", typeof(System.DateTime));
-    
-            var p_IMAGENParameter = p_IMAGEN != null ?
-                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
-                new ObjectParameter("P_IMAGEN", typeof(string));
-    
-            var p_CALIDADParameter = p_CALIDAD.HasValue ?
-                new ObjectParameter("P_CALIDAD", p_CALIDAD) :
-                new ObjectParameter("P_CALIDAD", typeof(decimal));
-    
-            var p_ATENCIONParameter = p_ATENCION.HasValue ?
-                new ObjectParameter("P_ATENCION", p_ATENCION) :
-                new ObjectParameter("P_ATENCION", typeof(decimal));
-    
-            var p_PRECIOParameter = p_PRECIO.HasValue ?
-                new ObjectParameter("P_PRECIO", p_PRECIO) :
-                new ObjectParameter("P_PRECIO", typeof(decimal));
-    
-            var p_COMENTARIOParameter = p_COMENTARIO != null ?
-                new ObjectParameter("P_COMENTARIO", p_COMENTARIO) :
-                new ObjectParameter("P_COMENTARIO", typeof(string));
+            var p_SUSCRITOParameter = p_SUSCRITO != null ?
+                new ObjectParameter("P_SUSCRITO", p_SUSCRITO) :
+                new ObjectParameter("P_SUSCRITO", typeof(string));
     
             var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
                 new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
                 new ObjectParameter("P_USUARIO_FK", typeof(decimal));
     
-            var p_OFERTA_FKParameter = p_OFERTA_FK.HasValue ?
-                new ObjectParameter("P_OFERTA_FK", p_OFERTA_FK) :
-                new ObjectParameter("P_OFERTA_FK", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addValoracion", p_FECHAParameter, p_IMAGENParameter, p_CALIDADParameter, p_ATENCIONParameter, p_PRECIOParameter, p_COMENTARIOParameter, p_USUARIO_FKParameter, p_OFERTA_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertMailL", p_SUSCRITOParameter, p_USUARIO_FKParameter);
         }
     
-        public virtual int addUsuario(string p_NOMBRES_USUARIO, string p_APELLIDO_PATERNO, string p_APELLIDO_MATERNO, string p_CORREO, string p_CONTRASENA, string p_RUT, string p_ESTADO, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_ROL_USUARIO_FK)
+        public virtual int login(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        {
+            var p_CORREOParameter = p_CORREO != null ?
+                new ObjectParameter("P_CORREO", p_CORREO) :
+                new ObjectParameter("P_CORREO", typeof(string));
+    
+            var p_CONTRASENAParameter = p_CONTRASENA != null ?
+                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
+                new ObjectParameter("P_CONTRASENA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
+        }
+    
+        public virtual int Sp_InsertUsuario(string p_NOMBRES_USUARIO, string p_APELLIDO_PATERNO, string p_APELLIDO_MATERNO, string p_CORREO, string p_CONTRASENA, string p_RUT, string p_ESTADO, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_ROL_USUARIO_FK)
         {
             var p_NOMBRES_USUARIOParameter = p_NOMBRES_USUARIO != null ?
                 new ObjectParameter("P_NOMBRES_USUARIO", p_NOMBRES_USUARIO) :
@@ -1083,23 +1079,68 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_ROL_USUARIO_FK", p_ROL_USUARIO_FK) :
                 new ObjectParameter("P_ROL_USUARIO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addUsuario", p_NOMBRES_USUARIOParameter, p_APELLIDO_PATERNOParameter, p_APELLIDO_MATERNOParameter, p_CORREOParameter, p_CONTRASENAParameter, p_RUTParameter, p_ESTADOParameter, p_FECHAParameter, p_ROL_USUARIO_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertUsuario", p_NOMBRES_USUARIOParameter, p_APELLIDO_PATERNOParameter, p_APELLIDO_MATERNOParameter, p_CORREOParameter, p_CONTRASENAParameter, p_RUTParameter, p_ESTADOParameter, p_FECHAParameter, p_ROL_USUARIO_FKParameter);
         }
     
-        public virtual int login(string p_CORREO, string p_CONTRASENA, ObjectParameter nOMBRE_ROL)
+        public virtual int Sp_InsertEmpresa(string p_NOMBRE_EMPRESA, string p_RAZON_SOCIAL, string p_ESTADO, string p_RUT)
         {
-            var p_CORREOParameter = p_CORREO != null ?
-                new ObjectParameter("P_CORREO", p_CORREO) :
-                new ObjectParameter("P_CORREO", typeof(string));
+            var p_NOMBRE_EMPRESAParameter = p_NOMBRE_EMPRESA != null ?
+                new ObjectParameter("P_NOMBRE_EMPRESA", p_NOMBRE_EMPRESA) :
+                new ObjectParameter("P_NOMBRE_EMPRESA", typeof(string));
     
-            var p_CONTRASENAParameter = p_CONTRASENA != null ?
-                new ObjectParameter("P_CONTRASENA", p_CONTRASENA) :
-                new ObjectParameter("P_CONTRASENA", typeof(string));
+            var p_RAZON_SOCIALParameter = p_RAZON_SOCIAL != null ?
+                new ObjectParameter("P_RAZON_SOCIAL", p_RAZON_SOCIAL) :
+                new ObjectParameter("P_RAZON_SOCIAL", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("login", p_CORREOParameter, p_CONTRASENAParameter, nOMBRE_ROL);
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            var p_RUTParameter = p_RUT != null ?
+                new ObjectParameter("P_RUT", p_RUT) :
+                new ObjectParameter("P_RUT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertEmpresa", p_NOMBRE_EMPRESAParameter, p_RAZON_SOCIALParameter, p_ESTADOParameter, p_RUTParameter);
         }
     
-        public virtual int addTienda(string p_NOMBRE_TIENDA, string p_DIRECCION, string p_ESTADO, Nullable<decimal> p_EMPRESA_FK, Nullable<decimal> p_USUARIO_FK)
+        public virtual int Sp_InsertValoracion(Nullable<System.DateTime> p_FECHA, string p_IMAGEN, Nullable<decimal> p_CALIDAD, Nullable<decimal> p_ATENCION, Nullable<decimal> p_PRECIO, string p_COMENTARIO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_OFERTA_FK)
+        {
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_IMAGENParameter = p_IMAGEN != null ?
+                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
+                new ObjectParameter("P_IMAGEN", typeof(string));
+    
+            var p_CALIDADParameter = p_CALIDAD.HasValue ?
+                new ObjectParameter("P_CALIDAD", p_CALIDAD) :
+                new ObjectParameter("P_CALIDAD", typeof(decimal));
+    
+            var p_ATENCIONParameter = p_ATENCION.HasValue ?
+                new ObjectParameter("P_ATENCION", p_ATENCION) :
+                new ObjectParameter("P_ATENCION", typeof(decimal));
+    
+            var p_PRECIOParameter = p_PRECIO.HasValue ?
+                new ObjectParameter("P_PRECIO", p_PRECIO) :
+                new ObjectParameter("P_PRECIO", typeof(decimal));
+    
+            var p_COMENTARIOParameter = p_COMENTARIO != null ?
+                new ObjectParameter("P_COMENTARIO", p_COMENTARIO) :
+                new ObjectParameter("P_COMENTARIO", typeof(string));
+    
+            var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
+                new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
+                new ObjectParameter("P_USUARIO_FK", typeof(decimal));
+    
+            var p_OFERTA_FKParameter = p_OFERTA_FK.HasValue ?
+                new ObjectParameter("P_OFERTA_FK", p_OFERTA_FK) :
+                new ObjectParameter("P_OFERTA_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertValoracion", p_FECHAParameter, p_IMAGENParameter, p_CALIDADParameter, p_ATENCIONParameter, p_PRECIOParameter, p_COMENTARIOParameter, p_USUARIO_FKParameter, p_OFERTA_FKParameter);
+        }
+    
+        public virtual int SpInsertTienda(string p_NOMBRE_TIENDA, string p_DIRECCION, string p_ESTADO, Nullable<decimal> p_EMPRESA_FK, Nullable<decimal> p_USUARIO_FK)
         {
             var p_NOMBRE_TIENDAParameter = p_NOMBRE_TIENDA != null ?
                 new ObjectParameter("P_NOMBRE_TIENDA", p_NOMBRE_TIENDA) :
@@ -1121,20 +1162,44 @@ namespace misOfertas.DAL
                 new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
                 new ObjectParameter("P_USUARIO_FK", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addTienda", p_NOMBRE_TIENDAParameter, p_DIRECCIONParameter, p_ESTADOParameter, p_EMPRESA_FKParameter, p_USUARIO_FKParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SpInsertTienda", p_NOMBRE_TIENDAParameter, p_DIRECCIONParameter, p_ESTADOParameter, p_EMPRESA_FKParameter, p_USUARIO_FKParameter);
         }
     
-        public virtual int sp_InsertMailL(string p_SUSCRITO, Nullable<decimal> p_USUARIO_FK)
+        public virtual int SpInsertOferta(Nullable<decimal> p_CANTIDAD_MINIMA, Nullable<decimal> p_CANTIDAD_MAXIMA, Nullable<decimal> p_PRECIO_NORMAL, Nullable<decimal> p_PRECIO_OFERTA, string p_IMAGEN, Nullable<System.DateTime> p_FECHA, Nullable<decimal> p_CAMPANA_FK, Nullable<decimal> p_PRODUCTO_FK)
         {
-            var p_SUSCRITOParameter = p_SUSCRITO != null ?
-                new ObjectParameter("P_SUSCRITO", p_SUSCRITO) :
-                new ObjectParameter("P_SUSCRITO", typeof(string));
+            var p_CANTIDAD_MINIMAParameter = p_CANTIDAD_MINIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MINIMA", p_CANTIDAD_MINIMA) :
+                new ObjectParameter("P_CANTIDAD_MINIMA", typeof(decimal));
     
-            var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
-                new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
-                new ObjectParameter("P_USUARIO_FK", typeof(decimal));
+            var p_CANTIDAD_MAXIMAParameter = p_CANTIDAD_MAXIMA.HasValue ?
+                new ObjectParameter("P_CANTIDAD_MAXIMA", p_CANTIDAD_MAXIMA) :
+                new ObjectParameter("P_CANTIDAD_MAXIMA", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertMailL", p_SUSCRITOParameter, p_USUARIO_FKParameter);
+            var p_PRECIO_NORMALParameter = p_PRECIO_NORMAL.HasValue ?
+                new ObjectParameter("P_PRECIO_NORMAL", p_PRECIO_NORMAL) :
+                new ObjectParameter("P_PRECIO_NORMAL", typeof(decimal));
+    
+            var p_PRECIO_OFERTAParameter = p_PRECIO_OFERTA.HasValue ?
+                new ObjectParameter("P_PRECIO_OFERTA", p_PRECIO_OFERTA) :
+                new ObjectParameter("P_PRECIO_OFERTA", typeof(decimal));
+    
+            var p_IMAGENParameter = p_IMAGEN != null ?
+                new ObjectParameter("P_IMAGEN", p_IMAGEN) :
+                new ObjectParameter("P_IMAGEN", typeof(string));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_CAMPANA_FKParameter = p_CAMPANA_FK.HasValue ?
+                new ObjectParameter("P_CAMPANA_FK", p_CAMPANA_FK) :
+                new ObjectParameter("P_CAMPANA_FK", typeof(decimal));
+    
+            var p_PRODUCTO_FKParameter = p_PRODUCTO_FK.HasValue ?
+                new ObjectParameter("P_PRODUCTO_FK", p_PRODUCTO_FK) :
+                new ObjectParameter("P_PRODUCTO_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SpInsertOferta", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
         }
     }
 }

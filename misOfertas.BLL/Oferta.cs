@@ -65,7 +65,7 @@ namespace misOfertas.BLL
             bool ingreso = false;
             try
             {
-                CommomBC.entities.addOferta(Cantidad_Minima, Cantidad_Maxima, Precio_Normal, Precio_Oferta, Imagen, Fecha, Campana_fk, Producto_fk);
+                CommomBC.entities.SpInsertOferta(Cantidad_Minima, Cantidad_Maxima, Precio_Normal, Precio_Oferta, Imagen, Fecha, Campana_fk, Producto_fk);
                 ingreso = true;
             }
             catch (Exception e)
