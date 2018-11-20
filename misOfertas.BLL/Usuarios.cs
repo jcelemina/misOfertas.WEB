@@ -77,7 +77,7 @@ namespace misOfertas.BLL
 
             try
             {
-                if (correo != null && contrasena != null)
+                if (correo != null && contraseña != null)
                 {
 
                     var conver = HashMD5.verifyMd5Hash(contraseña).ToString();
