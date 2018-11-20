@@ -26,18 +26,18 @@ namespace misOffertas
              var usuario = user.find(user.correo, user.contrasena);
 
 
-            if (usuario != null) {
+            if (usuario != null && usuario.estado=="ACTIVO") {
                 Session["usuario"] = usuario;
                 switch (usuario.rol_nombre)
                 {
                     case "Administrador":
-                    Response.Redirect("/Administrador/index.aspx");
+                    Response.Redirect("login.aspx");
                     break;
                     case "Consumidor":
                     Response.Redirect("/Consumidor/index.aspx");
                     break;
                     case "Agente Retail":
-                        Response.Redirect("~/AgenteRetail/RegistroTienda.aspx");
+                        Response.Redirect("~/AgenteRetail/RegistroEmpresa.aspx");
                     break;
                 }
             }

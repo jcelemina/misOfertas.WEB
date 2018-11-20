@@ -46,9 +46,6 @@ namespace misOfertas.BLL
             this.correo = correo;
             this.contrasena = contrasena;
         }
-
-       
-
         public Usuarios()
         {
             this.estado = "Pendiente";
@@ -92,6 +89,7 @@ namespace misOfertas.BLL
                     user.correo = usuario.CORREO;
                     user.fecha = usuario.FECHA;
                     user.rol_nombre = rol_nombre;
+                    user.estado = usuario.ESTADO;
 
                 }
 
