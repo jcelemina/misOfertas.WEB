@@ -26,7 +26,7 @@ namespace misOffertas
              var usuario = user.find(user.correo, user.contrasena);
 
 
-            if (usuario != null && usuario.estado=="ACTIVO") {
+            if (usuario != null && usuario.estado=="Activo") {
                 Session["usuario"] = usuario;
                 switch (usuario.rol_nombre)
                 {
