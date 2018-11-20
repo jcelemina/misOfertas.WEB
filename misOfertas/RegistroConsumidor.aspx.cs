@@ -47,7 +47,7 @@ namespace misOffertas
                         mailList = usu.insertMailList(usu.correo);
 
                     }
-                    lblMensaje.Text = "se ingreso " + mailList + " usuario";
+                    lblMensaje.Text = "se ingreso usuario";
                 }
 
             }

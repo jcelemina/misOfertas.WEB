@@ -68,7 +68,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="RegistroTienda.aspx">
+          <a class="nav-link" href="RegistroEmpresa.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Tienda</span></a>
         </li>

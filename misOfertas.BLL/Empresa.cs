@@ -26,7 +26,6 @@ namespace misOfertas.BLL
             this.razon_social = razon_social;
             this.estado = estado;
         }
-
         public bool create() {
             try
             {
@@ -45,6 +44,10 @@ namespace misOfertas.BLL
             if (emp != null)
             {
                 id_empresa = (int)emp.ID_EMPRESA;
+                rut_empresa = emp.RUT;
+                nombre_empresa = emp.NOMBRE_EMPRESA;
+                razon_social = emp.RAZON_SOCIAL;
+                estado = emp.ESTADO;
                 exist = true;
             }
 
