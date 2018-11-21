@@ -30,6 +30,10 @@
         function UsuarioExistente() {
             alert("Usuario/Correo  existe en nuestra base de datos intente nuevamente");
         }
+
+        function VerifyequalsPass() {
+            alert("la contraseña indicada no coinciden verifique nuevamente");
+        }
     </script>
   </head>
 
@@ -66,7 +70,6 @@
             </div>
             </div>
               <br/>
-               <asp:label id="lblMensaje" runat="server" text=""></asp:label><br />
               <asp:Button ID="Button1" runat="server" Text="REGISTRAR" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>        
               <br/>
                <br/>
@@ -81,7 +84,7 @@
 
            </form>
            <div class="text-center">
-            <a class="d-block small mt-3" href="login.aspx">Login Page</a>
+            <a class="d-block small mt-3" href="login.aspx">Página Login</a>
         </div>
         </div>
       </div>
