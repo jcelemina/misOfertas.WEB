@@ -16,7 +16,8 @@ namespace misOfertas.Consumidor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            GvOfertas.DataSource = SqlDataSource1;
+            GvOfertas.DataBind();
         }
 
 

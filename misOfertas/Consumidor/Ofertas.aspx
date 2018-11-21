@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <asp:GridView ID="GvOfertas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
+        <asp:GridView ID="GvOfertas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="ID_OFERTA" HeaderText="Nro Oferta" SortExpression="ID_OFERTA" />
@@ -31,7 +31,9 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT ofer.ID_OFERTA, prod.NOMBRE_PRODUCTO, camp.NOMBRE_CAMPANA, ofer.CANTIDAD_MINIMA, ofer.CANTIDAD_MAXIMA, ofer.PRECIO_NORMAL, ofer.PRECIO_OFERTA, ofer.IMAGEN FROM PORTAFOLIO.OFERTA ofer INNER JOIN PORTAFOLIO.CAMPANA camp ON ofer.CAMPANA_FK = camp.ID_CAMPANA INNER JOIN PORTAFOLIO.PRODUCTO prod ON ofer.PRODUCTO_FK = prod.ID_PRODUCTO"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,'ftp://usuarioftp:Portafolio2018@18.222.173.173/' || ofer.IMAGEN &quot;IMAGEN&quot;
+    from oferta ofer join campana camp on ofer.campana_fk = camp.id_campana
+    join producto prod on ofer.producto_fk = prod.id_producto"></asp:SqlDataSource>
         <br />
         <br />
     </form>
