@@ -19,6 +19,7 @@ namespace misOffertas
         {
             string script = @"<script type='text/javascript'>mensaje();</script>";
             string scriptRequired = @"<script type='text/javascript'>mensajeRequired();</script>";
+            string scriptUsuarioExistente = @"<script type='text/javascript'>UsuarioExistente();</script>";
 
 
             BLL.Usuarios usu = new BLL.Usuarios();
@@ -44,7 +45,7 @@ namespace misOffertas
 
                 if (usu.findByEmail())
                 {
-                    lblMensaje.Text = "Usuario existe";
+                    Page.RegisterStartupScript("mensaje", scriptUsuarioExistente);
                 }
                 else
                 {

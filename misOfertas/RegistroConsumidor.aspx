@@ -26,6 +26,10 @@
         function mensajeRequired() {
             alert("Campos requeridos vacios,Verifique!!!");
         }
+
+        function UsuarioExistente() {
+            alert("Usuario/Correo  existe en nuestra base de datos intente nuevamente");
+        }
     </script>
   </head>
 
