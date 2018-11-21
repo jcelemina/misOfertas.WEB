@@ -11,10 +11,19 @@ namespace misOfertas.Consumidor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+
             if (Session["usuario"] == null)
             {
                 Response.Redirect("~/login.aspx");
             }
+
+
+            lblNombre.Text = usuario.nombre_usuario+ " " + usuario.apellido_parterno;
+            
+
         }
     }
 }

@@ -17,17 +17,26 @@
         <div class="card-header">Cupón de descuento</div>
         <div class="card-body">
     <form id="form1" runat="server">
-    <div>
+        <div>
             <asp:Image ID="Image1" runat="server" ImageAlign="AbsMiddle" Height="119px" ImageUrl="~/css/Assets/logo MO.jpeg" Width="154px" />
         <br />
     </div>
 
-            <asp:Panel ID="Panel2" runat="server" Height="125px" Width="241px">
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-            &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-            <br />
-            Tope monetario&nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-        </asp:Panel>
+            <asp:Panel ID="Panel2" runat="server" Height="254px" Width="256px">
+                &nbsp;Nombre:
+                <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label>
+                <br />
+                Rubro
+                <asp:DropDownList ID="ddlCampana" runat="server" DataSourceID="EntityDataSource1" DataTextField="NOMBRE_RUBRO" DataValueField="ID_RUBRO">
+                </asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Entities" DefaultContainerName="Entities" EnableFlattening="False" EntitySetName="RUBRO" Select="it.[ID_RUBRO], it.[NOMBRE_RUBRO]">
+                </asp:EntityDataSource>
+                Puntos:
+        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="EntityDataSource2" DataTextField="ID_TRAMO" DataValueField="MAXIMO">
+        </asp:DropDownList>
+        <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=Entities" DefaultContainerName="Entities" EnableFlattening="False" EntitySetName="TRAMO" Select="it.[ID_TRAMO], it.[MAXIMO]">
+        </asp:EntityDataSource>
+            Tope monetario&nbsp;</asp:Panel>
     </form>
          </div>
         </div>
