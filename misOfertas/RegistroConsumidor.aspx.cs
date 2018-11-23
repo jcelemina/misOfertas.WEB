@@ -17,40 +17,63 @@ namespace misOffertas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            string script = @"<script type='text/javascript'>mensaje();</script>";
+            string scriptRequired = @"<script type='text/javascript'>mensajeRequired();</script>";
+            string scriptUsuarioExistente = @"<script type='text/javascript'>UsuarioExistente();</script>";
+            string VerifyequalsPass = @"<script type='text/javascript'>VerifyequalsPass();</script>";
 
             BLL.Usuarios usu = new BLL.Usuarios();
 
-
-            usu.nombre_usuario = txtNombre.Text.ToUpper();
-            usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
-            usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
-            usu.rut = txtRut.Text;
-            usu.estado = "Inscrita";
-            usu.rol_fk = 2;
-            usu.fecha = DateTime.Today;
-            usu.correo = txtEmail.Text;
-            usu.contrasena = txtpassword.Text;
-            int mailList = 0;
-
-            if (usu.findByEmail())
+            if (txtpassword.Text == txtconfirmPassword.Value)
             {
-                lblMensaje.Text = "Usuario existe";
-            }
-            else
-            {
-                if (usu.create() == true)
+
+                if (txtNombre.Text == "" || txtRut.Text == "" || txtApellidoPaterno.Text == "" || txtApellidoMaterno.Text == "" || txtEmail.Text == "" || txtpassword.Text == "" || txtconfirmPassword.Value == "")
+                {
+                    Page.RegisterStartupScript("mensaje", scriptRequired); 
+                }
+                else
                 {
 
-                    if (chkMailList.Checked == true)
+                    usu.nombre_usuario = txtNombre.Text.ToUpper();
+                    usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
+                    usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
+                    usu.rut = txtRut.Text;
+                    usu.estado = "Activo";
+                    usu.rol_fk = 2;
+                    usu.fecha = DateTime.Today;
+                    usu.correo = txtEmail.Text;
+                    usu.contrasena = txtpassword.Text;
+                    int mailList = 0;
+
+                    if (usu.findByEmail())
                     {
-                        mailList = usu.insertMailList(usu.correo);
+                        Page.RegisterStartupScript("mensaje", scriptUsuarioExistente);
+                    }
+                    else
+                    {
+                        if (usu.create() == true)
+                        {
+
+                            if (chkMailList.Checked == true)
+                            {
+                                mailList = usu.insertMailList(usu.correo);
+
+                            }
+
+                            Page.RegisterStartupScript("mensaje", script);
+                        }
 
                     }
-                    lblMensaje.Text = "se ingreso usuario";
-                }
 
+                }
             }
+            else {
+
+                Page.RegisterStartupScript("mensaje", VerifyequalsPass); 
+            }
+
+            
+            
 
 
         

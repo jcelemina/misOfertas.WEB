@@ -23,7 +23,7 @@ namespace misOfertas
                 usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
                 usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
                 usu.rut = txtRut.Text;
-                usu.estado = "Pendiente";
+                usu.estado = "Activo";
                 usu.rol_fk =3;
                 usu.fecha = DateTime.Today;
                 usu.correo = txtEmail.Text;

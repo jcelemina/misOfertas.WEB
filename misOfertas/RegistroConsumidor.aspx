@@ -17,7 +17,26 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="css/sb-admin.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        function mensaje() {
+            alert("Usuario Consumidor registrado con exito!!");
+        }
+
+        function mensajeRequired() {
+            alert("Campos requeridos vacios,Verifique!!!");
+        }
+
+        function UsuarioExistente() {
+            alert("Usuario/Correo  existe en nuestra base de datos intente nuevamente");
+        }
+
+        function VerifyequalsPass() {
+            alert("la contraseña indicada no coinciden verifique nuevamente");
+        }
+    </script>
   </head>
+
 
         <body>
         <div class="container">
@@ -41,7 +60,7 @@
             </div>
             <div class="form-group">
             <div class="form-group">
-            <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" placeholder="EMAIL"></asp:TextBox>
+            <asp:TextBox type="email" ID="txtEmail" CssClass="form-control" runat="server" placeholder="EMAIL"></asp:TextBox>
             </div>
             <asp:TextBox type="Password"  class="form-control" id="txtpassword" placeholder="CONTRASEÑA" required="required" runat="server"> </asp:TextBox>
             </div>
@@ -62,10 +81,10 @@
                 </label>
               </div>
             </div>
-              <asp:label id="lblMensaje" runat="server" text=""></asp:label>
+
            </form>
            <div class="text-center">
-            <a class="d-block small mt-3" href="login.aspx">Login Page</a>
+            <a class="d-block small mt-3" href="login.aspx">Página Login</a>
         </div>
         </div>
       </div>
