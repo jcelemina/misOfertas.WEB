@@ -15,7 +15,7 @@
                 <asp:BoundField DataField="PRECIO_OFERTA" HeaderText="Precio Oferta" SortExpression="PRECIO_OFERTA" />
                 <asp:TemplateField HeaderText="Imagen">
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("IMAGEN") %>' Width="150px" />
+                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# descargarImagen(Eval("IMAGEN").ToString()) %>' Width="150px" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField SelectText="Evaluar" ShowSelectButton="True" />
@@ -31,7 +31,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,'ftp://usuarioftp:Portafolio2018@18.222.173.173/' || ofer.IMAGEN &quot;IMAGEN&quot;
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,ofer.IMAGEN
     from oferta ofer join campana camp on ofer.campana_fk = camp.id_campana
     join producto prod on ofer.producto_fk = prod.id_producto"></asp:SqlDataSource>
         <br />
