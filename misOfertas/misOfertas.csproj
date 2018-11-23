@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f09bda868cc39e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.1.3.0.0\lib\net20\BarcodeLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -112,11 +116,13 @@
     <Content Include="AgenteRetail\NuevaOferta.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
+    <Content Include="Consumidor\Cupones.aspx" />
     <Content Include="Consumidor\ErrorEvaluar.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
     <Content Include="Consumidor\ExitoEvaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
+    <Content Include="Consumidor\SacarCupon.aspx" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />
     <Content Include="Administrador\index.aspx" />
@@ -174,6 +180,13 @@
     <Compile Include="AgenteRetail\RegistroTienda.aspx.designer.cs">
       <DependentUpon>RegistroTienda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\Cupones.aspx.cs">
+      <DependentUpon>Cupones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Cupones.aspx.designer.cs">
+      <DependentUpon>Cupones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\ErrorEvaluar.aspx.cs">
       <DependentUpon>ErrorEvaluar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,6 +221,13 @@
     </Compile>
     <Compile Include="Consumidor\Ofertas.aspx.designer.cs">
       <DependentUpon>Ofertas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\SacarCupon.aspx.cs">
+      <DependentUpon>SacarCupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\SacarCupon.aspx.designer.cs">
+      <DependentUpon>SacarCupon.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
