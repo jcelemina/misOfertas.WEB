@@ -50,7 +50,7 @@ namespace misOfertas.BLL
                 oferta.Cantidad_Maxima = aux.CANTIDAD_MAXIMA;
                 oferta.Precio_Normal = aux.PRECIO_NORMAL;
                 oferta.Precio_Oferta = aux.PRECIO_OFERTA;
-                oferta.Imagen = "ftp://usuarioftp:Portafolio2018@18.222.173.173/"+aux.IMAGEN;
+                oferta.Imagen = aux.IMAGEN;
                 oferta.Fecha = aux.FECHA;
                 oferta.Campana_fk = aux.CAMPANA_FK;
                 oferta.Producto_fk = aux.PRODUCTO_FK;

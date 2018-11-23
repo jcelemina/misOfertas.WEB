@@ -20,50 +20,59 @@ namespace misOffertas
             string script = @"<script type='text/javascript'>mensaje();</script>";
             string scriptRequired = @"<script type='text/javascript'>mensajeRequired();</script>";
             string scriptUsuarioExistente = @"<script type='text/javascript'>UsuarioExistente();</script>";
-
+            string VerifyequalsPass = @"<script type='text/javascript'>VerifyequalsPass();</script>";
 
             BLL.Usuarios usu = new BLL.Usuarios();
 
-            if (txtNombre.Text == "" || txtRut.Text=="" || txtApellidoPaterno.Text=="" || txtApellidoMaterno.Text=="" || txtEmail.Text =="" || txtpassword.Text=="" || txtconfirmPassword.Value=="")
+            if (txtpassword.Text == txtconfirmPassword.Value)
             {
 
-                Page.RegisterStartupScript("mensaje", scriptRequired);
-            
-            }
-            else {
-
-                usu.nombre_usuario = txtNombre.Text.ToUpper();
-                usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
-                usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
-                usu.rut = txtRut.Text;
-                usu.estado = "Activo";
-                usu.rol_fk = 2;
-                usu.fecha = DateTime.Today;
-                usu.correo = txtEmail.Text;
-                usu.contrasena = txtpassword.Text;
-                int mailList = 0;
-
-                if (usu.findByEmail())
+                if (txtNombre.Text == "" || txtRut.Text == "" || txtApellidoPaterno.Text == "" || txtApellidoMaterno.Text == "" || txtEmail.Text == "" || txtpassword.Text == "" || txtconfirmPassword.Value == "")
                 {
-                    Page.RegisterStartupScript("mensaje", scriptUsuarioExistente);
+                    Page.RegisterStartupScript("mensaje", scriptRequired); 
                 }
                 else
                 {
-                    if (usu.create() == true)
+
+                    usu.nombre_usuario = txtNombre.Text.ToUpper();
+                    usu.apellido_paterno = txtApellidoPaterno.Text.ToUpper();
+                    usu.apellido_materno = txtApellidoMaterno.Text.ToUpper();
+                    usu.rut = txtRut.Text;
+                    usu.estado = "Activo";
+                    usu.rol_fk = 2;
+                    usu.fecha = DateTime.Today;
+                    usu.correo = txtEmail.Text;
+                    usu.contrasena = txtpassword.Text;
+                    int mailList = 0;
+
+                    if (usu.findByEmail())
                     {
-
-                        if (chkMailList.Checked == true)
+                        Page.RegisterStartupScript("mensaje", scriptUsuarioExistente);
+                    }
+                    else
+                    {
+                        if (usu.create() == true)
                         {
-                            mailList = usu.insertMailList(usu.correo);
 
+                            if (chkMailList.Checked == true)
+                            {
+                                mailList = usu.insertMailList(usu.correo);
+
+                            }
+
+                            Page.RegisterStartupScript("mensaje", script);
                         }
-                     
-                        Page.RegisterStartupScript("mensaje",script);
+
                     }
 
                 }
-
             }
+            else {
+
+                Page.RegisterStartupScript("mensaje", VerifyequalsPass); 
+            }
+
+            
             
 
 

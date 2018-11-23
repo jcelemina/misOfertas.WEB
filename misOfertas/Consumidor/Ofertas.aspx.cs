@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using misOfertas.BLL;
 using System.IO;
 using System.Net;
+using System.Collections;
 
 namespace misOfertas.Consumidor
 {
@@ -18,7 +19,21 @@ namespace misOfertas.Consumidor
         {
             GvOfertas.DataSource = SqlDataSource1;
             GvOfertas.DataBind();
+
+
         }
+
+        //public List<IEnumerable> listaImagenes()
+        //{
+        //    Oferta oferta = new Oferta();
+        //    List<IEnumerable> listanueva = new List<IEnumerable>();
+        //    foreach (var aux in oferta.listaOfertas())
+        //    {
+        //        listanueva.Add(descargarImagen(aux.Imagen));
+        //    }
+
+        //    return listanueva;
+        //}
 
 
 
@@ -29,7 +44,7 @@ namespace misOfertas.Consumidor
             Response.Redirect("Evaluar.aspx");
         }
 
-        public Byte[] descargarImagen(string pDireccion)
+        public String descargarImagen(string pDireccion)
         {
             string usuario = "usuarioftp";
             string pass = "Portafolio2018";
@@ -39,7 +54,12 @@ namespace misOfertas.Consumidor
             byte[] imageBytes = webClient.DownloadData(ftp + "/" + pDireccion);
 
             bvistaPrevia = imageBytes;
-            return bvistaPrevia;
+            
+
+            var base64 = Convert.ToBase64String(bvistaPrevia);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+            return imgSrc;
         }
 
         protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
