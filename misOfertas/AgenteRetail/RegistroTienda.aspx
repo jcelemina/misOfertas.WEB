@@ -16,11 +16,14 @@
             </div>
             <div class="form-group">
             <div class="form-group">
-            <asp:TextBox   ID="txtRutEmpresa" runat="server" CssClass="form-control"  placeholder="RUT EMPRESA"></asp:TextBox>
+               Empresa <asp:DropDownList ID="ddlEmpresa"  CssClass="form-control" runat="server" DataSourceID="SqlDataSource" DataTextField="NOMBRE_EMPRESA" DataValueField="RUT" ></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;RUT&quot;, &quot;NOMBRE_EMPRESA&quot; FROM &quot;EMPRESA&quot;"></asp:SqlDataSource>
             </div>
-            </div>
-             <asp:Button ID="Button1" runat="server" Text="Registrar"  CssClass="btn btn-primary form-control" OnClick="Button1_Click" />
-              <br />
+                <a class="d-block small" href="RegistroEmpresa.aspx">No encuentras tu empresa?</a>
+                </div>
+              <asp:Button ID="Button1" runat="server" Text="REGISTRAR TIENDA" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
+              
+            <br />
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
           </form>
         </div>

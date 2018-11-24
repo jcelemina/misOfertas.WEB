@@ -57,7 +57,7 @@ namespace misOffertas
                             if (chkMailList.Checked == true)
                             {
                                 mailList = usu.insertMailList(usu.correo);
-
+                                Page.RegisterStartupScript("mensaje", script);
                             }
 
                             Page.RegisterStartupScript("mensaje", script);

@@ -40,13 +40,22 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.TextBox TxtDireccion;
         
         /// <summary>
-        /// Control txtRutEmpresa.
+        /// Control ddlEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRutEmpresa;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmpresa;
+        
+        /// <summary>
+        /// Control SqlDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource;
         
         /// <summary>
         /// Control Button1.

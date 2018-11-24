@@ -22,7 +22,7 @@ namespace misOfertas.AgenteRetail
         {
             BLL.Tienda tienda = null;
             BLL.Empresa empresa = new BLL.Empresa();
-            empresa.rut_empresa = txtRutEmpresa.Text;
+            empresa.rut_empresa = ddlEmpresa.SelectedValue;
             bool existCompany = empresa.findByRut();
             BLL.Usuarios usuario = usuario = (BLL.Usuarios)Session["usuario"];
             if (existCompany == true){

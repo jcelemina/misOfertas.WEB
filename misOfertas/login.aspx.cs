@@ -37,7 +37,7 @@ namespace misOffertas
                     Response.Redirect("/Consumidor/Ofertas.aspx");
                     break;
                     case "Agente Retail":
-                        Response.Redirect("~/AgenteRetail/RegistroEmpresa.aspx");
+                        Response.Redirect("~/AgenteRetail/RegistroTienda.aspx");
                     break;
                 }
             }
