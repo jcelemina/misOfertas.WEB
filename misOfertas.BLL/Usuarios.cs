@@ -9,7 +9,17 @@ namespace misOfertas.BLL
 {
     public class Usuarios
     {
+        ////crea el objecto para poder encryptar la password
+        //MD5CryptoServiceProvider MD5Hasher = new MD5CryptoServiceProvider();
+        //// se crea un array de Bytes para poder  usar la encriptacion
+        //Byte[] cifrado;
+        //// crea un objeto  utf8Encoding que se utilizara para convertir la cadena de contraseña
+        //// en una matriz de bytes
+        //UTF8Encoding encoder = new UTF8Encoding();
+        //// cifrar la contraseña y almacenarla en la matriz de bytes hashedbytes
         
+
+
         public decimal id { get; set; }
         public string nombre_usuario { get; set; }
         public string apellido_paterno { get; set; }
@@ -38,7 +48,7 @@ namespace misOfertas.BLL
         }
         public Usuarios()
         {
-            this.estado = "Activo";
+            this.estado = "ACTIVO";
         }
 
 
@@ -80,7 +90,7 @@ namespace misOfertas.BLL
                     user.fecha = usuario.FECHA;
                     user.rol_nombre = rol_nombre;
                     user.estado = usuario.ESTADO;
-                    user.rol_fk = usuario.ROL_USUARIO_FK;
+                    user.rut = usuario.RUT;
 
                 }
 
@@ -155,36 +165,6 @@ namespace misOfertas.BLL
 
         }
 
-           public bool validarRut(string rut)
-        {
-
-            bool validacion = false;
-            try
-            {
-                rut = rut.ToUpper();
-                rut = rut.Replace(".", "");
-                rut = rut.Replace("-", "");
-                rut = rut.Replace(",", "");
-                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
-                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
-
-                int m = 0, s = 1;
-                for (; rutAux != 0; rutAux /= 10)
-                {
-                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
-                }
-                if (dv == (char)(s != 0 ? s + 47 : 75))
-                {
-                    validacion = true;
-                }
-            }
-            catch (Exception)
-            {
-            }
-            return validacion;
-        }
 
     }
-
-
-    }
+}
