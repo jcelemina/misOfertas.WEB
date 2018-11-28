@@ -1,0 +1,18 @@
+﻿body {
+}
+#cabecera {
+    height:150px;
+    background-color:#FF7800;
+    color:white;
+    border:1px dashed #A64E06;
+    box-shadow:0px 0px 10px #000;
+}
+#contenidoCabecera {
+    width:960px;
+    margin:auto;
+
+}
+#titulo {
+    padding-top:15px;
+}
+

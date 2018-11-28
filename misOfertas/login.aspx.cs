@@ -18,6 +18,8 @@ namespace misOffertas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string mensajeError = @"<script type='text/javascript'>mensajeError();</script>";
+
             DAL.USUARIO dal = new DAL.USUARIO();
             BLL.Usuarios user = new BLL.Usuarios();        
             user.correo = txtUsuario.Text;
@@ -26,7 +28,7 @@ namespace misOffertas
              var usuario = user.find(user.correo, user.contrasena);
 
 
-            if (usuario != null && usuario.estado=="Activo") {
+            if (usuario != null ) {
                 Session["usuario"] = usuario;
                 switch (usuario.rol_nombre)
                 {
@@ -37,15 +39,19 @@ namespace misOffertas
                     Response.Redirect("/Consumidor/SacarCupon.aspx");
                     break;
                     case "Agente Retail":
-                        Response.Redirect("~/AgenteRetail/RegistroEmpresa.aspx");
+                        Response.Redirect("~/AgenteRetail/RegistroTienda.aspx");
                     break;
                 }
+            }else
+            {
+                Page.RegisterStartupScript("mensajeError", mensajeError);
+
             }
-                
 
-            
 
-            
+
+
+
 
 
         }

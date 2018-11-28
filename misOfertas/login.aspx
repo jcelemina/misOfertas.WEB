@@ -18,10 +18,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet"/>
-
+    <script src="scripts/JavaScript.js"></script>
   </head>
 
-  <body>
+  <body >
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
@@ -34,22 +34,17 @@
             <div class="form-group">
             <asp:TextBox  type="password" ID="txtPassword" runat="server" CssClass="form-control"  placeholder="CONTRASEÑA"></asp:TextBox>
             </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <asp:CheckBox ID="chkRecordarPass" runat="server" />
-                  Recordar contraseña
-                </label>
-              </div>
-            </div>
              <asp:Button ID="Button1" runat="server" Text="INGRESE ACÁ" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
               <br />
+               <br />
+               <div class="alert alert-warning" id="alertExist" style="display:none"  >
+               <strong>¡Error!</strong>, usuario o contraseña incorrectos!.
+               </div> 
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
           </form>
           <div class="text-center">
             <a class="d-block small" href="RegistroConsumidor.aspx">Registar Consumidor</a>
             <a class="d-block small" href="RegistroAgenteRetail.aspx">Registro Agente Retail</a>
-<%--            <a class="d-block small" href="OlvideContraseña.aspx">Recordar contraseña?</a>--%>
           </div>
         </div>
       </div>

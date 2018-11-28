@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="misOfertas.Site3" %>
+﻿<%@ Master  Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="misOfertas.Site3" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,21 +19,47 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+     <link href="css/sb-admin.css" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
         <asp:ContentPlaceHolder ID="head" runat="server">
         
         </asp:ContentPlaceHolder>
   </head>
+    <body>
+<form id="form1" runat="server">
+    <div>
+    <div id="cabecera">
+        <div id="contenidoCabecera">
+            <div id="barraHorizontal">
 
-  <body id="page-top">
+            </div>
+            <div id="logotipo">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+            </div>
+            <div class="row" id="titulo" align="center">
+              <div id="imagen" class="col-md-4 my-auto"><img src="../css/logoMO.jpeg"  width="100" height="120px"/></div>
+              <div class="col-md-8" align="left" ><h1>MIS OFERTAS</h1></div>
+|           </div>
+        </div>
+    </div>
+    <div id="bajo">
+        <div id="columIzquierda">
+        
+        </div>
+        <div id="columCentro">
+              <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <!-- aqui va el contenido de las demas paginas -->
+              </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</div>
+</form>
 
-      <a class="navbar-brand mr-1" href="index.aspx">Mis Ofertas</a>
+</body>
+<%--  <body id="page-top">
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="RegistroTienda.aspx">Mis Ofertas</a>
       <div class="dropdown">
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
@@ -68,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="RegistroEmpresa.aspx">
+          <a class="nav-link" href="RegistroTienda.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Tienda</span></a>
         </li>
@@ -147,7 +173,7 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
-
-  </body>
+   <script src="scripts/JavaScript.js"></script>
+  </body>--%>
 
 </html>
