@@ -90,6 +90,7 @@ namespace misOfertas.BLL
                     user.fecha = usuario.FECHA;
                     user.rol_nombre = rol_nombre;
                     user.estado = usuario.ESTADO;
+                    user.rut = usuario.RUT;
 
                 }
 

@@ -22,15 +22,6 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control Image1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-        
-        /// <summary>
         /// Control Panel2.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.Label lblRut;
         
         /// <summary>
+        /// Control lblRubro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRubro;
+        
+        /// <summary>
         /// Control ddlProducto.
         /// </summary>
         /// <remarks>
@@ -74,6 +74,15 @@ namespace misOfertas.Consumidor {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource2;
+        
+        /// <summary>
+        /// Control lblPuntos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPuntos;
         
         /// <summary>
         /// Control DropDownList1.
@@ -94,6 +103,15 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
         
         /// <summary>
+        /// Control etiquetaDescuento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label etiquetaDescuento;
+        
+        /// <summary>
         /// Control lblDescuento.
         /// </summary>
         /// <remarks>
@@ -103,13 +121,13 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.Label lblDescuento;
         
         /// <summary>
-        /// Control Image2.
+        /// Control etiquetaFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Label etiquetaFecha;
         
         /// <summary>
         /// Control lblVencimiento.
@@ -128,6 +146,15 @@ namespace misOfertas.Consumidor {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCupon;
+        
+        /// <summary>
+        /// Control etiquetaCondiciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label etiquetaCondiciones;
         
         /// <summary>
         /// Control lblTope.
