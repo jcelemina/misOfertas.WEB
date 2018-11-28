@@ -1,14 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Ofertas.aspx.cs" Inherits="misOfertas.Consumidor.Ofertas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
-        <asp:GridView ID="GvOfertas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
+       <div class="m-5" align="right">       
+     <asp:Label ID="lblUsuario" runat="server" Text="" > </asp:Label>
+    </div>
+    
+   
+   <div class="m-5" > 
+     <form id="form1" runat="server" >
+        <asp:GridView ID="GvOfertas"  runat="server"  AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="ID_OFERTA" HeaderText="Nro Oferta" SortExpression="ID_OFERTA" />
-<asp:BoundField DataField="NOMBRE_PRODUCTO" HeaderText="Producto" SortExpression="NOMBRE_PRODUCTO"></asp:BoundField>
-<asp:BoundField DataField="NOMBRE_CAMPANA" HeaderText="Campaña" SortExpression="NOMBRE_CAMPANA"></asp:BoundField>
+                <asp:BoundField DataField="NOMBRE_PRODUCTO" HeaderText="Producto" SortExpression="NOMBRE_PRODUCTO"></asp:BoundField>
+                <asp:BoundField DataField="NOMBRE_CAMPANA" HeaderText="Campaña" SortExpression="NOMBRE_CAMPANA"></asp:BoundField>
                 <asp:BoundField DataField="CANTIDAD_MINIMA" HeaderText="Cantidad Mínima" SortExpression="CANTIDAD_MINIMA" />
                 <asp:BoundField DataField="CANTIDAD_MAXIMA" HeaderText="Cantidad Máxima" SortExpression="CANTIDAD_MAXIMA" />
                 <asp:BoundField DataField="PRECIO_NORMAL" HeaderText="Precio Normal" SortExpression="PRECIO_NORMAL" />
@@ -37,4 +45,5 @@
         <br />
         <br />
     </form>
+       </div>
 </asp:Content>

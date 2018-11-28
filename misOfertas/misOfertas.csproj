@@ -112,11 +112,15 @@
     <Content Include="AgenteRetail\NuevaOferta.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
+    <Content Include="App_Themes\Tema1\estilos.css" />
     <Content Include="Consumidor\ErrorEvaluar.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
     <Content Include="Consumidor\ExitoEvaluar.aspx" />
     <Content Include="Consumidor\index.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
+    <Content Include="css\logoMO.jpeg" />
+    <Content Include="css\sb-admin.css" />
+    <Content Include="css\sb-admin.min.css" />
     <Content Include="forgot-password.html" />
     <Content Include="gulpfile.js" />
     <Content Include="Administrador\index.aspx" />
@@ -129,6 +133,7 @@
     <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
     <Content Include="RegistroAgenteRetail.aspx" />
+    <Content Include="scripts\JavaScript.js" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.master" />
     <Content Include="Site3.Master" />
@@ -271,7 +276,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
     <Folder Include="vendor\" />
   </ItemGroup>
   <PropertyGroup>

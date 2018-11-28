@@ -20,9 +20,6 @@ namespace misOfertas.BLL
                 }
                 return _entities; }
 
-
-
-
             set { entities = value; }
         }
 
