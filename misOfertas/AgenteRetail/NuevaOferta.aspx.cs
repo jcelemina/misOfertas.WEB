@@ -16,12 +16,34 @@ namespace misOfertas.AgenteRetail
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["usuario"] == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+            if (usuario.rol_fk != 3)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            if (usuario.estado != "Activo")
+            {
+                Response.Redirect("~/login.aspx");
+            }
+
+
+            if (usuario != null)
+            {
+                lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
+
+            }
         }
 
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            string script = @"<script type='text/javascript'>mensaje();</script>";
+            string mensajeError = @"<script type='text/javascript'>mensajeError();</script>";
+
             Oferta oferta = new Oferta();
             oferta.Cantidad_Minima = decimal.Parse(txtCantidadMaxima.Text);
             oferta.Cantidad_Maxima = decimal.Parse(txtCantidadMaxima.Text);
@@ -79,11 +101,11 @@ namespace misOfertas.AgenteRetail
                 {
                     throw new Exception((ex.Response as FtpWebResponse).StatusDescription);
                 }
-                Response.Redirect("NuevaOfertaExito.aspx");
+                Page.RegisterStartupScript("mensaje", script);
             }
             else
             {
-                Response.Redirect("NuevaOfertaError.aspx");
+                Page.RegisterStartupScript("mensajeError", mensajeError);
             }
         }
     }

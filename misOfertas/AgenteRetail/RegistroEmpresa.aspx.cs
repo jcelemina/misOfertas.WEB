@@ -13,28 +13,29 @@ namespace misOfertas.AgenteRetail
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
-            //if (Session["usuario"] == null  ) {
-            //   Response.Redirect("~/login.aspx");
-            //}
-            //BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
-            //if (usuario.rol_fk != 3)
-            //{
-            //    Response.Redirect("~/login.aspx");
-            //}
-            //if (usuario.estado != "Activo")
-            //{
-            //    Response.Redirect("~/login.aspx");
-            //}
 
 
-            //if (usuario != null)
-            //{
-            //    lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
+            if (Session["usuario"] == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+            if (usuario.rol_fk != 3)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            if (usuario.estado != "Activo")
+            {
+                Response.Redirect("~/login.aspx");
+            }
 
-            //}
-          
+
+            if (usuario != null)
+            {
+                lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
+
+            }
+
 
 
         }

@@ -21,7 +21,7 @@ namespace misOfertas.AgenteRetail
 
             BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
 
-            if (usuario.rol_fk != 3) 
+            if (usuario.rol_fk != 3)
             {
                 Response.Redirect("~/login.aspx");
             }
