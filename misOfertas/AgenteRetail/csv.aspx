@@ -9,35 +9,46 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="EDSCSV">
-            <ItemTemplate>
-                FECHA:
-                <asp:Label ID="FECHALabel" runat="server" Text='<%# Eval("FECHA") %>' />
-                <br />
-                CALIDAD:
-                <asp:Label ID="CALIDADLabel" runat="server" Text='<%# Eval("CALIDAD") %>' />
-                <br />
-                ATENCION:
-                <asp:Label ID="ATENCIONLabel" runat="server" Text='<%# Eval("ATENCION") %>' />
-                <br />
-                PRECIO:
-                <asp:Label ID="PRECIOLabel" runat="server" Text='<%# Eval("PRECIO") %>' />
-                <br />
-                OFERTA_FK:
-                <asp:Label ID="OFERTA_FKLabel" runat="server" Text='<%# Eval("OFERTA_FK") %>' />
-                <br />
-                USUARIO_FK:
-                <asp:Label ID="USUARIO_FKLabel" runat="server" Text='<%# Eval("USUARIO_FK") %>' />
-                <br />
-                COMENTARIO:
-                <asp:Label ID="COMENTARIOLabel" runat="server" Text='<%# Eval("COMENTARIO") %>' />
-                <br />
-<br />
-            </ItemTemplate>
-        </asp:DataList>
-        <asp:EntityDataSource ID="EDSCSV" runat="server" ConnectionString="name=Entities" DefaultContainerName="Entities" EnableFlattening="False" EntitySetName="VALORACION" Select="it.[FECHA], it.[CALIDAD], it.[ATENCION], it.[PRECIO], it.[OFERTA_FK], it.[USUARIO_FK], it.[COMENTARIO]">
-        </asp:EntityDataSource>
+        <asp:GridView ID="GvCSV" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" DataSourceID="SqlDataSource1"  >
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:BoundField DataField="calidad" HeaderText="Calidad" SortExpression="calidad" />
+                <asp:BoundField DataField="atencion" HeaderText="Atención" SortExpression="atencion"></asp:BoundField>
+                <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="precio"></asp:BoundField>
+                <asp:BoundField DataField="Nombre_CAMPANA" HeaderText="Campaña" SortExpression="NOMBRE_CAMPANA" />
+                <asp:BoundField DataField="FECHA_INICIO" HeaderText="Fecha Inicio" SortExpression="FECHA_INICIO" />
+                <asp:BoundField DataField="FECHA_FIN" HeaderText="Fecha fin" SortExpression="fecha_fin" />
+                <asp:BoundField DataField="PRECIO_NORMAL" HeaderText="Precio Normal" SortExpression="PRECIO_NORMAL" />
+                <asp:BoundField DataField="PRECIO_OFERTA" HeaderText="Precio Oferta" SortExpression="PRECIO_OFERTA" />
+                <asp:BoundField DataField="NOMBRE_PRODUCTO" HeaderText="Producto" SortExpression="Nombre_producto" />
+                <asp:BoundField DataField="MArca" HeaderText="Marca" SortExpression="marca" />
+                <asp:BoundField DataField="Nombre_rubro" HeaderText="Rubro" SortExpression="Nombre_RUBRO" />
+                <asp:BoundField DataField="Nombres_usuario" HeaderText="Nombre usuario" SortExpression="NOMBRES_USUARIO" />
+                <asp:BoundField DataField="Apellido_Paterno" HeaderText="Apellido" SortExpression="apellido_paterno" />
+                <asp:BoundField DataField="correo" HeaderText="Correo" SortExpression="correo" />
+                <asp:BoundField DataField="rut" HeaderText="Rut" SortExpression="rut" />
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
     <div>
+        <asp:Button ID="Button1" runat="server" Text="Exportar a csv" OnClick="Button1_Click" />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select 
+  val.calidad, val.atencion, val.precio, camp.nombre_campana, camp.fecha_inicio, camp.fecha_fin,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,
+  prod.nombre_producto, prod.marca,rub.nombre_rubro, us.nombres_usuario, us.apellido_paterno, us.correo, us.rut
+from valoracion val join oferta ofer on val.oferta_fk = ofer.id_oferta
+join campana camp on ofer.campana_fk = camp.id_campana
+join producto prod on ofer.producto_fk = prod.id_producto
+join rubro rub on prod.rubro_fk = rub.id_rubro
+join usuario us on us.id_usuario = val.usuario_fk"></asp:SqlDataSource>
     
     </div>
     </form>

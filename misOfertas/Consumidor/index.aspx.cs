@@ -18,6 +18,7 @@ namespace misOfertas.Consumidor
                 Response.Redirect("~/login.aspx");
             }
 
+
             lblMensaje.Text = "Bienvenido " + usuario.nombre_usuario;
         }
     }
