@@ -15,6 +15,29 @@ namespace misOfertas.Consumidor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+
+
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+
+            if (usuario.rol_fk != 2)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+
+            if (usuario.estado != "Activo")
+            {
+
+                Response.Redirect("~/login.aspx");
+            }
+            if (usuario != null)
+            {
+                lblMensaje.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
+
+            }
 
         }
 
@@ -34,6 +57,9 @@ namespace misOfertas.Consumidor
 
             if (valoracion.create())
             {
+                string script = @"<script type='text/javascript'>mensaje();</script>";
+                
+
                 //Url del FTP.
                 string usuario = "usuarioftp";
                 string pass = "Portafolio2018";
@@ -80,11 +106,13 @@ namespace misOfertas.Consumidor
                 {
                     throw new Exception((ex.Response as FtpWebResponse).StatusDescription);
                 }
-                Response.Redirect("ExitoEvaluar.aspx");
-            }
-            else
-            {
-                Response.Redirect("ErrorEvaluar.aspx");
+
+                //Response.Redirect("ExitoEvaluar.aspx");
+                Page.RegisterStartupScript("mensaje", script);
+            }else{
+                string mensajeError = @"<script type='text/javascript'>mensajeError();</script>";
+
+                Page.RegisterStartupScript("mensajeError", mensajeError);
             }
         }       
     }

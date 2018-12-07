@@ -34,12 +34,21 @@ namespace misOfertas.Consumidor
 
             if (usuario != null)
             {
-              lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
+              
+             lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
 
             }
+            try
+            {
+                GvOfertas.DataSource = SqlDataSource1;
+                GvOfertas.DataBind();
+            }
+            catch (Exception ex)
+            {
 
-            GvOfertas.DataSource = SqlDataSource1;
-            GvOfertas.DataBind();
+                throw ex;
+            }
+            
 
 
         }

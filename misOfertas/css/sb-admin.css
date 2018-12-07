@@ -281,6 +281,8 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 .card-login {
   max-width: 25rem;
+    top: 70px;
+    left: 12px;
 }
 
 .card-register {

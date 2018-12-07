@@ -3,15 +3,20 @@
 
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <div class="m-5" align="right">       
-     <asp:Label ID="lblUsuario" runat="server" Text="" > </asp:Label>
-    </div>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     
-   
-   <div class="m-5" > 
-     <form id="form1" runat="server" >
-        <asp:GridView ID="GvOfertas"  runat="server"  AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" >
+        <div class="m-5" align="right">       
+         <asp:Label ID="lblUsuario" runat="server" Text="" > </asp:Label>
+    </div>
+     <asp:Panel ID="Panel1" runat="server"  HorizontalAlign="Center">
+<div class="container">
+
+
+    
+     
+
+    
+        <asp:GridView ID="GvOfertas"  runat="server"  AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="ID_OFERTA" HeaderText="Nro Oferta" SortExpression="ID_OFERTA" />
@@ -21,9 +26,9 @@
                 <asp:BoundField DataField="CANTIDAD_MAXIMA" HeaderText="Cantidad Máxima" SortExpression="CANTIDAD_MAXIMA" />
                 <asp:BoundField DataField="PRECIO_NORMAL" HeaderText="Precio Normal" SortExpression="PRECIO_NORMAL" />
                 <asp:BoundField DataField="PRECIO_OFERTA" HeaderText="Precio Oferta" SortExpression="PRECIO_OFERTA" />
-                <asp:TemplateField HeaderText="Imagen">
+                <asp:TemplateField HeaderText="Imagen" ItemStyle-CssClass="active" >
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# descargarImagen(Eval("IMAGEN").ToString()) %>' Width="150px" />
+                        <asp:Image  ID="Image1" runat="server" Height="100px" ImageUrl='<%# descargarImagen(Eval("IMAGEN").ToString()) %>' Width="150px" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField SelectText="Evaluar" ShowSelectButton="True" />
@@ -42,8 +47,7 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,ofer.IMAGEN
     from oferta ofer join campana camp on ofer.campana_fk = camp.id_campana
     join producto prod on ofer.producto_fk = prod.id_producto"></asp:SqlDataSource>
-        <br />
-        <br />
-    </form>
-       </div>
+            </div>
+  
+          </asp:Panel>
 </asp:Content>

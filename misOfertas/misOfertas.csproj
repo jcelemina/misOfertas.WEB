@@ -121,18 +121,29 @@
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
     <Content Include="App_Themes\Tema1\estilos.css" />
+    <Content Include="Consumidor\Cupon.aspx" />
     <Content Include="Consumidor\ErrorEvaluar.aspx" />
     <Content Include="Consumidor\Evaluar.aspx" />
+    <Content Include="Consumidor\EvaluarOferta.aspx" />
     <Content Include="Consumidor\ExitoEvaluar.aspx" />
+    <Content Include="Consumidor\Formulario web1.aspx" />
+    <Content Include="Consumidor\GenerarCupon.aspx" />
     <Content Include="Consumidor\index.aspx" />
+    <Content Include="Consumidor\inicio.aspx" />
+    <Content Include="Consumidor\MisOfertas.aspx" />
     <Content Include="Consumidor\Ofertas.aspx" />
     <Content Include="Consumidor\SacarCupon.aspx" />
+    <Content Include="css\estilos.css" />
     <Content Include="css\logoMO.jpeg" />
     <Content Include="css\sb-admin.css" />
     <Content Include="css\sb-admin.min.css" />
     <Content Include="forgot-password.html" />
+    <Content Include="Formulario web1.aspx" />
+    <Content Include="Gruntfile.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Administrador\index.aspx" />
+    <Content Include="index.html" />
+    <Content Include="index2.html" />
     <Content Include="login.aspx" />
     <Content Include="OlvideContraseña.aspx" />
     <Content Include="packages.config" />
@@ -146,6 +157,11 @@
     <Content Include="Site1.Master" />
     <Content Include="Site2.master" />
     <Content Include="Site3.Master" />
+    <Content Include="Consumidor\Consumidor.Master" />
+    <Content Include="bower.json" />
+    <Content Include="changelog" />
+    <Content Include="composer.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -157,6 +173,7 @@
     <Content Include="RegistroConsumidor.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +212,20 @@
     <Compile Include="AgenteRetail\RegistroTienda.aspx.designer.cs">
       <DependentUpon>RegistroTienda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\Consumidor.Master.cs">
+      <DependentUpon>Consumidor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Consumidor.Master.designer.cs">
+      <DependentUpon>Consumidor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\Cupon.aspx.cs">
+      <DependentUpon>Cupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Cupon.aspx.designer.cs">
+      <DependentUpon>Cupon.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\ErrorEvaluar.aspx.cs">
       <DependentUpon>ErrorEvaluar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -209,6 +240,13 @@
     <Compile Include="Consumidor\Evaluar.aspx.designer.cs">
       <DependentUpon>Evaluar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\EvaluarOferta.aspx.cs">
+      <DependentUpon>EvaluarOferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\EvaluarOferta.aspx.designer.cs">
+      <DependentUpon>EvaluarOferta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\ExitoEvaluar.aspx.cs">
       <DependentUpon>ExitoEvaluar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,12 +254,40 @@
     <Compile Include="Consumidor\ExitoEvaluar.aspx.designer.cs">
       <DependentUpon>ExitoEvaluar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consumidor\Formulario web1.aspx.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\Formulario web1.aspx.designer.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\GenerarCupon.aspx.cs">
+      <DependentUpon>GenerarCupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\GenerarCupon.aspx.designer.cs">
+      <DependentUpon>GenerarCupon.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consumidor\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consumidor\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consumidor\MisOfertas.aspx.cs">
+      <DependentUpon>MisOfertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consumidor\MisOfertas.aspx.designer.cs">
+      <DependentUpon>MisOfertas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\Ofertas.aspx.cs">
       <DependentUpon>Ofertas.aspx</DependentUpon>
@@ -236,6 +302,13 @@
     </Compile>
     <Compile Include="Consumidor\SacarCupon.aspx.designer.cs">
       <DependentUpon>SacarCupon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario web1.aspx.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario web1.aspx.designer.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -299,6 +372,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bootstrap\" />
+    <Folder Include="build\" />
+    <Folder Include="dist\" />
+    <Folder Include="pages\" />
+    <Folder Include="plugins\" />
     <Folder Include="vendor\" />
   </ItemGroup>
   <PropertyGroup>

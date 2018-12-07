@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="RegistroTienda.aspx.cs" Inherits="misOfertas.AgenteRetail.RegistroTienda" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="RegistroTienda.aspx.cs" Inherits="misOfertas.AgenteRetail.RegistroTienda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../scripts/JavaScript.js"></script>
 </asp:Content>
@@ -6,8 +6,11 @@
     <div class="m-5" align="right">       
      <asp:Label ID="lblMensaje" runat="server" Text="" > </asp:Label>
     </div>
-<div class="container">
-            
+    
+<div class="container" >
+    <div align="right">
+    <asp:Button ID="Button2" runat="server" Text="GENERAR CSV"  CssClass="btn-info" OnClick="Button2_Click"/>
+     </div>
       <div class="card card-login mx-auto mt-5">
        <div class="alert alert-success" id="alertInsert" style="display:none"  >
        <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -32,11 +35,10 @@
               <asp:Button ID="Button1" runat="server" Text="REGISTRAR TIENDA" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
               
             <br />
-               <div class="alert alert-warning" id="alertExist" style="display:none"  >
+               <div class="alert alert-danger" id="alertExist" style="display:none"  >
               <button type="button" class="close" data-dismiss="alert">&times;</button>
               <strong>¡Error!</strong>, No fue posible el registro, Empresa existe!!!.
               </div> 
-        <%--  </form>--%>
         </div>
       </div>
     </div>

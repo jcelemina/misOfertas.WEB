@@ -70,5 +70,10 @@ namespace misOfertas.AgenteRetail
                 Response.Redirect("RegistroEmpresa.aspx");
             }
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("csv.aspx");
+        }
     }
 }

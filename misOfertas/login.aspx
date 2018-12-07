@@ -37,8 +37,8 @@
              <asp:Button ID="Button1" runat="server" Text="INGRESE ACÁ" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>
               <br />
                <br />
-               <div class="alert alert-warning" id="alertExist" style="display:none"  >
-               <strong>¡Error!</strong>, usuario o contraseña incorrectos!.
+               <div class="alert alert-danger" id="alertExist" style="display:none"  >
+               <strong>¡Error!</strong>, usuario o contraseña incorrecto!.
                </div> 
               <asp:Label ID="lblMensaje" runat="server" Text=""> </asp:Label>
           </form>

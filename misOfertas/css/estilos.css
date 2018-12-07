@@ -1,0 +1,36 @@
+﻿body {
+}
+Tabla {
+width:800px;
+}
+
+.Encabezado {
+    height:50px;
+    text-align:center;
+    background-color:#34268A;
+    color:white;
+}
+
+.Menu {
+    height:300px;
+    width:200px;
+    background-color:azure;
+    font-size:medium;
+    text-align:center;
+    color:white;
+}
+
+.Contenido {
+    width:600px;
+    text-align:center;
+    color:black;
+    font-size:large;
+}
+
+.pie {
+height:40px;
+text-align:center;
+margin-top:0px;
+background-color:#34268A;
+}
+
