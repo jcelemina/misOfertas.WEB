@@ -14,11 +14,21 @@ namespace misOfertas.Consumidor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
-            lblUsuario.Text = usuario.nombre_usuario.ToString();
-            lblusu.Text = usuario.nombre_usuario.ToString();
-            lblRol.Text = usuario.rol_nombre.ToString();
-            lblVencimiento.Text = DateTime.Now.AddMonths(1).ToShortDateString();
+            if (Session["usuario"] == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            else
+            {
+                BLL.Usuarios usuario = usuario = (BLL.Usuarios)Session["usuario"];
+                lblNombre.Text = usuario.nombre_usuario;
+                lblRut.Text = usuario.rut;
+                lblVencimiento.Text = DateTime.Now.AddMonths(1).ToShortDateString();
+                lblUsuario.Text = usuario.nombre_usuario.ToString();
+                lblusu.Text = usuario.nombre_usuario.ToString();
+                lblRol.Text = usuario.rol_nombre.ToString().ToUpper();
+
+            }
 
             lblDescuento.DataBind();
             etiquetaDescuento.Visible = false;

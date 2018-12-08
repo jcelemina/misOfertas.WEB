@@ -17,12 +17,12 @@
                 <asp:BoundField DataField="CANTIDAD_MAXIMA" HeaderText="Cantidad Máxima" SortExpression="CANTIDAD_MAXIMA" />
                 <asp:BoundField DataField="PRECIO_NORMAL" HeaderText="Precio Normal" SortExpression="PRECIO_NORMAL" />
                 <asp:BoundField DataField="PRECIO_OFERTA" HeaderText="Precio Oferta" SortExpression="PRECIO_OFERTA" />
-                <asp:TemplateField HeaderText="Imagen" ItemStyle-CssClass="active" >
+                <asp:TemplateField HeaderText="Imagen" ItemStyle-CssClass="active" ControlStyle-CssClass="active" ControlStyle-BorderColor="SkyBlue" >
                     <ItemTemplate>
                         <asp:Image  ID="Image1" runat="server" Height="100px" ImageUrl='<%# descargarImagen(Eval("IMAGEN").ToString()) %>' Width="150px" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField SelectText="Evaluar" ShowSelectButton="True" />
+                <asp:CommandField SelectText="Evaluar" ShowSelectButton="True" ControlStyle-CssClass="form-control alert-info" />
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

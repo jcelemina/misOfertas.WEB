@@ -148,22 +148,13 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.DropDownList ddlProducto;
         
         /// <summary>
-        /// Control EntityDataSource3.
+        /// Control EntityDataSource2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource3;
-        
-        /// <summary>
-        /// Control EntityDataSource1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource2;
         
         /// <summary>
         /// Control Label4.
@@ -193,13 +184,13 @@ namespace misOfertas.Consumidor {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// Control EntityDataSource2.
+        /// Control EntityDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource2;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
         
         /// <summary>
         /// Control etiquetaDescuento.
