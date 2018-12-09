@@ -36,14 +36,10 @@ namespace misOffertas
                     Response.Redirect("login.aspx");
                     break;
                     case "Consumidor":
-                        //Response.Redirect("~/Consumidor/Ofertas.aspx");
-                        //Response.Redirect("~/Consumidor/index.aspx");
-                        Response.Redirect("~/Consumidor/inicio.aspx");
-                        //Response.Redirect("~/Administrador/index.aspx");
-
-                        break;
+                    Response.Redirect("~/Consumidor/inicio.aspx");
+                    break;
                     case "Agente Retail":
-                        Response.Redirect("~/AgenteRetail/RegistroTienda.aspx");
+                    Response.Redirect("~/AgenteRetail/inicio.aspx");
                     break;
                 }
             }else

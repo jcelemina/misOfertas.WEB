@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Campana.cs" />
     <Compile Include="CommomBC.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="HashMD5.cs" />

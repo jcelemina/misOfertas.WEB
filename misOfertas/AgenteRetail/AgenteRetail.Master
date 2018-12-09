@@ -1,5 +1,7 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Consumidor.master.cs" Inherits="misOfertas.Consumidor.Consumidor" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AgenteRetail.master.cs" Inherits="misOfertas.AgenteRetail.AgenteRetail" %>
+
 <!DOCTYPE html>
+
 <html>
   <head runat="server">
     <meta charset="UTF-8">
@@ -78,7 +80,7 @@
                     </div>
 
                     <div class="pull-right">
-                          <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-default btn-flat" OnClick="btnCerrarSesion_Click" />
+                          <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-default btn-flat" />
                     </div>
                   </li>
                 </ul>
@@ -141,85 +143,7 @@
             Bienvenido 
             <small>Las mejores ofertas solamente aquí en MisOfertas.cl</small>
           </h1>
-          <ol class="breadcrumb">
-              <!--Aqui va el codigo para generar cupón*-->
-
-<button type="button" class="btn btn-info"data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">DESCARGAR CUPÓN</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">GENERAR CUPÓN DE DESCUENTO</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <div class="container-fluid">
-        <asp:Panel ID="Panel1" runat="server"  HorizontalAlign="left">
-        <form>
-        <div class="form-group row">
-           <asp:Label ID="Label1" runat="server" class="col-sm-2 col-form-label">NOMBRE :</asp:Label>
-           <div class="col-sm-10">
-           <asp:Label ID="lblNombre" runat="server" Text="Label" class="form-control"></asp:Label>
-         </div>
-         </div>
-           <div class="form-group row">
-           <asp:Label ID="Label2" runat="server" class="col-sm-2 col-form-label">RUT :</asp:Label>
-           <div class="col-sm-10">
-           <asp:Label ID="lblRut" runat="server" Text="" class="form-control"></asp:Label>
-           </div>
-           </div>
-           <div class="form-group row">
-             <asp:Label ID="Label3" runat="server"  class="col-sm-2 col-form-label">RUBRO :</asp:Label>
-               <asp:Label ID="lblRubro" class="col-form-label" runat="server" Text="Label"></asp:Label>
-             <div class="col-sm-10">
-             <asp:DropDownList ID="ddlProducto" runat="server" class="form-control" DataSourceID="EntityDataSource2" DataTextField="NOMBRE_RUBRO" DataValueField="ID_RUBRO">
-             </asp:DropDownList>
-             <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=Entities" DefaultContainerName="Entities" EnableFlattening="False" EntitySetName="RUBRO" EntityTypeFilter="RUBRO" Select="it.[ID_RUBRO], it.[NOMBRE_RUBRO]">
-             </asp:EntityDataSource>
-             </div>
-             </div>
-            <div class="form-group row">
-            <asp:Label ID="Label4" runat="server" class="col-sm-2 col-form-label">PUNTOS :</asp:Label>
-            <asp:Label ID="lblPuntos" runat="server" Text="Label" class="col-form-label"></asp:Label>
-            <div class="col-sm-10">
-            <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="EntityDataSource1" DataTextField="MAXIMO" DataValueField="ID_TRAMO" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            </asp:DropDownList>
-            <asp:EntityDataSource ID="EntityDataSource1" runat="server"  ConnectionString="name=Entities" DefaultContainerName="Entities" EnableFlattening="False" EntitySetName="TRAMO" EntityTypeFilter="TRAMO" Select="it.[ID_TRAMO], it.[MAXIMO]">
-            </asp:EntityDataSource>
-            </div>
-            </div>
-            <div class="form-group row">
-            <asp:Label ID="etiquetaDescuento" runat="server"  class="col-form-label">DESCUENTO : </asp:Label>
-            <div class="col-sm-10">
-            <asp:Label ID="lblDescuento" runat="server" Text="Label" class="form-control"></asp:Label>
-            </div>
-            </div>
-            <div class="form-group row">
-            <asp:Label ID="etiquetaFecha" runat="server" Text="FECHA VENCIMIENTO"></asp:Label>
-            <div class="col-sm-10">
-            <asp:Label ID="lblVencimiento" class="form-control" runat="server" Text="Label"></asp:Label>
-            </div>
-            </div>
-            <div class="form-group">
-                <asp:Label ID="etiquetaCondiciones" runat="server" Text="Cupón válido hasta la fecha indicada según el rubro selecionado, con tope monetario de"></asp:Label>
-            <br />
-                <asp:Label ID="lblTope" runat="server" Text="lblTope"></asp:Label>
-            </div>
-                </form>
-            
-          </asp:Panel> 
-      </div>
-          </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Closee</button>
-        <asp:Button ID="btnCupon" runat="server" OnClick="Button1_Click" Text="Cupón" Width="86px"  CssClass="btn btn-primary"/>
-      </div>
-    </div>
-  </div>
-</div>
-          </ol>
+ 
         </section>
 
         <!-- Main content -->

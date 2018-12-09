@@ -18,6 +18,8 @@ namespace misOfertas.BLL
         public string rut_empresa { get; set; }
         /* --------------------- */
         public int id_usuario { get; set; }
+
+
         public Tienda()
         {
             this.estado = "Pendiente";
@@ -55,7 +57,6 @@ namespace misOfertas.BLL
 
             return exist;
         }
-    
         public DAL.TIENDA findByStore(int id_tienda) {
 
             return CommomBC.entities.TIENDA.Find(id_tienda);
@@ -84,6 +85,23 @@ namespace misOfertas.BLL
             }
             return tiendas;
         }
-
+        public List<Tienda> FindByUser(int id_usuario, string estado) {
+            List<Tienda> tiendas = new List<Tienda>();
+            foreach (var store in CommomBC.entities.TIENDA.Where(em =>em.USUARIO_FK == id_usuario && em.ESTADO ==estado).ToList())
+            {
+                Tienda tienda = new Tienda();
+                tienda.id_tienda = (int)store.ID_TIENDA;
+                tienda.nombre_tienda = store.NOMBRE_TIENDA;
+                tienda.direccion = store.DIRECCION;
+                tienda.estado = store.ESTADO;
+                tienda.nombre_empresa = store.EMPRESA.NOMBRE_EMPRESA;
+                tienda.rut_empresa = store.EMPRESA.RUT;
+                tienda.id_usuario = (int) store.USUARIO_FK;
+                tienda.id_empresa = (int)store.EMPRESA_FK;
+                tiendas.Add(tienda);
+            }
+            return tiendas;
+            
+        }
     }
 }

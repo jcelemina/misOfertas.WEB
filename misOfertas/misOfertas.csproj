@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgenteRetail\csv.aspx" />
+    <Content Include="AgenteRetail\inicio.aspx" />
     <Content Include="AgenteRetail\NuevaOferta.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
     <Content Include="AgenteRetail\RegistroTienda.aspx" />
@@ -152,6 +153,7 @@
     <Content Include="changelog" />
     <Content Include="composer.json" />
     <Content Include="package.json" />
+    <Content Include="AgenteRetail\AgenteRetail.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,12 +176,26 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgenteRetail\AgenteRetail.Master.cs">
+      <DependentUpon>AgenteRetail.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\AgenteRetail.Master.designer.cs">
+      <DependentUpon>AgenteRetail.Master</DependentUpon>
+    </Compile>
     <Compile Include="AgenteRetail\csv.aspx.cs">
       <DependentUpon>csv.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AgenteRetail\csv.aspx.designer.cs">
       <DependentUpon>csv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgenteRetail\NuevaOferta.aspx.cs">
       <DependentUpon>NuevaOferta.aspx</DependentUpon>

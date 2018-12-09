@@ -1201,5 +1201,42 @@ namespace misOfertas.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SpInsertOferta", p_CANTIDAD_MINIMAParameter, p_CANTIDAD_MAXIMAParameter, p_PRECIO_NORMALParameter, p_PRECIO_OFERTAParameter, p_IMAGENParameter, p_FECHAParameter, p_CAMPANA_FKParameter, p_PRODUCTO_FKParameter);
         }
+    
+        public virtual int spInsertCampana(string p_NOMBRE_CAMPANA, string p_DESCRIPCION, Nullable<System.DateTime> p_FECHA_INICIO, Nullable<System.DateTime> p_FECHA_FIN, Nullable<System.DateTime> p_FECHA, string p_ESTADO, Nullable<decimal> p_USUARIO_FK, Nullable<decimal> p_TIENDA_FK)
+        {
+            var p_NOMBRE_CAMPANAParameter = p_NOMBRE_CAMPANA != null ?
+                new ObjectParameter("P_NOMBRE_CAMPANA", p_NOMBRE_CAMPANA) :
+                new ObjectParameter("P_NOMBRE_CAMPANA", typeof(string));
+    
+            var p_DESCRIPCIONParameter = p_DESCRIPCION != null ?
+                new ObjectParameter("P_DESCRIPCION", p_DESCRIPCION) :
+                new ObjectParameter("P_DESCRIPCION", typeof(string));
+    
+            var p_FECHA_INICIOParameter = p_FECHA_INICIO.HasValue ?
+                new ObjectParameter("P_FECHA_INICIO", p_FECHA_INICIO) :
+                new ObjectParameter("P_FECHA_INICIO", typeof(System.DateTime));
+    
+            var p_FECHA_FINParameter = p_FECHA_FIN.HasValue ?
+                new ObjectParameter("P_FECHA_FIN", p_FECHA_FIN) :
+                new ObjectParameter("P_FECHA_FIN", typeof(System.DateTime));
+    
+            var p_FECHAParameter = p_FECHA.HasValue ?
+                new ObjectParameter("P_FECHA", p_FECHA) :
+                new ObjectParameter("P_FECHA", typeof(System.DateTime));
+    
+            var p_ESTADOParameter = p_ESTADO != null ?
+                new ObjectParameter("P_ESTADO", p_ESTADO) :
+                new ObjectParameter("P_ESTADO", typeof(string));
+    
+            var p_USUARIO_FKParameter = p_USUARIO_FK.HasValue ?
+                new ObjectParameter("P_USUARIO_FK", p_USUARIO_FK) :
+                new ObjectParameter("P_USUARIO_FK", typeof(decimal));
+    
+            var p_TIENDA_FKParameter = p_TIENDA_FK.HasValue ?
+                new ObjectParameter("P_TIENDA_FK", p_TIENDA_FK) :
+                new ObjectParameter("P_TIENDA_FK", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertCampana", p_NOMBRE_CAMPANAParameter, p_DESCRIPCIONParameter, p_FECHA_INICIOParameter, p_FECHA_FINParameter, p_FECHAParameter, p_ESTADOParameter, p_USUARIO_FKParameter, p_TIENDA_FKParameter);
+        }
     }
 }
