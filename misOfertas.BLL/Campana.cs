@@ -60,7 +60,7 @@ namespace misOfertas.BLL
             {
                 Campana campana = new Campana();
                 campana.id_campana = (int)ofert.ID_CAMPANA;
-                campana.nombre_tienda = ofert.NOMBRE_CAMPANA;
+                campana.nombre_tienda = ofert.TIENDA.NOMBRE_TIENDA;
                 campana.descripcion = ofert.DESCRIPCION;
                 campana.fecha_inicio = ofert.FECHA_INICIO.ToString();
                 campana.fecha_fin =  ofert.FECHA_FIN.ToString();
@@ -68,7 +68,7 @@ namespace misOfertas.BLL
                 campana.estado = ofert.ESTADO;
                 campana.usuario_fk = ofert.USUARIO_FK;
                 campana.tienda_fk = ofert.TIENDA_FK;
-                campana.nombre_tienda = ofert.TIENDA.NOMBRE_TIENDA;
+                campana.nombre_campana = ofert.NOMBRE_CAMPANA;
                 campana.usuario_nombre = ofert.USUARIO.NOMBRES_USUARIO;
                 campanas.Add(campana);
                 

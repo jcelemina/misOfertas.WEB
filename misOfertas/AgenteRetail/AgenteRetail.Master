@@ -80,7 +80,8 @@
                     </div>
 
                     <div class="pull-right">
-                          <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-default btn-flat" />
+                        <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" class="btn btn-default btn-flat" OnClick="btnCerrarSesion_Click" />
+                         
                     </div>
                   </li>
                 </ul>
@@ -106,7 +107,7 @@
               <img src="../css/logoMO.jpeg " class="img-circle" alt="User Image" width="160" height="160"/>
               </div>
             <div class="pull-left info">
-              <p>Consumidor</p>
+              <p>Agente Retail</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Conectado</a>
             </div>
@@ -118,13 +119,13 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i>PERFIL</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i>PERFIL</a></li>
               </ul>
             </li>
             
             <li>
-              <a href="inicio.aspx">
-                <i class="fa fa-th"></i> <span>OFERTAS</span> <small class="label pull-right bg-green">of</small>
+              <a href="#">
+                <i class="fa fa-th"></i> <span>PONER QUE WEA</span> <small class="label pull-right bg-green">of</small>
               </a>
             </li>            
            
