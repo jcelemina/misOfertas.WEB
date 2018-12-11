@@ -10,87 +10,114 @@
 namespace misOfertas.AgenteRetail {
     
     
-    public partial class inicio {
+    public partial class Campaña {
         
         /// <summary>
-        /// Control lblusuario.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblusuario;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control gvCampanaActiva.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCampanaActiva;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// Control gvCampanaPendiente.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCampanaPendiente;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control gvTiendaActiva.
+        /// Control txtDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTiendaActiva;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
         
         /// <summary>
-        /// Control gvTienda.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTienda;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control txtNombreTienda.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreTienda;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaInicio;
         
         /// <summary>
-        /// Control TxtDireccion.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDireccion;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control ddlEmpresa.
+        /// Control txtfechaTermino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmpresa;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtfechaTermino;
         
         /// <summary>
-        /// Control btnCrearTienda.
+        /// Control Label6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearTienda;
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// Control ddlTienda.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTienda;
+        
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

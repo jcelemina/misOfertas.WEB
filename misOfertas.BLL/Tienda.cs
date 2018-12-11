@@ -19,6 +19,8 @@ namespace misOfertas.BLL
         /* --------------------- */
         public int id_usuario { get; set; }
 
+       
+       
 
         public Tienda()
         {
@@ -102,6 +104,12 @@ namespace misOfertas.BLL
             }
             return tiendas;
             
+        }
+       
+        override 
+        public string ToString()
+        {
+            return this.nombre_tienda;
         }
     }
 }

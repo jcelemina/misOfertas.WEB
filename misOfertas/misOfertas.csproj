@@ -116,11 +116,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AgenteRetail\csv.aspx" />
+    <Content Include="AgenteRetail\Campaña.aspx" />
+    <Content Include="AgenteRetail\Empresa.aspx" />
+    <Content Include="AgenteRetail\GenerarCsv.aspx" />
     <Content Include="AgenteRetail\inicio.aspx" />
     <Content Include="AgenteRetail\NuevaOferta.aspx" />
     <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
-    <Content Include="AgenteRetail\RegistroTienda.aspx" />
     <Content Include="App_Themes\Tema1\estilos.css" />
     <Content Include="Consumidor\EvaluarOferta.aspx" />
     <Content Include="Consumidor\inicio.aspx" />
@@ -183,12 +184,26 @@
     <Compile Include="AgenteRetail\AgenteRetail.Master.designer.cs">
       <DependentUpon>AgenteRetail.Master</DependentUpon>
     </Compile>
-    <Compile Include="AgenteRetail\csv.aspx.cs">
-      <DependentUpon>csv.aspx</DependentUpon>
+    <Compile Include="AgenteRetail\Campaña.aspx.cs">
+      <DependentUpon>Campaña.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AgenteRetail\csv.aspx.designer.cs">
-      <DependentUpon>csv.aspx</DependentUpon>
+    <Compile Include="AgenteRetail\Campaña.aspx.designer.cs">
+      <DependentUpon>Campaña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\Empresa.aspx.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\Empresa.aspx.designer.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenteRetail\GenerarCsv.aspx.cs">
+      <DependentUpon>GenerarCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenteRetail\GenerarCsv.aspx.designer.cs">
+      <DependentUpon>GenerarCsv.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgenteRetail\inicio.aspx.cs">
       <DependentUpon>inicio.aspx</DependentUpon>
@@ -210,13 +225,6 @@
     </Compile>
     <Compile Include="AgenteRetail\RegistroEmpresa.aspx.designer.cs">
       <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgenteRetail\RegistroTienda.aspx.cs">
-      <DependentUpon>RegistroTienda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgenteRetail\RegistroTienda.aspx.designer.cs">
-      <DependentUpon>RegistroTienda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\Consumidor.Master.cs">
       <DependentUpon>Consumidor.Master</DependentUpon>

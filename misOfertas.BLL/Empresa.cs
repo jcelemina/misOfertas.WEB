@@ -53,7 +53,30 @@ namespace misOfertas.BLL
 
             return exist;
         }
-     
-        
+
+        public List<Empresa> FindByEstado(string estado)
+        {
+            List<Empresa> empresas = new List<Empresa>();
+            foreach (var company in CommomBC.entities.EMPRESA.Where(em => em.ESTADO == estado).ToList())
+            {
+                Empresa empresa = new Empresa();
+                empresa.id_empresa = (int)company.ID_EMPRESA;
+                empresa.nombre_empresa = company.NOMBRE_EMPRESA;
+                empresa.razon_social = company.RAZON_SOCIAL;
+                empresa.estado = company.ESTADO;
+                empresa.rut_empresa = company.RUT;
+                empresas.Add(empresa);
+            }
+            return empresas;
+
+        }
+
+        override
+        public string ToString()
+        {
+            return this.nombre_empresa;
+        }
+
+
     }
 }

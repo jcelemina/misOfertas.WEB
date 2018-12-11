@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL = misOfertas.BLL;
 
 namespace misOfertas.AgenteRetail
 {
@@ -46,6 +47,9 @@ namespace misOfertas.AgenteRetail
 
                 gvCampanaPendiente.DataSource = campana.FindByUser((int)usuario.id, "Pendiente");
                 gvCampanaPendiente.DataBind();
+
+                BLL.Empresa empresa = new BLL.Empresa();
+                ddlEmpresa.DataSource = empresa.FindByEstado("Inscrita");
             }
             catch (Exception ex)
             {

@@ -10,33 +10,33 @@
 namespace misOfertas.AgenteRetail {
     
     
-    public partial class csv {
+    public partial class GenerarCsv {
         
         /// <summary>
-        /// Control form1.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Control DataList1.
+        /// Control GvCSV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.GridView GvCSV;
         
         /// <summary>
-        /// Control EDSCSV.
+        /// Control SqlDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EDSCSV;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }
