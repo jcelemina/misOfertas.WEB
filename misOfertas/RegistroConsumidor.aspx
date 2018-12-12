@@ -17,6 +17,7 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="css/sb-admin.css" rel="stylesheet">
+    <script src="scripts/JavaScript.js"></script>
 
     <script type="text/javascript">
         function mensaje() {
@@ -81,7 +82,9 @@
                 </label>
               </div>
             </div>
-
+            <div class="alert alert-danger" id="alertExist" style="display:none"  >
+               <strong>¡Error!</strong>, upps algo paso, no fue posible el registro.
+               </div> 
            </form>
            <div class="text-center">
             <a class="d-block small mt-3" href="login.aspx">Página Login</a>

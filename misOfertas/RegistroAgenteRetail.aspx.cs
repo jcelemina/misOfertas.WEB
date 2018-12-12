@@ -16,6 +16,7 @@ namespace misOfertas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string mensajeError = @"<script type='text/javascript'>mensajeError();</script>";
             if (txtpassword.Text == txtconfirmPassword.Value)
             {
                 BLL.Usuarios usu = new BLL.Usuarios();
@@ -42,7 +43,7 @@ namespace misOfertas
                     }
                     else
                     {
-                        lblMensaje.Text = "Error!!,Algo paso";
+                        Page.RegisterStartupScript("mensajeError", mensajeError);
                     }
                 }
             }

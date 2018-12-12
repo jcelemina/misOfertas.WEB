@@ -289,7 +289,7 @@
             <div class="form-group">
                Empresa <asp:DropDownList ID="ddlEmpresa"  CssClass="form-control" runat="server" DataTextField="nombre_empresa" DataValueField="rut_empresa" ></asp:DropDownList>
              </div>
-                <a class="d-block small" href="RegistroEmpresa.aspx">No encuentras tu empresa?</a>
+                <a class="d-block small" href="Empresa.aspx">No encuentras tu empresa?</a>
                 </div>
              <%-- <asp:Button ID="Button1" runat="server" Text="REGISTRAR TIENDA" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>--%>
               
