@@ -121,7 +121,7 @@
     <Content Include="AgenteRetail\GenerarCsv.aspx" />
     <Content Include="AgenteRetail\inicio.aspx" />
     <Content Include="AgenteRetail\NuevaOferta.aspx" />
-    <Content Include="AgenteRetail\RegistroEmpresa.aspx" />
+    <Content Include="AgenteRetail\Reporte.aspx" />
     <Content Include="App_Themes\Tema1\estilos.css" />
     <Content Include="Consumidor\EvaluarOferta.aspx" />
     <Content Include="Consumidor\inicio.aspx" />
@@ -219,12 +219,12 @@
     <Compile Include="AgenteRetail\NuevaOferta.aspx.designer.cs">
       <DependentUpon>NuevaOferta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AgenteRetail\RegistroEmpresa.aspx.cs">
-      <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
+    <Compile Include="AgenteRetail\Reporte.aspx.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AgenteRetail\RegistroEmpresa.aspx.designer.cs">
-      <DependentUpon>RegistroEmpresa.aspx</DependentUpon>
+    <Compile Include="AgenteRetail\Reporte.aspx.designer.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consumidor\Consumidor.Master.cs">
       <DependentUpon>Consumidor.Master</DependentUpon>

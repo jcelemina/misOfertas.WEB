@@ -138,7 +138,14 @@
               <a href="GenerarCsv.aspx">
                 <i class="fa fa-th"></i> <span>GENERAR CSV</span> <small class="label pull-right bg-green">of</small>
               </a>
-            </li>            
+            </li> 
+              <li>
+              <a href=" Reporte.aspx">
+                <i class="fa fa-th"></i> <span>REPORTES</span> <small class="label pull-right bg-green">of</small>
+              </a>
+            </li> 
+              
+                       
            
          </ul>
         </section>
