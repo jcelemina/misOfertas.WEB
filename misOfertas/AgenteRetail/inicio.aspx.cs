@@ -49,7 +49,7 @@ namespace misOfertas.AgenteRetail
                 gvCampanaPendiente.DataBind();
 
                 BLL.Empresa empresa = new BLL.Empresa();
-                ddlEmpresa.DataSource = empresa.FindByEstado("Inscrita");
+                //ddlEmpresa.DataSource = empresa.FindByEstado("Inscrita");
             }
             catch (Exception ex)
             {
@@ -64,11 +64,10 @@ namespace misOfertas.AgenteRetail
 
             BLL.Tienda tienda = null;
             BLL.Empresa empresa = new BLL.Empresa();
-            empresa.rut_empresa = ddlEmpresa.SelectedValue;
-            bool existCompany = empresa.findByRut();
+            empresa.id_empresa = int.Parse(ddlEmpresa.SelectedValue);
             BLL.Usuarios usuario = usuario = (BLL.Usuarios)Session["usuario"];
-            if (existCompany == true)
-            {
+            
+            
                 tienda = new BLL.Tienda();
                 tienda.nombre_tienda = txtNombreTienda.Text;
                 tienda.direccion = TxtDireccion.Text;
@@ -76,19 +75,9 @@ namespace misOfertas.AgenteRetail
                 tienda.id_usuario = (int)usuario.id;
 
                 bool insert = tienda.create();
-
-                if (insert == true)
-                {
-                    Page.RegisterStartupScript("mensaje", script);
-                }
-                else
-                {
-                    Page.RegisterStartupScript("mensajeError", mensajeError);
-                }
-            }else
-            {
-                Response.Redirect("RegistroEmpresa.aspx");
-            }
+            
+                
+            
         }
     }
 }

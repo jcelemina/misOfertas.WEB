@@ -287,7 +287,11 @@
             </div>
             <div class="form-group">
             <div class="form-group">
-               Empresa <asp:DropDownList ID="ddlEmpresa"  CssClass="form-control" runat="server" DataTextField="nombre_empresa" DataValueField="rut_empresa" ></asp:DropDownList>
+               Empresa <asp:DropDownList ID="ddlEmpresa"  CssClass="form-control" runat="server" DataTextField="NOMBRE_EMPRESA" DataValueField="ID_EMPRESA" DataSourceID="SqlDataSource1" ></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT ID_EMPRESA, NOMBRE_EMPRESA FROM EMPRESA WHERE ESTADO = 'Inscrita'">
+
+                </asp:SqlDataSource>
+
              </div>
                 <a class="d-block small" href="RegistroEmpresa.aspx">No encuentras tu empresa?</a>
                 </div>

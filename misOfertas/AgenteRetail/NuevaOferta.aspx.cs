@@ -45,20 +45,21 @@ namespace misOfertas.AgenteRetail
             string mensajeError = @"<script type='text/javascript'>mensajeError();</script>";
 
             Oferta oferta = new Oferta();
-            oferta.Cantidad_Minima = decimal.Parse(txtCantidadMaxima.Text);
+            oferta.Cantidad_Minima = decimal.Parse(txtCantidadMinima.Text);
             oferta.Cantidad_Maxima = decimal.Parse(txtCantidadMaxima.Text);
             oferta.Precio_Normal = decimal.Parse(txtPrecioNormal.Text);
             oferta.Precio_Oferta = decimal.Parse(txtPrecioOferta.Text);
             oferta.Producto_fk = decimal.Parse(ddlProducto.SelectedValue);
             oferta.Campana_fk = decimal.Parse(ddlCampana.SelectedValue);
-            
+            oferta.Imagen = fuImagen.FileName;
+            oferta.Fecha = DateTime.Now;
 
             if (oferta.create())
             {
                 //Url del FTP.
                 string usuario = "usuarioftp";
                 string pass = "Portafolio2018";
-                string ftp = "ftp://18.222.173.173/";
+                string ftp = "ftp://18.222.173.173";
 
                 byte[] fileBytes = null;
 
