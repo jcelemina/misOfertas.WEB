@@ -8,7 +8,7 @@
             <%--<div class="container">--%>
       <div class="card card-login mx-auto mt-5">
 
-        <div class="card-header">REGISTRO CAMPAÑA</div>
+        <div class="card-header"><h1>REGISTRO CAMPAÑA</h1></div>
         <div class="card-body">
             <div class="card-body">
             <br />

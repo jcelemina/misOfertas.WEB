@@ -17,6 +17,7 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="css/sb-admin.css" rel="stylesheet">
+      <script src="scripts/JavaScript.js"></script>
   </head>
     <body>
         <div class="container">
@@ -52,6 +53,9 @@
               <br/>
               <asp:Button ID="Button1" runat="server" Text="REGISTRAR" OnClick="Button1_Click"  CssClass="btn btn-primary form-control"/>       
               <br/>
+               <div class="alert alert-danger" id="alertExist" style="display:none"  >
+               <strong>¡Error!</strong>, upps algo paso, no fue posible el registro.
+               </div> 
               <asp:label id="lblMensaje" runat="server" text=""></asp:label>
            </form>
             <div class="text-center">
