@@ -108,18 +108,9 @@
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i>PERFIL</a></li>
-              </ul>
-            </li>
-            
             <li>
               <a href="inicio.aspx">
-                <i class="fa fa-th"></i> <span>OFERTAS</span> <small class="label pull-right bg-green">of</small>
+                <i class="fa fa-indent"></i> <span>OFERTAS</span> <small class="label pull-right bg-green">of</small>
               </a>
             </li>            
            
@@ -153,7 +144,7 @@
       </div>
       <div class="modal-body">
        <div class="container-fluid">
-        <asp:Panel ID="Panel1" runat="server"  HorizontalAlign="left">
+        <asp:Panel ID="Panel1" runat="server"  HorizontalAlign="center">
         <form>
         <div class="form-group row">
            <asp:Label ID="Label1" runat="server" class="col-sm-2 col-form-label">NOMBRE :</asp:Label>

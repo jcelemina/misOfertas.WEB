@@ -2,7 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <asp:Button ID="Button1" runat="server" Text="Exportar a csv" OnClick="Button1_Click" CssClass="btn btn-default btn-fla" />
+        <asp:Button ID="Button1" runat="server" Text="Exportar a csv" OnClick="Button1_Click" CssClass="btn btn-primary" />
+     <div class="col-form-label">
+                <br/>
+                
+            </div>
+
             <asp:GridView ID="GvCSV" runat="server" AllowPaging="True" CssClass="table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" DataSourceID="SqlDataSource1"  >
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>

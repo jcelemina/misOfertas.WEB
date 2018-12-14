@@ -1,11 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Consumidor/Consumidor.Master" AutoEventWireup="true" CodeBehind="inicio.aspx.cs" Inherits="misOfertas.Consumidor.inicio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Mis Ofertas Jhon </title>
+    <title>Mis Ofertas</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="m-5" align="right">       
        
     </div>
+    <div class="col-form-label">
+                <br/>
+                <br/>
+            </div>
   
 <asp:GridView ID="GvOfertas" class="table" runat="server"  AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GvOfertas_SelectedIndexChanged" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -35,9 +39,7 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,ofer.IMAGEN
-    from oferta ofer join campana camp on ofer.campana_fk = camp.id_campana
-    join producto prod on ofer.producto_fk = prod.id_producto"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"></asp:SqlDataSource>
 
        
  

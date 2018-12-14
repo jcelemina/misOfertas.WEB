@@ -2,7 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-<asp:GridView ID="GvValoraciones" runat="server" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
+    <div>
+        <asp:Button ID="Button1" runat="server" Text="Exportar a Excel" OnClick="ExportToExcel" class="btn btn-primary" />
+    </div>
+   <div class="col-form-label">
+                <br/>
+                
+            </div>
+    
+<asp:GridView ID="GvValoraciones" runat="server" CssClass="table" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
     <Columns>
         <asp:BoundField DataField="FECHA" HeaderText="Fecha" SortExpression="FECHA" />
@@ -25,7 +33,7 @@
     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
     <br />
-    <asp:Button ID="Button1" runat="server" Text="Exportar a Excel" OnClick="ExportToExcel" />
+    
     <asp:SqlDataSource ID="DsValoraciones" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"  ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" CancelSelectOnNullParameter="False">
     </asp:SqlDataSource>
     <br />

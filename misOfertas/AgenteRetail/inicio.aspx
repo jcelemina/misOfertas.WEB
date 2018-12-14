@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-      <asp:Label ID="lblusuario" runat="server" Text="">usuario</asp:Label>  
+      <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>  
    
 
 <section class="content">

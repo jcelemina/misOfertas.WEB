@@ -14,6 +14,8 @@ namespace misOfertas.AgenteRetail
 {
     public partial class NuevaOferta : System.Web.UI.Page
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["usuario"] == null)
@@ -30,14 +32,16 @@ namespace misOfertas.AgenteRetail
                 Response.Redirect("~/login.aspx");
             }
 
-
-            if (usuario != null)
-            {
-                lblUsuario.Text = "BIENVENIDO," + " " + usuario.nombre_usuario.ToString();
-
-            }
+            SqlDataSource1.SelectCommand = "SELECT ID_CAMPANA, NOMBRE_CAMPANA FROM CAMPANA WHERE ESTADO = 'Inscrita' AND USUARIO_FK= " + usuario.id.ToString();
+            ddlCampana.DataSource = SqlDataSource1;
+            ddlCampana.DataBind();
         }
-
+        protected Decimal traerUsuario()
+        {
+            BLL.Usuarios usuario = (BLL.Usuarios)Session["usuario"];
+            decimal us = usuario.id;
+            return us;
+        }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {

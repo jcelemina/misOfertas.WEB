@@ -26,19 +26,20 @@ namespace misOfertas.Consumidor
             }
 
 
-            try
-            {
-                GvOfertas.DataSource = SqlDataSource1;
-                GvOfertas.DataBind();
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    GvOfertas.DataSource = SqlDataSource1;
+            //    GvOfertas.DataBind();
+            //}
+            //catch (Exception ex)
+            //{
 
-                throw ex;
-            }
+            //    throw ex;
+            //}
 
-
-
+            SqlDataSource1.SelectCommand = "select ofer.ID_OFERTA,camp.nombre_campana, prod.nombre_producto,ofer.CANTIDAD_MINIMA,ofer.CANTIDAD_MAXIMA,ofer.PRECIO_NORMAL,ofer.PRECIO_OFERTA,ofer.IMAGEN from oferta ofer join campana camp on ofer.campana_fk = camp.id_campana join producto prod on ofer.producto_fk = prod.id_producto where  camp.estado = 'Inscrita' and camp.fecha_fin > CURRENT_DATE";
+            GvOfertas.DataSource = SqlDataSource1;
+            GvOfertas.DataBind();
         }
         
         protected void GvOfertas_SelectedIndexChanged(object sender, EventArgs e)

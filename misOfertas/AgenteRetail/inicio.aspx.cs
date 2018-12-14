@@ -29,7 +29,7 @@ namespace misOfertas.AgenteRetail
 
             try
             {
-                lblusuario.Text = usuario.id.ToString();
+              
                 BLL.Tienda tienda = new BLL.Tienda();
 
                 gvTiendaActiva.DataSource = tienda.FindByUser((int)usuario.id, "Inscrita");
@@ -53,7 +53,7 @@ namespace misOfertas.AgenteRetail
             }
             catch (Exception ex)
             {
-                lblusuario.Text=ex.ToString();
+                lblMensaje.Text=ex.ToString();
             }
 
         }

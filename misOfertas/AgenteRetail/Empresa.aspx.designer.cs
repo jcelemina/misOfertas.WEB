@@ -13,6 +13,15 @@ namespace misOfertas.AgenteRetail {
     public partial class Empresa {
         
         /// <summary>
+        /// Control lblRut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRut;
+        
+        /// <summary>
         /// Control txtRutEmpresa.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace misOfertas.AgenteRetail {
         protected global::System.Web.UI.WebControls.TextBox txtRutEmpresa;
         
         /// <summary>
+        /// Control lblNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombre;
+        
+        /// <summary>
         /// Control txtNombreEmpresa.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace misOfertas.AgenteRetail {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreEmpresa;
+        
+        /// <summary>
+        /// Control lblRazon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRazon;
         
         /// <summary>
         /// Control TxtRazonSocial.

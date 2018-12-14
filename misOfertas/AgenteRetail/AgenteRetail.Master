@@ -115,7 +115,7 @@
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="treeview">
+            <li >
               <a href="inicio.aspx">
                 <i class="fa fa-th"></i> <span>INICIO</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -123,7 +123,7 @@
              
               <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>CAMPAÑA</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dedent"></i> <span>CAMPAÑA</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="Campaña.aspx"><i class="fa fa-circle-o"></i>CREAR CAMPAÑA</a></li>
@@ -136,12 +136,17 @@
             </li> 
             <li>
               <a href="GenerarCsv.aspx">
-                <i class="fa fa-th"></i> <span>GENERAR CSV</span> <small class="label pull-right bg-green">of</small>
+                <i class="fa fa-th-list"></i> <span>GENERAR CSV</span> <small class="label pull-right bg-green">of</small>
               </a>
             </li> 
               <li>
               <a href=" Reporte.aspx">
-                <i class="fa fa-th"></i> <span>REPORTES</span> <small class="label pull-right bg-green">of</small>
+                <i class="fa fa-th-list"></i> <span>REPORTES</span> <small class="label pull-right bg-green">of</small>
+              </a>
+            </li> 
+              <li>
+              <a href=" NuevaOferta.aspx">
+                <i class="fa fa-th"></i> <span>Nueva Oferta</span> <small class="label pull-right bg-green">of</small>
               </a>
             </li> 
               

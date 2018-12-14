@@ -13,13 +13,13 @@ namespace misOfertas.AgenteRetail {
     public partial class inicio {
         
         /// <summary>
-        /// Control lblusuario.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblusuario;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
         
         /// <summary>
         /// Control gvCampanaActiva.
